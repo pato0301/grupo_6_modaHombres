@@ -24,7 +24,7 @@ Fonts:
 ## Paginas de inspiracion>
 1. <https://www.zara.com/es/>
 2. <https://onasaez.com/>
-3.
+3. <https://www.kevingston.com/>
 4.
 5.
 
