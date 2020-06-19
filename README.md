@@ -22,8 +22,8 @@ Fonts:
 
 
 ## Paginas de inspiracion>
-1. zara.com
-2.
+1. <https://www.zara.com/es/>
+2. <https://onasaez.com/>
 3.
 4.
 5.
