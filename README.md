@@ -23,8 +23,8 @@ Fonts:
 
 ## Paginas de inspiracion>
 1. zara.com
-2.
-3.
+2. onasaez.com
+3. https://www.kevingston.com/
 4.
 5.
 
