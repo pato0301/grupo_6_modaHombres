@@ -25,8 +25,8 @@ Fonts:
 1. <https://www.zara.com/es/>
 2. <https://onasaez.com/>
 3. <https://www.kevingston.com/>
-4.
-5.
+4.https://www2.hm.com/en_us/index.html
+5.https://www.tascani.com.ar/
 
 ## Adicionales:
 
