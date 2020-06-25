@@ -15,6 +15,15 @@ LOGO (provisorio):
 
 ![Brayds, Logo](/img/logo_brayds_v1.png)
 
+## Wireframe
+- [Home](./maquetado/HomePage_Brayds.png)
+- [Home Menu lateral](./maquetado/HomePage_Menu_lateral.png)
+- [Detalle Producto](./maquetado/Detalle_Producto.png)
+- [Carrito de Compras](./maquetado/Carro_de_Compras.png)
+- [Formulario de Registro](./maquetado/Formulario_registro.png)
+- [Formulario Inicio Sesion](./maquetado/Formulario_inicio_sesión.png)
+- [Carga Productos Admin](./maquetado/Carga_Productos_Admin.png)
+
 Colores:
 
 
