@@ -9,6 +9,17 @@
 
 La marca apunta a un publico masculino de entre 20 y 40 años. La oferta es variada desde calzado hasta pantalones, jeans, remeras y camisas.
 
+## Sobre la empresa
+
+En Brayds nos consideramos una empresa vanguardistas, con equipos agiles. Es por ello que desde nuestros origenes decidimos usar metodologias agiles para el desarrollo de nuestros productos, considerando que asi podremos entregar el mejor valor agregado posible a nuestros clientes en el menor tiempo posible.
+
+### Nuestra metodologia agiles:
+
+- Sprints de 2 semanas de duracion
+- Scrum
+- Tableros Kanban [(vea nuestro tablero)](<https://trello.com/b/9iD37xrf/ecommerce-brayds>)
+- Retrospectiva de estrella de mar (Starfish retrospective)
+
 ### **Datos extras:**
 
 LOGO (provisorio):
