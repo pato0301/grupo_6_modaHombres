@@ -15,6 +15,48 @@
     text-align: center;
 }
 
+/* CARGA NOMBRE Y PRECIO DEL PRODUCTO */
+.producto .det-prod .box-name {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: start;
+}
+.producto .det-prod label {
+    margin-bottom: 5px;
+}
+.producto .det-prod input {
+    padding-left: 5px;
+    /* resize: none; */
+    border: 1px solid var(--color-buscador);
+    width: 95%;
+    margin-bottom: 15px;
+    /* border-color: var(--color-buscador); */
+}
+.producto .det-prod input:focus {
+    outline: none !important;
+}
+.producto .det-prod .box-name label {
+    /* margin-bottom: 5px; */
+}
+.producto .det-prod .box-name input {
+    /* width: 95%; */
+    /* margin-bottom: 15px; */
+}
+.producto .det-prod .box-price {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: start;
+}
+.producto .det-prod .box-price label {
+    /* margin-bottom: 5px; */
+}
+.producto .det-prod .box-price input {
+    /* width: 95%; */
+    /* margin-bottom: 15px; */
+}
+
 /* 
     CARGA DE DETALLES DEL PRODUCTO
 */
@@ -33,6 +75,40 @@
 .producto .det-prod .talles-carga-prod li{
     display: inline-block;
 }
-.producto .det-prod .boton-carga-producto {
+.producto .det-prod div.button-admin {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: start;
+}
+.producto .det-prod .button-admin .form-carga-producto {
+    width: 100%;
+    margin-bottom: 10px;
+}
+.producto .det-prod .button-admin .boton-carga-producto {
     border-radius: 10px;
+    /* width: 100%; */
+    text-align: center;
+    /* margin-bottom: 10px; */
+}
+
+.producto .det-prod .button-admin .form-edit-producto {
+    width: 100%;
+    margin-bottom: 10px;
+}
+.producto .det-prod .button-admin .boton-edit-producto {
+    border-radius: 10px;
+    /* width: 100%; */
+    text-align: center;
+    /* margin-bottom: 10px; */
+}
+
+.producto .det-prod .button-admin .form-delete-producto {
+    width: 100%;
+    /* margin-bottom: 10px; */
+}
+.producto .det-prod .button-admin .boton-delete-producto {
+    border-radius: 10px;
+    /* width: 100%; */
+    text-align: center;
 }

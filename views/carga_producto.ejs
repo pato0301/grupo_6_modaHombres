@@ -12,10 +12,17 @@
             <p>Ingrese Imagen del Producto</p>
         </div>
         <div class="det-prod">
-            <h1>Nombre del Producto</h1>
-            <h3>$Precio</h3>
+            <div class="box-name">
+                <!-- <h1>Nombre del Producto</h1> -->
+                <label for="name-prod" class="label-name-prod">Nombre del Producto</label>
+                <input type="text" name="nombre-producto" placeholder="Nombre del Producto" class="input-name-prod">
+            </div>
+            <div class="box-price"> 
+                <!-- <h3>$Precio</h3> -->
+                <label for="price" class="label-name-prod">Precio del Producto</label>
+                <input type="text" name="precio-producto" placeholder="Precio del Producto" class="input-name-prod"> 
+            </div>
             <textarea name="description-prod" class="texto-desc-prod" id="prod-desc" cols="15" rows="12" placeholder="Descripcion:"></textarea>
-            <!-- <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nulla velit praesentium aliquam atque sint ipsa autem tenetur cupiditate dolorum? At quas optio maxime accusantium, rerum fuga. Architecto rem similique sunt, possimus accusantium labore nobis quos, fugit, quibusdam voluptate soluta aspernatur!</p> -->
             <div class="talle">
                 <h4>Talle Disponibles:</h4>
                 <ul class="talles-carga-prod">
@@ -26,7 +33,18 @@
                     <li>46 /</li>
                 </ul>
             </div>
-            <button class="boton-carga-producto">Añadir Producto</button>
+            <div class="button-admin">
+                <form action="" method="POST" class="form-carga-producto">
+                    <button type="submit" class="boton-carga-producto">Añadir Producto</button>
+                </form>
+                <form action="/admin/carga-producto?_method=put" method="POST" class="form-edit-producto">
+                    <button type="submit" class="boton-edit-producto">Editar</button>
+                </form>
+                <!-- <a href="/products/edit/" class="action-button edit">EDITAR PRODUCTO</a> -->
+                <form action="/admin/carga-producto?_method=delete" method="POST" class="form-delete-producto">
+                    <button type="submit" class="boton-delete-producto">Eliminar</button>
+                </form>
+            </div>
         </div>
     </div>
 </body>

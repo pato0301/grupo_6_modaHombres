@@ -55,7 +55,7 @@ body {
     .producto .det-prod {}
     
     /* 
-        AJUSTO PRODUCTO
+        AJUSTO DE PRODUCTO
     */
     .producto .det-prod p {
         margin: 0 auto;
@@ -83,6 +83,7 @@ body {
         width: 25%;
     }
 }
+
 
 /* 
     MEDIA QUERY DEVICES 1024PX
@@ -113,6 +114,50 @@ body {
     DETALLES DEL PRODUCTO
 */
 
+/* MEDIA QUERY 640 */
+
+@media (min-width: 640px) {
+
+    .producto .det-prod input {
+        width: 60%;
+    }
+
+    /* AJUSTO DETALLE PRODUCTO TEXTAREA */
+    .producto .det-prod textarea.texto-desc-prod {
+        width: 17rem;
+    }
+
+    /* BOTONES ADMINISTADOR AGREGO, EDITO, ELIMINO */
+    .producto .det-prod div.button-admin {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: start;
+    }
+    .producto .det-prod .button-admin .form-carga-producto {
+        width: 40%;
+        margin-right: 10px;
+        /* margin-bottom: 0; */
+    }
+    .producto .det-prod .button-admin .boton-carga-producto {
+        width: 100%;
+    }
+    .producto .det-prod .button-admin .form-edit-producto {
+        width: 40%;
+        margin-right: 10px;
+        /* margin-bottom: 0; */
+    }
+    .producto .det-prod .button-admin .boton-edit-producto {
+        width: 100%;
+    }
+    .producto .det-prod .button-admin .form-delete-producto {
+        width: 50%;
+        /* margin-left: 10px; */
+    }
+    .producto .det-prod .button-admin .boton-delete-producto {
+        width: 100%;
+    }
+}
 
 /* 
     MEDIA QUERY DEVICES 768PX
@@ -128,6 +173,29 @@ body {
         padding-left: 20px;
         padding-top: 15px;
     }
+
+    /* AJUSTO BOTONES ADMINISTADOR AGREGO, EDITO, ELIMINO */
+
+    .producto .det-prod .button-admin .form-carga-producto {
+        width: 30%;
+        margin-right: 10px;
+    }
+    .producto .det-prod .button-admin .form-edit-producto {
+        width: 30%;
+        margin-right: 10px;
+    }
+    .producto .det-prod .button-admin .form-delete-producto {
+        width: 30%;
+    }
+}
+
+/* media query 900 */
+@media (min-width: 900px) {
+    .producto .det-prod input {
+        width: 45%;
+    }
+
+    /* AJUSTO BOTONES ADMINISTADOR AGREGO, EDITO, ELIMINO */
 }
 
 /* 
