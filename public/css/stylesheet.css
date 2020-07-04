@@ -1,0 +1,143 @@
+@import url("./partials/styleNavBar.css");
+@import url("./partials/cargaProdAdmin.css");
+@import url("./partials/footer.css");
+@import url("./partials/productDetail.css");
+
+/* 
+    Variable Colores
+ */
+
+:root {
+    --color-buscador: #707070;
+    --font-buscador: Mshtakan;
+    --font-logo: Helvetica-Neue;
+    --color-logo: #656161;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+body {
+    /* padding: 50px; */
+    /* font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; */
+}
+
+/* a {
+    color: #00B7FF;
+  } */
+
+/* 
+    HTML de Detalle Producto 
+  */  
+
+/* 
+    MEDIA QUERY DEVICES 768PX
+  */
+
+@media (min-width: 768px) {
+
+    /* 
+        AJUSTO NAVBAR
+    */
+    nav {
+        justify-content: space-between;
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+    nav .img-logo {
+        width: 150px;
+    }
+    nav .nav-izq p {
+        padding-right: 20px;
+    }
+    .producto .det-prod {}
+    
+    /* 
+        AJUSTO PRODUCTO
+    */
+    .producto .det-prod p {
+        margin: 0 auto;
+        padding-right: 30px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    /* 
+        AJUSTO FOOTER
+    */
+    footer {
+        margin-top: 50px;
+    }
+    footer .ayuda {
+        width: 25%;
+    }
+    footer .siguenos {
+        width: 25%;
+    }
+    footer .empresa {
+        width: 25%;
+    }
+    footer .politica {
+        width: 25%;
+    }
+}
+
+/* 
+    MEDIA QUERY DEVICES 1024PX
+*/
+
+@media (min-width: 1024px) {
+
+    /* 
+        AJUSTO PRODUCTO
+    */
+    .producto .det-prod p {
+        margin: 0 auto;
+        padding-right: 50px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+}
+
+/*  ========================================================================================================= 
+    CSS PARA CARGA DE PRODUCTO
+    ========================================================================================================== 
+*/
+
+/* 
+    USO NAVBAR ANTERIORMENTE DEFINIDO
+*/
+/* 
+    DETALLES DEL PRODUCTO
+*/
+
+
+/* 
+    MEDIA QUERY DEVICES 768PX
+  */
+@media (min-width: 768px) {
+    /* 
+        CARGA DE DETALLE DEL PRODUCTO MAS GRANDE
+    */
+    .producto .det-prod textarea.texto-desc-prod {
+        width: 20rem;
+    }
+    .producto .det-prod .talles-carga-prod {
+        padding-left: 20px;
+        padding-top: 15px;
+    }
+}
+
+/* 
+    MEDIA QUERY DEVICES 1024PX
+  */
+@media (min-width: 1024px) {
+    /* 
+        CARGA DE DETALLE DEL PRODUCTO MAS GRANDE
+    */
+    .producto .det-prod textarea.texto-desc-prod {
+        width: 30rem;
+    }
+}

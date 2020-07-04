@@ -1,6 +1,8 @@
 html/
-css/
 .DS_Store
 img/.DS_Store
 maquetado/.DS_Store
 node_modules
+productosControllerOld.js
+style.css
+productsBase.js

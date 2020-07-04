@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<%- include('partials/head.ejs') %> 
+
+<body>
+
+    <%- include('partials/headerNavbar.ejs') %> 
+
+    <div class="producto">
+        <div class="img-prod">
+            <img src="/images/producto/wilson-modelo.jpg" alt="">
+        </div>
+        <div class="det-prod">
+            <h1>Producto #1</h1>
+            <h3>$9,999.99</h3>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nulla velit praesentium aliquam atque sint ipsa autem tenetur cupiditate dolorum? At quas optio maxime accusantium, rerum fuga. Architecto rem similique sunt, possimus accusantium labore nobis quos, fugit, quibusdam voluptate soluta aspernatur!</p>
+            <div class="talle">
+                <h4>Talle</h4>
+                <ul>
+                    <li>38</li>
+                    <li>40</li>
+                    <li>42</li>
+                    <li>44</li>
+                    <li>46</li>
+                </ul>
+            </div>
+            <button>Añadir</button>
+        </div>
+    </div>
+    <div class="newsletter">
+        <h3>Únete a nuestra newsletter</h3>
+        <input type="text" placeholder="Introduce tu e-mail aqui">
+        <hr>
+    </div>
+
+    <%- include('partials/footer.ejs') %> 
+
+</body>
+</html>

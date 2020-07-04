@@ -1,55 +1,31 @@
-// var createError = require('http-errors');
-var express = require('express');
-// var path = require('path');
-// var cookieParser = require('cookie-parser');
-// var logger = require('morgan');
-const productos = require('./routes/productos');
+const express = require('express');
+const app = express();
+const path = require('path');
+const methodOverride =  require('method-override');
+const productRouter = require('./routes/products');
+const adminRouter = require('./routes/admin');
 
-// var indexRouter = require('./routes/index');
-// var usersRouter = require('./routes/users');
+// Configuro Template Engine
+app.set('view engine','ejs');
+app.set('views',path.join(__dirname,'/views'));
 
-var app = express();
+// Configuro Carpeta Public para Imagenes y CSS
+// app.use(express.static(__dirname + '/public'));
+app.use(express.static(path.join(__dirname,'public')))
+app.use(express.urlencoded({ extended: false }));
 
-// view engine setup
-// app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'ejs');
+// Metodo Put y Delete 
+app.use(methodOverride('_method'));
 
-// app.use(logger('dev'));
-// app.use(express.json());
-// app.use(express.urlencoded({ extended: false }));
-// app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.get('/', function (req, res) {
+    res.render('index');
+});
 
-// app.use('/', indexRouter);
-// app.use('/users', usersRouter);
+app.use('/producto', productRouter);
 
-// catch 404 and forward to error handler
-// app.use(function(req, res, next) {
-//   next(createError(404));
-// });
+app.use('/admin', adminRouter);
 
-// // error handler
-// app.use(function(err, req, res, next) {
-//   // set locals, only providing error in development
-//   res.locals.message = err.message;
-//   res.locals.error = req.app.get('env') === 'development' ? err : {};
+app.listen(3000, () => console.log('servidor corriendo en puerto 3000'));
 
-//   // render the error page
-//   res.status(err.status || 500);
-//   res.render('error');
-// });
-
-// funcion de la ecommerce
-
-app.listen(3000,function () {
-  console.log("Servidor funcionando en puerto 3000");
-})
-
-app.get('/',function (req,res) {
-  res.send("Bienvenido a la HomePage")
-})
-
-app.use('/productos',productos);
-
-
+// ************ exports app ************
 module.exports = app;

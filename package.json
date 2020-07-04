@@ -1,16 +1,26 @@
 {
-  "name": "ecomm-brayds",
-  "version": "0.0.0",
-  "private": true,
+  "name": "brayds",
+  "version": "1.0.0",
+  "description": "## Integrantes:  - Joan Cornago - Juan Pablo Baldi - Patricio Villanueva",
+  "main": "app.js",
   "scripts": {
-    "start": "node ./bin/www"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pato0301/grupo_6_modaHombres.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pato0301/grupo_6_modaHombres/issues"
+  },
+  "homepage": "https://github.com/pato0301/grupo_6_modaHombres#readme",
   "dependencies": {
-    "cookie-parser": "~1.4.4",
-    "debug": "~2.6.9",
-    "ejs": "~2.6.1",
-    "express": "~4.16.1",
-    "http-errors": "~1.6.3",
-    "morgan": "~1.9.1"
+    "ejs": "^3.1.3",
+    "express": "^4.17.1",
+    "method-override": "^3.0.0",
+    "nodemon": "^2.0.4"
   }
 }
