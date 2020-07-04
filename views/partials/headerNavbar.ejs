@@ -1,13 +1,16 @@
 <nav>
     <div class="img-logo">
         <!-- <img src="../img/logo_brayds_v1.png" alt="logo Brayds"> -->
-        <img src="/images/logo_brayds_v1.png" alt="logo Brayds">
+        <a href="/"><img src="/images/logo_brayds_v1.png" alt="logo Brayds"></a>
     </div>
     <div class="buscador">
-        <h4>Buscar</h4>
+        <!-- <h4>Buscar</h4> -->
+        <form action="/search" method="get" class="search-form">
+            <input type="text" name="keywords" placeholder="Buscar" class="search-form_input">
+        </form>
     </div>
     <div class="nav-izq">
-        <p>Sign In</p>
+        <a href="/"><p>Sign In</p></a>
         <a href="">
             <i class="fas fa-shopping-cart"></i>
         </a>

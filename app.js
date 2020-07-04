@@ -4,6 +4,7 @@ const path = require('path');
 const methodOverride =  require('method-override');
 const productRouter = require('./routes/products');
 const adminRouter = require('./routes/admin');
+const mainRouter = require('./routes/main');
 
 // Configuro Template Engine
 app.set('view engine','ejs');
@@ -17,9 +18,7 @@ app.use(express.urlencoded({ extended: false }));
 // Metodo Put y Delete 
 app.use(methodOverride('_method'));
 
-app.get('/', function (req, res) {
-    res.render('index');
-});
+app.use('/', mainRouter);
 
 app.use('/producto', productRouter);
 
