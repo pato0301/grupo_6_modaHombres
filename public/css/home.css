@@ -1,0 +1,45 @@
+*{
+    font-family: 'Righteous', cursive;
+
+}
+
+
+
+.dropDownHome{
+    background-color: rgb(156, 156, 156);
+}
+
+
+#buscador{
+    border-top:solid rgb(247, 247, 247);
+    border-left:solid rgb(247, 247, 247);
+    border-right:solid rgb(247, 247, 247);
+    border-bottom: solid black;
+    background: rgb(247, 247, 247);
+}
+
+#btn-search{   
+     color: rgb(97, 96, 96);
+    border: rgb(87, 87, 87);
+    background-color: rgb(201, 201, 201);
+
+}
+
+
+
+
+
+/* login  */
+
+.navLogin{
+    font-size: 40px;
+}
+
+.menuApp{
+    font-size: 35px;
+}
+
+.botonDd{
+    font-size: 35px;
+}
+
