@@ -36,9 +36,15 @@ LOGO (provisorio):
 - [Carga Productos Admin](./maquetado/Carga_Productos_Admin.png)
 
 Colores:
+- Color Logo: #656161
+- Color principal: #707070
+- Extras: white and black
 
 
 Fonts:
+- Fuente Logo: Helvetica-Neue
+- Fuente general: Mshtakan
+- Fuente Home Page: Righteous
 
 
 ## Paginas de inspiracion>

@@ -2,7 +2,7 @@
     CARGA DE IMAGEN DEL PRODUCTO
   */
 
-  .producto .img-carga-prod  {
+.producto .img-carga-prod  {
     background-color: var(--color-logo);
     height: 300px;
     width: 45%;
