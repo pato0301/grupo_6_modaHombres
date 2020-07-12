@@ -47,7 +47,7 @@ Fonts:
 - Fuente Home Page: Righteous
 
 
-## Paginas de inspiracion>
+## Paginas de inspiracion>:
 1. <https://www.zara.com/es/>
 2. <https://onasaez.com/>
 3. <https://www.kevingston.com/>

@@ -10,6 +10,7 @@ Mejorar:
 - Mejorar la estimacion de los tiempos
 
 Seguir haciendo:
+
 -
 
 Hacer menos de:
