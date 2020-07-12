@@ -10,8 +10,8 @@ Mejorar:
 - Mejorar la estimacion de los tiempos
 
 Seguir haciendo:
-
--
+- Modularizar archivos js
+- Agregar partcials de css y .ejs
 
 Hacer menos de:
 -
