@@ -1,0 +1,35 @@
+/* CSS PARA PAGINA DE REGISTRO */
+
+.container {
+    margin: 0 auto;
+    max-width: 1000px;
+} 
+.registro {
+    display: flex;
+    flex-wrap: wrap;
+}
+.registro h2 {
+    width: 100%;
+    text-transform: uppercase;
+    margin: 10px 0;
+}
+.registro h3 {
+    width: 100%;
+    margin: 10px 0;
+}
+.registro form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    
+}
+.registro form input {
+    width: 40%;
+    margin: 20px 10px;
+}
+.registro form input [type="checkbox"] {
+    color: red; 
+    background-color: green ;
+}
+.registro form button { 
+}

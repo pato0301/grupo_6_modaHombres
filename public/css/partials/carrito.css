@@ -1,0 +1,63 @@
+.container {
+    margin: 0 auto;
+    max-width: 1200px;
+    display: flex;
+    flex-wrap: wrap;
+}
+.container h2 {
+    width: 100%;
+    text-transform: uppercase;
+    margin: 10px 0;
+}
+.container h5 {
+    width: 100%;
+    margin: 10px 0;
+}
+.container p {
+    width: 100%;
+    text-align: center;
+}
+
+.container section {
+    display: flex;
+    flex-wrap: wrap;
+}
+.container article {
+    display: flex;
+    flex-wrap: wrap;
+    width: 25%;
+}
+.container article img {
+    height: 400px;
+}
+
+.container article h4 {}
+.container article p {
+    text-align: left;
+}
+.container article form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.container article form input {}
+.container article form button {}
+.container h3 {
+    text-align: center;
+    width: 100%;
+    margin-top: 30px;
+}
+.container form.navegacion {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    flex-direction: row;
+    width: 100%;
+}
+.container form.navegacion button {
+    width: 60%;
+    margin: 0 40px;
+    
+}
+
+
