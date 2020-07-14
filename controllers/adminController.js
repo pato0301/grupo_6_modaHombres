@@ -2,7 +2,7 @@ const path = require('path');
 
 const productos = {
     root : (req,res) => {
-        res.render('index')
+        res.render('carga_producto')
     },
     carga : (req,res) => {
         res.render('carga_producto')

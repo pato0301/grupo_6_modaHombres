@@ -26,9 +26,9 @@ app.use('/producto', productRouter);
 
 app.use('/admin', adminRouter);
 
-app.use('/registro', registerRouter);
+// app.use('/registro', registerRouter);
 
-app.use('/carrito', shoppingCartRouter);
+// app.use('/carrito', shoppingCartRouter);
 
 
 app.listen(3000, () => console.log('servidor corriendo en puerto 3000'));

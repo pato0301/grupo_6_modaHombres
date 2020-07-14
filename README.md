@@ -46,6 +46,16 @@ Fonts:
 - Fuente general: Mshtakan
 - Fuente Home Page: Righteous
 
+## Rutas de la Pagina:
+- Se puede acceder a la home desde la ruta /
+- Se puede acceder al detalle del producto al hacer click en el nombre del producto o la imagen
+en la pagina de inicio o en /producto/detalle/:productoId
+- Se puede acceder al carrito de compra al hacer click en el logo del carrito en la barra de navegacion
+o entrando en la ruta /producto/carrito
+- Se puede acceder al login haciendo click en "Sign In" en la barra de navegacion o entrando en /login
+- Se puede registrar en la pagina haciendo click en "Crear Cuenta" en la pagina de Log in o entrando en /register
+- Se puede acceder al la pagina del administrador para la carga de productos desde /admin
+
 
 ## Paginas de inspiracion>:
 1. <https://www.zara.com/es/>

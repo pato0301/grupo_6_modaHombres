@@ -6,7 +6,13 @@
 @import url("./partials/registro.css");
 @import url("./partials/carrito.css");
 
-
+a {
+    color: inherit;
+}
+a:hover{
+    text-decoration: none;
+    color: inherit;
+}
 
 /* 
     Variable Colores
