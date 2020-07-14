@@ -13,17 +13,13 @@
     text-transform: uppercase;
     margin: 10px 0;
 }
-.registro h3 {
-    width: 100%;
-    margin: 10px 0;
-}
 .registro form {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
 }
 .registro form input {
-    width: 40%;
+    width: 45%;
     margin: 20px 10px;
 }
 .registro form.form-checkbox-register /*agregado*/{
@@ -77,3 +73,6 @@
         width: 40%;
     }
 }
+/* .registro form input[type="checkbox"] {}
+/* .registro form button { 
+} */
