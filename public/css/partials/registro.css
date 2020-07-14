@@ -21,15 +21,59 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    
 }
 .registro form input {
     width: 40%;
     margin: 20px 10px;
 }
-.registro form input [type="checkbox"] {
-    color: red; 
-    background-color: green ;
+.registro form.form-checkbox-register /*agregado*/{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.registro form div.container-checkbox /*agregado*/{
+    width: 100%;
+    margin-bottom: 10px;
+}
+.registro form input[type="checkbox"] {
+    /* color: red;  */
+    /* background-color: green ; */
+    margin: 0; /*agregado*/
+    margin-right: 10px; /*agregado*/
+    width: 20px; /*agregado*/
+    /* height: 100%; */
+}
+.registro form div.checkbock-news /*agregado*/{
+    width: 100%;
+    display: flex;
+    /* flex-wrap: wrap; */
+    padding: 0 10px;
+}
+.registro form div.row-checkbox /*agregado*/{
+    height: 100%;
+    width: 10%;
+    display: inline-block;
+    /* display: flex; */
+    /* flex-wrap: wrap; */
+    /* justify-content: center; */
+    /* align-self: center; */
+    padding: 0 20px;
+    /* margin: auto 0; */
+}
+.registro form div.label-checkbox /*agregado*/{
+    height: 100%;
+    width: 70%; 
 }
 .registro form button { 
+    margin-top: 20px;/*agregado*/
+    margin-bottom: 20px;/*agregado*/
+    margin-left: 35px;/*agregado*/
+    width: 80%;/*agregado*/
+}
+
+/* AGREGO MEDIA QUERIES */
+@media (min-width: 576px) {
+    .registro form button {
+        width: 40%;
+    }
 }
