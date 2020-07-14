@@ -62,9 +62,9 @@ a:hover {
     flex-direction: row;
     width: 100%;
 }
+
 .container form.navegacion button {
-    width: 60%;
-    margin: 0 40px;
+    width: 20%;
     
 }
 

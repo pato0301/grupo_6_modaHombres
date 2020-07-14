@@ -13,23 +13,28 @@
     text-transform: uppercase;
     margin: 10px 0;
 }
-.registro h3 {
-    width: 100%;
-    margin: 10px 0;
-}
 .registro form {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    
+}
+.registro form h3 {
+    width: 100%;
+    margin: 10px 0;
 }
 .registro form input {
-    width: 40%;
+    width: 45%;
     margin: 20px 10px;
 }
-.registro form input [type="checkbox"] {
-    color: red; 
-    background-color: green ;
+.registro form .form2 {
+    display: flex;
+    flex-wrap: wrap;
+   
 }
-.registro form button { 
+.registro form .form2 input {
+    width; 100px;
+       margin: 0px;
 }
+/* .registro form input[type="checkbox"] {}
+/* .registro form button { 
+} */ */
