@@ -7,9 +7,17 @@ router.get('/', adminController.carga);
 // router.get('/carga-producto', adminController.carga);
 router.post('/', adminController.agregar);
 // router.post('/carga-producto', adminController.agregar);
-router.put('/', adminController.modify);
+
+router.get('/edit/selectProduct', adminController.select);
+router.get('/delete/selectProduct', adminController.select);
+router.get('/edit/selectProduct/:idProducto', adminController.edit);
+router.get('/delete/selectProduct/:idProducto', adminController.delete);
+
+// router.get('/edit', adminController.edit);
+router.put('/edit', adminController.modify);
 // router.put('/carga-producto', adminController.modify);
-router.delete('/', adminController.delete);
+// router.get('/delete', adminController.delete);
+router.delete('/delete', adminController.saveDelete);
 // router.delete('/carga-producto', adminController.delete);
 
 module.exports = router;

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<%- include('partials/head.ejs') %> 
+
+<body>
+    
+    <%- include('partials/headerNavAdmins.ejs') %> 
+
+    <div class="producto">
+        <div class="img-carga-prod">
+            <p>Imagen del Producto</p>
+        </div>
+        <div class="det-prod">
+            <div class="box-name">
+                <!-- <h1>Nombre del Producto</h1> -->
+                <label for="name-prod" class="label-name-prod">Nombre del Producto</label>
+                <!-- <input type="text" name="nombre-producto" placeholder="Nombre del Producto" class="input-name-prod"> -->
+                <select type="text" name="nombre-producto" placeholder="Nombre del Producto" class="input-name-prod">
+                    <% for( let i = 0; i < productos.length; i++ ) { %>
+                        <option value="productos[i].id"><%= productos[i].name %></option>
+                    <% } %>
+                </select>
+            </div>
+            <div class="button-admin">
+                <!-- <form action="" method="POST" class="form-carga-producto">
+                    <button type="submit" class="boton-carga-producto">Añadir Producto</button>
+                </form> -->
+                <div class="form-select-producto">
+                    <a href="/admin/edit/selectProduct/1"><button type="submit" class="boton-select-producto">Editar Producto</button></a>
+                </div>
+                <div class="form-select-producto">
+                    <a href="/admin/delete/selectProduct/1"><button type="submit" class="boton-select-producto">Eliminar Producto</button></a>
+                </div>
+                <!-- <a href="/products/edit/" class="action-button edit">EDITAR PRODUCTO</a> -->
+                <!-- <form action="/admin?_method=delete" method="POST" class="form-delete-producto">
+                    <button type="submit" class="boton-delete-producto">Eliminar</button>
+                </form> -->
+            </div>
+        </div>
+    </div>
+</body>
+</html>

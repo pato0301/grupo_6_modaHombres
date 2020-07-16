@@ -37,13 +37,17 @@
                 <form action="" method="POST" class="form-carga-producto">
                     <button type="submit" class="boton-carga-producto">Añadir Producto</button>
                 </form>
-                <form action="/admin?_method=put" method="POST" class="form-edit-producto">
-                    <button type="submit" class="boton-edit-producto">Editar</button>
-                </form>
+                <!-- <form action="/admin?_method=put" method="POST" class="form-edit-producto"> -->
+                <div class="form-edit-producto">
+                    <a href="/admin/edit/selectProduct"><button type="submit" class="boton-edit-producto">Editar / Eliminar</button></a>
+                </div>
+                <!-- </form> -->
                 <!-- <a href="/products/edit/" class="action-button edit">EDITAR PRODUCTO</a> -->
-                <form action="/admin?_method=delete" method="POST" class="form-delete-producto">
-                    <button type="submit" class="boton-delete-producto">Eliminar</button>
-                </form>
+                <!-- <form action="/admin?_method=delete" method="POST" class="form-delete-producto"> -->
+                <!-- <div class="form-delete-producto">
+                    <a href="/admin/delete/selectProduct"><button type="submit" class="boton-delete-producto">Eliminar</button></a>
+                </div> -->
+                <!-- </form> -->
             </div>
         </div>
     </div>
