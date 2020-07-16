@@ -15,6 +15,7 @@ app.set('views',path.join(__dirname,'/views'));
 // Configuro Carpeta Public para Imagenes y CSS
 // app.use(express.static(__dirname + '/public'));
 app.use(express.static(path.join(__dirname,'public')))
+app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 // Metodo Put y Delete 
