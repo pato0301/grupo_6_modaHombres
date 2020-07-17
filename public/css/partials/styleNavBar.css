@@ -6,7 +6,7 @@
 }
 /* 
     BARRA DE NAVEGACION
-   */
+*/
 
 nav {
     display: flex;
@@ -69,6 +69,11 @@ nav .nav-izq a {
     text-decoration: none;
     text-decoration-color: none;
     color: black;
+}
+nav .nav-izq a.signIn {
+    color: var(--color-buscador);
+    font-family: var(--font-logo);
+    padding-right: 10px;
 }
 
 @media (min-width: 768px) {
