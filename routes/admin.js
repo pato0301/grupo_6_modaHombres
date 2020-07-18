@@ -14,10 +14,10 @@ router.get('/edit/selectProduct/:idProducto', adminController.edit);
 router.get('/delete/selectProduct/:idProducto', adminController.delete);
 
 // router.get('/edit', adminController.edit);
-router.put('/edit', adminController.modify);
+router.put('/edit/selectProduct/:idProducto', adminController.modify);
 // router.put('/carga-producto', adminController.modify);
 // router.get('/delete', adminController.delete);
-router.delete('/delete', adminController.saveDelete);
+router.delete('/delete/selectProduct/:idProducto', adminController.saveDelete);
 // router.delete('/carga-producto', adminController.delete);
 
 module.exports = router;

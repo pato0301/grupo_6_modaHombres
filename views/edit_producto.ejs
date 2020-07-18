@@ -7,45 +7,49 @@
     
     <%- include('partials/headerNavAdmins.ejs') %> 
 
-    <div class="producto">
-        <div class="div-edit-prod">
-            <!-- <p>Imagen del Producto</p> -->
-            <img class="img-edit-prod" src="/images/producto/<%= producto.image %>" alt="">
+    <form action="/admin/edit/selectProduct/<%= producto.id %>?_method=put" method="post">
+        <div class="producto-add">
+            <div class="div-edit-prod">
+                <!-- <p>Imagen del Producto</p> -->
+                <img class="img-edit-prod" src="/images/producto/<%= producto.image %>" alt="">
+            </div>
+            <div class="det-prod">
+                <div class="box-name">
+                    <!-- <h1>Nombre del Producto</h1> -->
+                    <label for="name-prod" class="label-name-prod">Nombre del Producto</label>
+                    <input type="text" value="<%= producto.name %>" name="nombreProducto" placeholder="Nombre del Producto" class="input-name-prod">
+                </div>
+                <div class="box-price"> 
+                    <label for="price" class="label-name-prod">Precio del Producto</label>
+                    <input type="text" value="$<%= producto.price %>" name="precioProducto" placeholder="Precio del Producto" class="input-name-prod"> 
+                </div>
+                <textarea name="descriptionProd" class="texto-desc-prod" id="prod-desc" cols="15" rows="12" placeholder="Descripcion:"><%= producto.description %></textarea>
+                <div class="talle">
+                    <h4>Talle Disponibles:</h4>
+                    <ul class="talles-carga-prod">
+                        <li>38 /</li>
+                        <li>40 /</li>
+                        <li>42 /</li>
+                        <li>44 /</li>
+                        <li>46 /</li>
+                    </ul>
+                </div>
+                <div class="button-admin">
+                    <!-- <form action="" method="POST" class="form-carga-producto">
+                        <button type="submit" class="boton-carga-producto">Añadir Producto</button>
+                    </form> -->
+                    <!-- <form action="/admin/edit?_method=put" method="POST" class="form-edit-producto"> -->
+                    <div class="form-edit-producto">
+                        <button type="submit" class="boton-edit-producto">Editar</button>
+                    </div>
+                    <!-- </form> -->
+                    <!-- <a href="/products/edit/" class="action-button edit">EDITAR PRODUCTO</a> -->
+                    <!-- <form action="/admin?_method=delete" method="POST" class="form-delete-producto">
+                        <button type="submit" class="boton-delete-producto">Eliminar</button>
+                    </form> -->
+                </div>
+            </div>
         </div>
-        <div class="det-prod">
-            <div class="box-name">
-                <!-- <h1>Nombre del Producto</h1> -->
-                <label for="name-prod" class="label-name-prod">Nombre del Producto</label>
-                <input type="text" value="<%= producto.name %>" name="nombre-producto" placeholder="Nombre del Producto" class="input-name-prod">
-            </div>
-            <div class="box-price"> 
-                <label for="price" class="label-name-prod">Precio del Producto</label>
-                <input type="text" value="$<%= producto.price %>" name="precio-producto" placeholder="Precio del Producto" class="input-name-prod"> 
-            </div>
-            <textarea name="description-prod" class="texto-desc-prod" id="prod-desc" cols="15" rows="12" placeholder="Descripcion:"><%= producto.description %></textarea>
-            <div class="talle">
-                <h4>Talle Disponibles:</h4>
-                <ul class="talles-carga-prod">
-                    <li>38 /</li>
-                    <li>40 /</li>
-                    <li>42 /</li>
-                    <li>44 /</li>
-                    <li>46 /</li>
-                </ul>
-            </div>
-            <div class="button-admin">
-                <!-- <form action="" method="POST" class="form-carga-producto">
-                    <button type="submit" class="boton-carga-producto">Añadir Producto</button>
-                </form> -->
-                <form action="/admin/edit?_method=put" method="POST" class="form-edit-producto">
-                    <button type="submit" class="boton-edit-producto">Editar</button>
-                </form>
-                <!-- <a href="/products/edit/" class="action-button edit">EDITAR PRODUCTO</a> -->
-                <!-- <form action="/admin?_method=delete" method="POST" class="form-delete-producto">
-                    <button type="submit" class="boton-delete-producto">Eliminar</button>
-                </form> -->
-            </div>
-        </div>
-    </div>
+    </form>
 </body>
 </html>

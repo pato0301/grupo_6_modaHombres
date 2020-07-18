@@ -14,7 +14,14 @@ const main = {
         res.render('loginMain')
     },
     checkLogIn: (req,res) => {
-        res.redirect('/')
+        for (let i = 0; i < users.length; i++) {
+            if (req.body.email == users[i].email) {
+                if (bcrypt.compareSync(req.body.password,users[i].password)) {
+                    res.redirect('/')
+                }
+            }
+        }
+        res.redirect('/login')
     },
     register: (req,res) => {
         res.render('registro')
