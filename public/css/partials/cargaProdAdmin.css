@@ -1,8 +1,15 @@
 /* 
     CARGA DE IMAGEN DEL PRODUCTO
   */
+.producto-add {
+    width: 95vw;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 20px;
+}
 
-.producto .img-carga-prod  {
+.producto-add .img-carga-prod  {
     background-color: var(--color-logo);
     height: 300px;
     width: 45%;
@@ -11,21 +18,37 @@
     justify-content: center;
     align-items: center;
 }
-.producto .img-carga-prod p {
+.producto-add .img-carga-prod p {
     text-align: center;
+}
+/* IMAGEN EN PAGINA ADMIN PARA EDITAR O BORRAR PRODUCTO */
+.producto-add .div-edit-prod {
+    height: 80vh;
+    width: 45%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+.producto-add .div-edit-prod img {
+    max-width: 100%;
+    max-height: 100%;
 }
 
 /* CARGA NOMBRE Y PRECIO DEL PRODUCTO */
-.producto .det-prod .box-name {
+.producto-add .det-prod {
+    width: 45%;
+}
+.producto-add .det-prod .box-name {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
     justify-content: start;
 }
-.producto .det-prod label {
+.producto-add .det-prod label {
     margin-bottom: 5px;
 }
-.producto .det-prod input {
+.producto-add .det-prod input {
     padding-left: 5px;
     /* resize: none; */
     border: 1px solid var(--color-buscador);
@@ -33,26 +56,40 @@
     margin-bottom: 15px;
     /* border-color: var(--color-buscador); */
 }
-.producto .det-prod input:focus {
+.producto-add .det-prod select {
+    padding-left: 5px;
+    /* resize: none; */
+    border: 1px solid var(--color-buscador);
+    width: 95%;
+    margin-bottom: 15px;
+    /* border-color: var(--color-buscador); */
+}
+.producto-add .det-prod p.delete-name-prod {
+    /* padding-left: 5px; */
+    /* border: 1px solid var(--color-buscador); */
+    width: 95%;
+    margin-bottom: 15px;
+}
+.producto-add .det-prod input:focus {
     outline: none !important;
 }
-.producto .det-prod .box-name label {
+.producto-add .det-prod .box-name label {
     /* margin-bottom: 5px; */
 }
-.producto .det-prod .box-name input {
+.producto-add .det-prod .box-name input {
     /* width: 95%; */
     /* margin-bottom: 15px; */
 }
-.producto .det-prod .box-price {
+.producto-add .det-prod .box-price {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
     justify-content: start;
 }
-.producto .det-prod .box-price label {
+.producto-add .det-prod .box-price label {
     /* margin-bottom: 5px; */
 }
-.producto .det-prod .box-price input {
+.producto-add .det-prod .box-price input {
     /* width: 95%; */
     /* margin-bottom: 15px; */
 }
@@ -60,55 +97,67 @@
 /* 
     CARGA DE DETALLES DEL PRODUCTO
 */
-.producto .det-prod textarea.texto-desc-prod {
+.producto-add .det-prod textarea.texto-desc-prod {
     padding: 10px;
     resize: none;
     border-color: var(--color-buscador);
 }
-.producto .det-prod textarea.texto-desc-prod:focus {
+.producto-add .det-prod textarea.texto-desc-prod:focus {
     outline: none !important;
 } 
-.producto .det-prod .talles-carga-prod {
+.producto-add .det-prod .talles-carga-prod {
     padding-left: 10px;
     padding-top: 10px;
 }
-.producto .det-prod .talles-carga-prod li{
+.producto-add .det-prod .talles-carga-prod li{
     display: inline-block;
 }
-.producto .det-prod div.button-admin {
+.producto-add .det-prod div.button-admin {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
     justify-content: start;
 }
-.producto .det-prod .button-admin .form-carga-producto {
+.producto-add .det-prod .button-admin .form-carga-producto {
     width: 100%;
     margin-bottom: 10px;
 }
-.producto .det-prod .button-admin .boton-carga-producto {
+.producto-add .det-prod .button-admin .boton-carga-producto {
     border-radius: 10px;
     /* width: 100%; */
     text-align: center;
     /* margin-bottom: 10px; */
 }
 
-.producto .det-prod .button-admin .form-edit-producto {
+.producto-add .det-prod .button-admin .form-edit-producto {
     width: 100%;
     margin-bottom: 10px;
 }
-.producto .det-prod .button-admin .boton-edit-producto {
+.producto-add .det-prod .button-admin .boton-edit-producto {
     border-radius: 10px;
     /* width: 100%; */
     text-align: center;
     /* margin-bottom: 10px; */
 }
 
-.producto .det-prod .button-admin .form-delete-producto {
+.producto-add .det-prod .button-admin .form-delete-producto {
     width: 100%;
     /* margin-bottom: 10px; */
 }
-.producto .det-prod .button-admin .boton-delete-producto {
+.producto-add .det-prod .button-admin .boton-delete-producto {
     border-radius: 10px;
     /* width: 100%; */
     text-align: center;
+}
+
+.producto-add .det-prod .button-admin .form-select-producto {
+    width: 100%;
+    margin-bottom: 10px;
+    margin-top: 40px;
+}
+.producto-add .det-prod .button-admin .boton-select-producto {
+    border-radius: 10px;
+    /* width: 100%; */
+    text-align: center;
+    /* margin-bottom: 10px; */
 }

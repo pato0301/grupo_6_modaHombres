@@ -74,7 +74,12 @@ body {
         padding-top: 10px;
         padding-bottom: 10px;
     }
-
+    .producto-add .det-prod p {
+        margin: 0 auto;
+        padding-right: 30px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
     /* 
         AJUSTO FOOTER
     */
@@ -111,6 +116,13 @@ body {
         padding-top: 10px;
         padding-bottom: 10px;
     }
+    .producto-add .det-prod p {
+        margin: 0 auto;
+        padding-right: 50px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    
 }
 
 /*  ========================================================================================================= 
@@ -132,7 +144,12 @@ body {
     .producto .det-prod input {
         width: 60%;
     }
-
+    .producto .det-prod select {
+        width: 60%;
+    }
+    .producto .det-prod .delete-name-prod {
+        width: 60%;
+    }
     /* AJUSTO DETALLE PRODUCTO TEXTAREA */
     .producto .det-prod textarea.texto-desc-prod {
         width: 17rem;
@@ -168,6 +185,66 @@ body {
     .producto .det-prod .button-admin .boton-delete-producto {
         width: 100%;
     }
+    .producto .det-prod .button-admin .form-select-producto {
+        width: 40%;
+        margin-right: 10px;
+        /* margin-bottom: 0; */
+    }
+    .producto .det-prod .button-admin .boton-select-producto {
+        width: 100%;
+    }
+    .producto-add .det-prod input {
+        width: 60%;
+    }
+    .producto-add .det-prod select {
+        width: 60%;
+    }
+    .producto-add .det-prod .delete-name-prod {
+        width: 60%;
+    }
+    /* AJUSTO DETALLE PRODUCTO TEXTAREA */
+    .producto-add .det-prod textarea.texto-desc-prod {
+        width: 17rem;
+    }
+    
+    /* BOTONES ADMINISTADOR AGREGO, EDITO, ELIMINO */
+    .producto-add .det-prod div.button-admin {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: start;
+    }
+    .producto-add .det-prod .button-admin .form-carga-producto {
+        width: 40%;
+        margin-right: 10px;
+        /* margin-bottom: 0; */
+    }
+    .producto-add .det-prod .button-admin .boton-carga-producto {
+        width: 100%;
+    }
+    .producto-add .det-prod .button-admin .form-edit-producto {
+        width: 40%;
+        margin-right: 10px;
+        /* margin-bottom: 0; */
+    }
+    .producto-add .det-prod .button-admin .boton-edit-producto {
+        width: 100%;
+    }
+    .producto-add .det-prod .button-admin .form-delete-producto {
+        width: 50%;
+        /* margin-left: 10px; */
+    }
+    .producto-add .det-prod .button-admin .boton-delete-producto {
+        width: 100%;
+    }
+    .producto-add .det-prod .button-admin .form-select-producto {
+        width: 40%;
+        margin-right: 10px;
+        /* margin-bottom: 0; */
+    }
+    .producto-add .det-prod .button-admin .boton-select-producto {
+        width: 100%;
+    }
 }
 
 /* 
@@ -177,6 +254,10 @@ body {
     /* 
         CARGA DE DETALLE DEL PRODUCTO MAS GRANDE
     */
+    .producto .det-prod p.delete-name-prod {
+        margin: 0;
+        margin-bottom: 15px;
+    }
     .producto .det-prod textarea.texto-desc-prod {
         width: 20rem;
     }
@@ -184,7 +265,6 @@ body {
         padding-left: 20px;
         padding-top: 15px;
     }
-
     /* AJUSTO BOTONES ADMINISTADOR AGREGO, EDITO, ELIMINO */
 
     .producto .det-prod .button-admin .form-carga-producto {
@@ -198,6 +278,38 @@ body {
     .producto .det-prod .button-admin .form-delete-producto {
         width: 30%;
     }
+    .producto .det-prod .button-admin .form-select-producto {
+        width: 30%;
+        margin-right: 10px;
+    }
+    .producto-add .det-prod p.delete-name-prod {
+        margin: 0;
+        margin-bottom: 15px;
+    }
+    .producto-add .det-prod textarea.texto-desc-prod {
+        width: 20rem;
+    }
+    .producto-add .det-prod .talles-carga-prod {
+        padding-left: 20px;
+        padding-top: 15px;
+    }
+    /* AJUSTO BOTONES ADMINISTADOR AGREGO, EDITO, ELIMINO */
+    
+    .producto-add .det-prod .button-admin .form-carga-producto {
+        width: 30%;
+        margin-right: 10px;
+    }
+    .producto-add .det-prod .button-admin .form-edit-producto {
+        width: 30%;
+        margin-right: 10px;
+    }
+    .producto-add .det-prod .button-admin .form-delete-producto {
+        width: 30%;
+    }
+    .producto-add .det-prod .button-admin .form-select-producto {
+        width: 30%;
+        margin-right: 10px;
+    }
 }
 
 /* media query 900 */
@@ -205,7 +317,25 @@ body {
     .producto .det-prod input {
         width: 45%;
     }
-
+    .producto .det-prod select {
+        width: 45%;
+    }
+    .producto .det-prod p.delete-name-prod {
+        width: 45%;
+    }
+    /* CARGA NOMBRE Y PRECIO DEL PRODUCTO */
+    .producto-add .det-prod {
+        width: 50%;
+    }
+    .producto-add .det-prod input {
+        width: 45%;
+    }
+    .producto-add .det-prod select {
+        width: 45%;
+    }
+    .producto-add .det-prod p.delete-name-prod {
+        width: 45%;
+    }
     /* AJUSTO BOTONES ADMINISTADOR AGREGO, EDITO, ELIMINO */
 }
 
@@ -217,6 +347,9 @@ body {
         CARGA DE DETALLE DEL PRODUCTO MAS GRANDE
     */
     .producto .det-prod textarea.texto-desc-prod {
+        width: 30rem;
+    }
+    .producto-add .det-prod textarea.texto-desc-prod {
         width: 30rem;
     }
 }
