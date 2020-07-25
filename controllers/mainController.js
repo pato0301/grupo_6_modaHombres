@@ -17,7 +17,8 @@ const main = {
         for (let i = 0; i < users.length; i++) {
             if (req.body.email == users[i].email) {
                 if (bcrypt.compareSync(req.body.password,users[i].password)) {
-                    res.redirect('/')
+                    req.session.userClient = req.body.email
+                    return res.redirect('/')
                 }
             }
         }
@@ -36,6 +37,7 @@ const main = {
         }
         users.push(newUser);
         fs.writeFileSync(path.join(__dirname,'../data/users.json'),JSON.stringify(users))
+        req.session.userClient = req.body.email
         res.redirect('/')
     },
 }

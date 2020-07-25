@@ -7,6 +7,7 @@ const adminRouter = require('./routes/admin');
 const mainRouter = require('./routes/main');
 const registerRouter = require('./routes/register');
 const shoppingCartRouter = require('./routes/shoppingCart');
+const session = require('express-session');
 
 // Configuro Template Engine
 app.set('view engine','ejs');
@@ -20,6 +21,9 @@ app.use(express.urlencoded({ extended: false }));
 
 // Metodo Put y Delete 
 app.use(methodOverride('_method'));
+
+// Session
+app.use(session({secret : 'el poder del ecommerce'}))
 
 app.use('/', mainRouter);
 

@@ -12,3 +12,7 @@ input {
     border-bottom: 1px solid black;
     width: 40%;
 }
+
+input.checkRemAdmin {
+    width: 13px;
+}

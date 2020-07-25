@@ -1,12 +1,18 @@
 const express = require('express');
 const router = express.Router();
 const adminController = require('../controllers/adminController');
+const loginAdminMiddleware = require('../middlewares/loginAdminMiddleware')
 
 // Rutas Necesarias
-router.get('/', adminController.carga);
+router.get('/', loginAdminMiddleware,adminController.carga);
 // router.get('/carga-producto', adminController.carga);
 router.post('/', adminController.agregar);
 // router.post('/carga-producto', adminController.agregar);
+
+router.get('/login', adminController.root);
+router.post('/login', adminController.loginAdmin);
+router.get('/register', adminController.register);
+router.post('/register', adminController.saveAdmin);
 
 router.get('/edit/selectProduct', adminController.select);
 router.get('/delete/selectProduct', adminController.select);

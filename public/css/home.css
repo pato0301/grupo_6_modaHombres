@@ -3,12 +3,9 @@
 
 }
 
-
-
 .dropDownHome{
     background-color: rgb(156, 156, 156);
 }
-
 
 #buscador{
     border-top:solid rgb(247, 247, 247);
@@ -19,7 +16,7 @@
 }
 
 #btn-search{   
-     color: rgb(97, 96, 96);
+    color: rgb(97, 96, 96);
     border: rgb(87, 87, 87);
     background-color: rgb(201, 201, 201);
 

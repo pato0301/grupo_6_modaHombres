@@ -1,12 +1,34 @@
 const path = require('path');
 const fs = require('fs')
 let dataProductos = JSON.parse(fs.readFileSync(path.join(__dirname,'../data/productos.json')));
+const bcrypt = require('bcrypt')
 
 const productos = {
-    root : (req,res) => {
-        res.render('carga_producto')
+    root : (req,res,next) => {
+        res.render('loginAdmin', {typePage: 'Admin Login'})
+        // res.render('carga_producto')
     },
-    carga : (req,res) => {
+    loginAdmin : (req,res) => {
+        req.session.adminUser = req.body.email
+        res.redirect('/admin')
+        // res.render('carga_producto')
+    },
+    register : (req,res) => {
+        res.render('loginAdmin', {typePage: 'Admin Register'})
+        // res.render('carga_producto')
+    },
+    saveAdmin : (req,res) => {
+        let newAdminUser = {
+            email: req.body.email,
+            password: bcrypt.hashSync(req.body.password,12),
+        }
+        req.session.adminUser = req.body.email
+        res.redirect('/admin')
+        // res.render('login', {typePage: 'Admin Register'})
+    },
+    carga : (req,res,next) => {
+        // res.render('login', {typePage: 'Admin Login'})
+        // console.log('entra en /admin');
         res.render('carga_producto')
     },
     select : (req,res) => {

@@ -33,5 +33,26 @@
         "password": "$2b$12$LE7Adt1OA7Nj7X5wvTkxqeLHBoDmk0fVRwg0Pmjm.dM9u1zq/tloa",
         "height": "1.83",
         "weight": "59.7"
+    },
+    {
+        "username": "",
+        "email": "",
+        "password": "$2b$12$/haiiU.IHA4hWZIdEs1fKedOVt5l4Pa1EIYEJu/VvQasHH63.2PMC",
+        "height": "",
+        "weight": ""
+    },
+    {
+        "username": "",
+        "email": "",
+        "password": "$2b$12$HH7gEDTg12Z9UO.5djTLzeQg0es336iuWOJhbhk4hKycqrdWAOVzm",
+        "height": "",
+        "weight": ""
+    },
+    {
+        "username": "",
+        "email": "",
+        "password": "$2b$12$NrD0awcrj8SO3UcKVBvm1uJ9aPekGzbSGoIjwLKECbn2HKc.A8d.K",
+        "height": "",
+        "weight": ""
     }
 ]
