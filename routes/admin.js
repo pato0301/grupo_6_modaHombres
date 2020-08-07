@@ -14,10 +14,10 @@ router.post('/login', adminController.loginAdmin);
 router.get('/register', adminController.register);
 router.post('/register', adminController.saveAdmin);
 
-router.get('/edit/selectProduct', adminController.select);
-router.get('/delete/selectProduct', adminController.select);
-router.get('/edit/selectProduct/:idProducto', adminController.edit);
-router.get('/delete/selectProduct/:idProducto', adminController.delete);
+router.get('/edit/selectProduct', loginAdminMiddleware, adminController.select);
+router.get('/delete/selectProduct', loginAdminMiddleware, adminController.select);
+router.get('/edit/selectProduct/:idProducto', loginAdminMiddleware, adminController.edit);
+router.get('/delete/selectProduct/:idProducto', loginAdminMiddleware, adminController.delete);
 
 // router.get('/edit', adminController.edit);
 router.put('/edit/selectProduct/:idProducto', adminController.modify);
