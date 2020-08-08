@@ -8,6 +8,7 @@ const mainRouter = require('./routes/main');
 const registerRouter = require('./routes/register');
 const shoppingCartRouter = require('./routes/shoppingCart');
 const session = require('express-session');
+const {check, validationResult, body} = require('express-validator');
 
 // Configuro Template Engine
 app.set('view engine','ejs');

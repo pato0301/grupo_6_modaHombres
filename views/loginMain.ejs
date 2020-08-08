@@ -12,8 +12,14 @@
                 <h2>Inicio Sesión</h2>
                 <form action="" method="POST">
                     <input type="email" name="email" value="" placeholder="Email" class="mb-3"><br>
+                    <small><%= (typeof errors != 'undefined' && errors.email) ? errors.email.msg : '' %></small>
                     <input type="password" name="password" value="" placeholder="Contraseña" class="mb-3"><br>
+                    <small><%= (typeof errors != 'undefined' && errors.password) ? errors.password.msg : '' %></small>
                     <a class="mt-3" href="#">¿Has olvidado tu contraseña?</a><br>
+                    <div class="col-12 form-group form-check">
+                        <input type="checkbox" class="form-check-input" id="remember" name="remember">
+                        <label class="form-check-label" for="remember">Recordarme como usuario</label>
+                      </div>
                     <input type="submit" value="LogIn" class="mt-3 bg-dark text-white"> 
                 </form>
             </div>

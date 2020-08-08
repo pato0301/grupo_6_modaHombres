@@ -8,15 +8,17 @@
     <div class="container">
         <div class="registro">
             <h2>Inicio Sesión</h2>
-            <form action="/register" method="POST">
+            <form action="/register" method="POST" enctype="multipart/form-data">
                 <input type="text" name="username" placeholder="Username" >
                 <input type="email" name="email" placeholder="Email" >
+                <small class="text-danger"><%= (typeof errors != 'undefined' && errors.email) ? errors.email.msg : '' %></small>
                 <input type="password" name="password" placeholder="Contraseña">
                 <input type="password" name="passwordverificado" placeholder="Repetir Contraseña" >
                 <input type="text" name="nombre" placeholder="Nombre" >
                 <input type="text" name="apellido" placeholder="Apellido" >
                 <input type="text" name="direccion" placeholder="Dirección" >
-                <input type="tel" name="telefono" placeholder="Teléfono" >       
+                <input type="tel" name="telefono" placeholder="Teléfono" >   
+                <input type="file" name="avatar" />    
                 <h3>Personaliza Tu Experiencia</h3>
             <!-- <form action="" method="POST" class="form-checkbox-register"> -->
                 <input type="number" name="altura" placeholder="Altura" min="0,1" max="3" step="0.01">
