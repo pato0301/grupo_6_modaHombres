@@ -54,4 +54,26 @@ Empezar a hacer:
 - 
 
 Dejar de hacer:
+
+
+## sprint 4
+
+Empezar a hacer:
+- Centrarnos más en la experiencia del usuario.
+- Usar mas Trello
+- Usar bases de datos.
+
+ mejorar:
+ - Definir cual de los footers dejar antes del ultimo sprint.
+ - mejorar nuestra hoja de estilo en un solo css.
+ - Reducir campos del Form.
+
+
+ Seguir haciendo:
+ - utilizar las últimas herramientas y tecnologías aprendidas.
+
+ Hacer menos de:
+- 
+
+Dejar de hacer:
 - 
