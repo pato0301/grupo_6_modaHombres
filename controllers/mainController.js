@@ -2,9 +2,10 @@ const path = require('path');
 const fs = require('fs');
 const bcrypt = require('bcrypt');
 const {check, validationResult, body} = require('express-validator');
-const { json } = require('express');
+// const { json } = require('express');
 let users = JSON.parse(fs.readFileSync(path.join(__dirname,'../data/users.json')),'utf8')
-users = JSON.parse(users);
+// users = JSON.parse(users);
+
 const main = {
     root: (req,res) => {
         res.render('homeMain')
@@ -17,15 +18,18 @@ const main = {
     },
     checkLogIn:function(req,res,next) {
         let errors = validationResult(req);
+        console.log(errors);
         if(errors.isEmpty()) {
+            console.log("entra aca");
             for(let i =0 ; i < users.length ; i++) {
                 if(users[i].email == req.body.email && bcrypt.compareSync(req.body.password , users[i].password)) {
-                    res.render('homeMain')
+                    return res.render('homeMain')
                 }
             }
+            return res.render('loginMain',{errors:{email:{msg:"credenciales invalidas, no coincide el mail con la contraseña"}}})
         }else{
-            res.redirect('/login' ,{
-                errors: errors.mapped()
+            return res.render('loginMain' ,{
+                errors: errors.mapped(), old: req.body
             })
         }
     },
@@ -34,24 +38,26 @@ const main = {
     },
     checkRegister: (req,res) => {
         let errors = validationResult(req);
+        console.log(errors);
         if(errors.isEmpty()) {
-        let newUser = {
-            username : req.body.username,
-            email : req.body.email,
-            password : bcrypt.hashSync(req.body.password,12),
-            avatar: req.files[0].filename,
-            height : req.body.altura,
-            weight : req.body.peso,
-        }
-        users.push(newUser);
-        fs.writeFileSync(path.join(__dirname,'../data/users.json'),JSON.stringify(users))
-        req.session.userClient = req.body.email
-        res.redirect('/users/login');
-     }else{
-        res.render('/loginMain' , {
-            errors: errors.mapped()
-        })
-        
+            console.log("entro aca");
+            let newUser = {
+                username : req.body.username,
+                email : req.body.email,
+                password : bcrypt.hashSync(req.body.password,12),
+                // avatar: req.files[0].filename,
+                height : req.body.altura,
+                weight : req.body.peso,
+            }
+            console.log(newUser);
+            users.push(newUser);
+            fs.writeFileSync(path.join(__dirname,'../data/users.json'),JSON.stringify(users))
+            req.session.userClient = req.body.email
+            res.redirect('/login');
+        }else{
+            res.render('registro' , {
+                errors: errors.mapped()
+            })
         }
     },
 }

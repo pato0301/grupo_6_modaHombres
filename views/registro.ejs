@@ -13,6 +13,7 @@
                 <input type="email" name="email" placeholder="Email" >
                 <small class="text-danger"><%= (typeof errors != 'undefined' && errors.email) ? errors.email.msg : '' %></small>
                 <input type="password" name="password" placeholder="Contraseña">
+                <small class="text-danger"><%= (typeof errors != 'undefined' && errors.password) ? errors.password.msg : '' %></small>
                 <input type="password" name="passwordverificado" placeholder="Repetir Contraseña" >
                 <input type="text" name="nombre" placeholder="Nombre" >
                 <input type="text" name="apellido" placeholder="Apellido" >
