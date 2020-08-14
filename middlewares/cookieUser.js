@@ -1,5 +1,5 @@
 function cookieUser (req,res,next) {
-    if(req.cookies.userCookie != undefined) {
+    if(req.cookiess.userCookie != undefined) {
         req.session.userClient = req.cookies.userCookie;
     } 
     next();
