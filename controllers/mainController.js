@@ -3,8 +3,8 @@ const fs = require('fs');
 const bcrypt = require('bcrypt');
 const {check, validationResult, body} = require('express-validator');
 // const { json } = require('express');
+
 let users = JSON.parse(fs.readFileSync(path.join(__dirname,'../data/users.json')),'utf8')
-// users = JSON.parse(users);
 
 const main = {
     root: (req,res) => {
@@ -23,6 +23,13 @@ const main = {
             console.log("entra aca");
             for(let i =0 ; i < users.length ; i++) {
                 if(users[i].email == req.body.email && bcrypt.compareSync(req.body.password , users[i].password)) {
+                    
+                    req.session.userClient = users[i].email;
+                    if (req.body.remember =="on") {
+                        res.cookie("userCookie", users[i].email, {maxAge: 1000 * 60  } )
+                        // el max age de la cookie esta en milisegundos.... toda esa cuenta seria un año nose cuanto tiempo deberia durar
+                    }
+                    
                     return res.render('homeMain')
                 }
             }

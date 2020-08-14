@@ -4,6 +4,8 @@ const mainController = require('../controllers/mainController');
 const uploadImageMiddleware = require('../middlewares/uploadImageMiddleware');
 const registerValidation = require('../validations/registerValidation');
 const loginValidation = require('../validations/loginValidation');
+const cookieUser = require("../middlewares/cookieUser");
+
 
 // Rutas Necesarias
 router.get('/', mainController.root);
