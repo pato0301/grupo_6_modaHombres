@@ -16,3 +16,7 @@ input {
 input.checkRemAdmin {
     width: 13px;
 }
+
+.input-not-show {
+    border-bottom: none;
+}

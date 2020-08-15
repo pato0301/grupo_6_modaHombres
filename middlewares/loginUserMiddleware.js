@@ -4,6 +4,6 @@ module.exports = function loginUser(req,res,next) {
         return next();
     }
     else {
-        return res.redirect('/admin/login')
+        return res.redirect('/login')
     }
 }

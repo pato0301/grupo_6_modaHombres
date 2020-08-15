@@ -56,9 +56,9 @@ const main = {
                 height : req.body.altura,
                 weight : req.body.peso,
             }
-            console.log(newUser);
+            // console.log(newUser);
             users.push(newUser);
-            fs.writeFileSync(path.join(__dirname,'../data/users.json'),JSON.stringify(users))
+            // fs.writeFileSync(path.join(__dirname,'../data/users.json'),JSON.stringify(users))
             req.session.userClient = req.body.email
             res.redirect('/login');
         }else{

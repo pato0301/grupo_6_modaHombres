@@ -1,8 +1,27 @@
 <nav>
-    <div class="img-logo">
-        <!-- <img src="../img/logo_brayds_v1.png" alt="logo Brayds"> -->
+    <!-- <div class="img-logo">
         <a href="/"><img src="/images/logo_brayds_v1.png" alt="logo Brayds"></a>
-    </div>
+    </div> -->
+    <ul class="navbar-nav menu-desplegable">
+        <li class="nav-item dropdown">
+            <!-- <a class="nav-link text-dark " href="#"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <strong >Brayds</strong>
+                <i class="fas fa-bars"></i>
+            </a> -->
+            <a class="navbar-logo" href="/"><strong >Brayds</strong></a>
+            <i class="fas fa-bars dropdown-toggle-split navbar-logo" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
+            <div class="dropdown-menu" class="dropDownHome" aria-labelledby="navbarDropdownMenuLink">
+                <a class="dropdown-item" href="/#new-arrivals">Nueva Coleccion</a>
+                <a class="dropdown-item" href="#">Camperas</a>
+                <a class="dropdown-item" href="#">Sweaters</a>
+                <a class="dropdown-item" href="#">Camisas</a>
+                <a class="dropdown-item" href="#">Jeans</a>
+                <a class="dropdown-item" href="#">Remeras</a>
+                <a class="dropdown-item" href="#">Accesorios</a>
+                <a class="dropdown-item" href="#">Precios Especiales</a>
+            </div>
+        </li>
+    </ul>
     <div class="buscador">
         <!-- <h4>Buscar</h4> -->
         <form action="/search" method="get" class="search-form">

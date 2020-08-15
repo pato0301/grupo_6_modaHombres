@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-<%- include('partials/homeHead.ejs') %> 
+<%- include('partials/head.ejs') %> 
 
 <body>
-    <%- include('partials/homeHeaderNav.ejs') %> 
+    <%- include('partials/headerNavbar.ejs') %> 
+    <!--header img  -->
+    <img src="images/producto/banner.jpg" class="img-fluid">
     <!-- main content -->
     <div class="container-fluid">
 
         <!-- new arrivals -->
         <div class="row">
             <div class="col-12 text-center mb-3 mt-3" >
-                <h2>New Arrivals</h2>
+                <h2 id="new-arrivals">New Arrivals</h2>
             </div>
         </div>
         <div class="row ml-3 mr-sm-3">
@@ -127,6 +129,6 @@
 
     </div>
     <!-- end main content -->
-    <%- include('partials/homeFooter.ejs') %> 
+    <%- include('partials/footer.ejs') %> 
 </body>
 </html>
