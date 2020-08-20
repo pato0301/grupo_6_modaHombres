@@ -20,10 +20,18 @@
                     </div>
                 </div>
                 <% if (typePage != 'Admin Register') { %>
-                    <div class="form-check mb-3">
+                    <div class="checkbock-rem-adm  mb-3">
+                        <div class="row-checkbox-rem-adm ">
+                            <input type="checkbox" name="remember" id="">
+                        </div>
+                        <div class="label-checkbox-rem-adm ">
+                            <label class="form-check-label" for="">Recordarme como usuario</label>
+                        </div>
+                    </div>
+                    <!-- <div class="admin-rem mb-3">
                         <input type="checkbox" name="rememberCookie" class="form-check-input checkRemAdmin" id="exampleCheck1" checked>
                         <label class="form-check-label" for="exampleCheck1">Recordame</label>
-                    </div>
+                    </div> -->
                 <% } %>
                 <button type="submit" class="btn btn-outline-primary">Iniciar Sesion</button>
             </form>

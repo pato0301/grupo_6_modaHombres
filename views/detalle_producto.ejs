@@ -13,6 +13,7 @@
         </div>
         <div class="det-prod">
             <h1>Producto #<%= productId %> </h1>
+            <input type="hidden" name="productId" value="<%= productId %>">
             <h3>$9,999.99</h3>
             <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nulla velit praesentium aliquam atque sint ipsa autem tenetur cupiditate dolorum? At quas optio maxime accusantium, rerum fuga. Architecto rem similique sunt, possimus accusantium labore nobis quos, fugit, quibusdam voluptate soluta aspernatur!</p>
             <div class="talle">
@@ -25,7 +26,7 @@
                     <li>46</li>
                 </ul>
             </div>
-            <form action="" method="post">
+            <form action="" method="post" id="form-detalle-prod">
                 <button type="submit">Añadir</button>
             </form>
         </div>
