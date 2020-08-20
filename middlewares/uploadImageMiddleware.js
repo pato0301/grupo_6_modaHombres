@@ -13,6 +13,6 @@ let storage = multer.diskStorage({
   ) 
 let upload = multer({ storage: storage })
 
-console.log("guarde archivo");
+// console.log("guarde archivo");
 
 module.exports = upload;

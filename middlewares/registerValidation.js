@@ -1,6 +1,7 @@
 const path = require('path');
 const fs = require('fs');
 const {check, validationResult, body} = require('express-validator');
+
 module.exports = [
     check('email')
         .isEmail()

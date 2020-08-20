@@ -47,5 +47,12 @@
         "password": "$2b$12$AMS6FrUdBm8UnUxLsLPUIOSJr6D0pX5cgeBRtX3SeCW38VmL7BwnC",
         "height": "",
         "weight": ""
+    },
+    {
+        "username": "prueba",
+        "email": "email5@gmail.com",
+        "password": "$2b$12$2MHIkg5uB1QfZqfCYbJAqeQj0HyDl8e9SGL61ECKpdJDmqBh8sde2",
+        "height": "",
+        "weight": ""
     }
 ]

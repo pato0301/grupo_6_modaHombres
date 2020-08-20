@@ -10,10 +10,10 @@ const cookieUser = require("../middlewares/cookieUser");
 // Rutas Necesarias
 router.get('/', mainController.root);
 router.get('/search', mainController.search);
-router.get('/login', mainController.login);
+router.get('/login', cookieUser,mainController.login);
 router.post('/login', loginValidation, mainController.checkLogIn);
 router.get('/register', mainController.register);
-router.post('/register', registerValidation, uploadImageMiddleware.any(), mainController.checkRegister);
+router.post('/register', uploadImageMiddleware.any(), registerValidation,mainController.checkRegister);
 // router.post('/register', uploadImageMiddleware.any(), mainController.checkRegister);
 
 module.exports = router;

@@ -1,9 +1,11 @@
 function cookieUser (req,res,next) {
-    if(req.cookiess.userCookie != undefined) {
+    if(req.cookies.userCookie != undefined) {
         req.session.userClient = req.cookies.userCookie;
-    } 
-    next();
-
+        return res.redirect('/')
     }
+    else {
+        next();
+    } 
+}
 
-    module.exports = cookieUser;
+module.exports = cookieUser;

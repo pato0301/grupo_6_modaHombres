@@ -18,9 +18,9 @@ const main = {
     },
     checkLogIn:function(req,res,next) {
         let errors = validationResult(req);
-        console.log(errors);
+        // console.log(errors);
         if(errors.isEmpty()) {
-            console.log("entra aca");
+            // console.log("entra aca");
             for(let i =0 ; i < users.length ; i++) {
                 if(users[i].email == req.body.email && bcrypt.compareSync(req.body.password , users[i].password)) {
                     
@@ -45,9 +45,8 @@ const main = {
     },
     checkRegister: (req,res) => {
         let errors = validationResult(req);
-        console.log(errors);
+        // console.log(errors);
         if(errors.isEmpty()) {
-            console.log("entro aca");
             let newUser = {
                 username : req.body.username,
                 email : req.body.email,
@@ -58,7 +57,7 @@ const main = {
             }
             // console.log(newUser);
             users.push(newUser);
-            // fs.writeFileSync(path.join(__dirname,'../data/users.json'),JSON.stringify(users))
+            fs.writeFileSync(path.join(__dirname,'../data/users.json'),JSON.stringify(users))
             req.session.userClient = req.body.email
             res.redirect('/login');
         }else{
