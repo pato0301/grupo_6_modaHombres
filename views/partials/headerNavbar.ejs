@@ -29,7 +29,15 @@
         </form>
     </div>
     <div class="nav-izq">
-        <a class="signIn" href="/login">Sign In</a>
+        <% if (user) { %>
+            <div class="avatar" style="background-image: url(/uploads/avatars/<%= user.avatar %>);">
+                <!-- <img src="/uploads/avatars/default_avatar.png" alt="Avatar" class="avatar-img"> -->
+            </div>
+            <a class="signIn" href="/login"><%= user.email %> </a>
+        <% } else {%>
+            <a class="signIn" href="/login">Sign In</a>
+        <% }%>
+        <!-- <a class="signIn" href="/login">Sign In</a> -->
         <a href="/producto/carrito">
             <i class="fas fa-shopping-cart"></i>
         </a>

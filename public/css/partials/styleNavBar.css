@@ -82,6 +82,17 @@ nav .nav-izq a.signIn {
     padding-right: 10px;
 }
 
+nav .avatar {
+    vertical-align: middle;
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+    border-radius: 50%;
+    background-position: 50% 50%;
+    background-size: cover;
+}
+
+
 @media (min-width: 768px) {
     nav .buscador .search-form input {
         font-size: x-large;

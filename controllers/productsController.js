@@ -4,16 +4,16 @@ let products = JSON.parse(fs.readFileSync(path.join(__dirname,'../data/productos
 
 const productos = {
     root : (req,res) => {
-        res.render('homeMain')
+        res.render('homeMain',{user:req.session.userClient})
     },
     detail : (req,res) => {
-        res.render('detalle_producto', {productId : req.params.productoId})
+        res.render('detalle_producto', {productId : req.params.productoId,user:req.session.userClient})
     },
     buy : (req,res) => {
-        res.redirect('/producto/carrito')
+        res.redirect('/producto/carrito',{user:req.session.userClient})
     },
     carrito : (req,res) => {
-        res.render('carrito')
+        res.render('carrito',{user:req.session.userClient})
     },
 };
 
