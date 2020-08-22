@@ -6,6 +6,8 @@
 @import url("./partials/productDetail.css");
 @import url("./partials/registro.css");
 @import url("./partials/carrito.css");
+@import url("./partials/userInfo.css");
+@import url("./partials/main.css");
 
 a {
     color: inherit;
@@ -103,6 +105,16 @@ body {
     }
     footer .politica {
         width: 25%;
+    }
+
+    /* User Info Media Query */
+
+    .user .info-user{
+        padding-right: 20%;
+    }
+
+    .h-corrousel {
+        height: 600px;
     }
 }
 

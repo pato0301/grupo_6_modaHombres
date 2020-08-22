@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<%- include('partials/head.ejs') %> 
+
+<body>
+    
+    <%- include('partials/headerNavbar.ejs',{user: user}) %> 
+
+    <div class="user">
+        <div class="user-avatar">
+            <img class="img-avatar" src="/uploads/avatars/<%= user.avatar %>" alt="">
+            <input type="file" name="avatar" style="display: none;"/>  
+        </div>
+        <div class="info-user">
+            <div class="box-name">
+                <label for="name-prod" class="label-name-prod">Nombre de usuario</label>
+                <input type="text" name="nombreProducto" placeholder="Nombre del Producto" class="input-name-prod">
+            </div>
+            <div class="box-name">
+                <label for="name-prod" class="label-name-prod">Email</label>
+                <input type="text" name="nombreProducto" placeholder="Nombre del Producto" class="input-name-prod">
+            </div>
+            <div class="box-name">
+                <label for="name-prod" class="label-name-prod">Contraseña</label>
+                <input type="text" name="nombreProducto" placeholder="Nombre del Producto" class="input-name-prod">
+            </div>
+            <form action="/admin?_method=put" method="post" class="form-user">
+                <div class="edit-user">
+                    <button type="submit" class="boton-edit-producto">Actualizar</button>
+                </div> 
+                <div class="delete-user">
+                    <button type="submit" class="boton-edit-producto">Eliminar</button>
+                </div> 
+            </form>
+        </div>
+    </div>
+    <%- include('partials/footer.ejs') %> 
+</body>
+</html>

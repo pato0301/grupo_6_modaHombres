@@ -31,9 +31,10 @@
     <div class="nav-izq">
         <% if (user) { %>
             <div class="avatar" style="background-image: url(/uploads/avatars/<%= user.avatar %>);">
+                <a href="/user"></a>
                 <!-- <img src="/uploads/avatars/default_avatar.png" alt="Avatar" class="avatar-img"> -->
             </div>
-            <a class="signIn" href="/login"><%= user.email %> </a>
+            <a class="signIn" href="/user"><%= user.email %> </a>
         <% } else {%>
             <a class="signIn" href="/login">Sign In</a>
         <% }%>

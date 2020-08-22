@@ -71,6 +71,9 @@ const main = {
             })
         }
     },
+    user: (req,res) => {
+        res.render("userInfo",{user:req.session.userClient})
+    }
 }
 
 module.exports = main;

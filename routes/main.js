@@ -15,5 +15,7 @@ router.post('/login', loginValidation, mainController.checkLogIn);
 router.get('/register', mainController.register);
 router.post('/register', uploadImageMiddleware.any(), registerValidation,mainController.checkRegister);
 // router.post('/register', uploadImageMiddleware.any(), mainController.checkRegister);
+router.get('/user', mainController.user);
+router.put('/user', mainController.root);
 
 module.exports = router;
