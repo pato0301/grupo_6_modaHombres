@@ -34,24 +34,24 @@ const productos = {
     select : (req,res) => {
         res.render('selectAdmin_producto',{productos:dataProductos})
     },
-    edit : (req,res) => {
-        let producto
-        for (let i = 0; i < dataProductos.length; i++) {
-            if (dataProductos[i].id == req.params.idProducto) {
-                producto = dataProductos[i];
-            }
-        }
-        res.render('edit_producto',{producto:producto})
-    },
-    delete : (req,res) => {
-        let producto
-        for (let i = 0; i < dataProductos.length; i++) {
-            if (dataProductos[i].id == req.params.idProducto) {
-                producto = dataProductos[i];
-            }
-        }
-        res.render('delete_producto',{producto:producto})
-    },
+    // edit : (req,res) => {
+    //     let producto
+    //     for (let i = 0; i < dataProductos.length; i++) {
+    //         if (dataProductos[i].id == req.params.idProducto) {
+    //             producto = dataProductos[i];
+    //         }
+    //     }
+    //     res.render('edit_producto',{producto:producto})
+    // },
+    // delete : (req,res) => {
+    //     let producto
+    //     for (let i = 0; i < dataProductos.length; i++) {
+    //         if (dataProductos[i].id == req.params.idProducto) {
+    //             producto = dataProductos[i];
+    //         }
+    //     }
+    //     res.render('delete_producto',{producto:producto})
+    // },
     agregar : (req,res) => {
         let newproduct = {
             id: dataProductos.length + 1,
@@ -70,9 +70,9 @@ const productos = {
     modify : (req,res) => {
         for (let i = 0; i < dataProductos.length; i++) {
             if (dataProductos[i].id == req.params.idProducto) {
-                dataProductos[i].name = req.body.nombreProducto;
-                dataProductos[i].description = req.body.descriptionProd;
-                dataProductos[i].price = req.body.precioProducto;
+                dataProductos[i].name = req.body.name;
+                dataProductos[i].description = req.body.desc;
+                dataProductos[i].price = req.body.price;
             }
         }
         fs.writeFileSync(path.join(__dirname,'../data/productos.json'),JSON.stringify(dataProductos))

@@ -9,6 +9,7 @@ const cookieParser = require('cookie-parser');
 const productRouter = require('./routes/products');
 const adminRouter = require('./routes/admin');
 const mainRouter = require('./routes/main');
+const apiRouter = require('./routes/apis')
 
 const cookieUser = require ("./middlewares/cookieUser")
 
@@ -37,6 +38,7 @@ app.use(session({secret : 'el poder del ecommerce'}))
 app.use('/', mainRouter);
 app.use('/producto', productRouter);
 app.use('/admin', adminRouter);
+app.use('/api', apiRouter)
 
 
 app.listen(3000, () => console.log('servidor corriendo en puerto 3000'));

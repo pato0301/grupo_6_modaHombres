@@ -16,8 +16,8 @@ router.post('/register', adminController.saveAdmin);
 
 router.get('/edit/selectProduct', loginAdminMiddleware, adminController.select);
 router.get('/delete/selectProduct', loginAdminMiddleware, adminController.select);
-router.get('/edit/selectProduct/:idProducto', loginAdminMiddleware, adminController.edit);
-router.get('/delete/selectProduct/:idProducto', loginAdminMiddleware, adminController.delete);
+// router.get('/edit/selectProduct/:idProducto', loginAdminMiddleware, adminController.edit);
+// router.get('/delete/selectProduct/:idProducto', loginAdminMiddleware, adminController.delete);
 
 // router.get('/edit', adminController.edit);
 router.put('/edit/selectProduct/:idProducto', adminController.modify);
