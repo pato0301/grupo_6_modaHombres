@@ -15,17 +15,17 @@
         "description": "100% algodon, lavar con agua fria",
         "price": "9000",
         "discount": 10,
-        "image": "wilson-modelo.jpg",
+        "image": "modelo1.jpg",
         "category": "in-sale",
         "active": "si"
     },
     {
         "id": 3,
         "name": "Producto 3",
-        "description": "90% algodon, lavar con agua fria",
+        "description": "100% algodon, lavar con agua fria",
         "price": "510",
         "discount": 0,
-        "image": "wilson-modelo.jpg",
+        "image": "modelo7.jpg",
         "category": "in-sale",
         "active": "si"
     },
@@ -35,7 +35,7 @@
         "description": "100% algodon, elastizado",
         "price": "4650",
         "discount": 20,
-        "image": "wilson-modelo.jpg",
+        "image": "modelo3.jpg",
         "category": "in-sale",
         "active": "si"
     },
@@ -45,7 +45,7 @@
         "description": "100% algodon, elastizado",
         "price": "2999",
         "discount": 10,
-        "image": "wilson-modelo.jpg",
+        "image": "modelo4.jpg",
         "category": "in-sale",
         "active": "si"
     },
@@ -55,7 +55,7 @@
         "description": "100% algodon, elastizado",
         "price": "1870",
         "discount": 10,
-        "image": "wilson-modelo.jpg",
+        "image": "modelo5.jpg",
         "category": "in-sale",
         "active": "si"
     },
@@ -65,7 +65,7 @@
         "description": "100% algodon, material de jean",
         "price": "4999",
         "discount": 0,
-        "image": "wilson-modelo.jpg",
+        "image": "modelo6.jpg",
         "category": "in-sale",
         "active": "si"
     },
@@ -75,7 +75,7 @@
         "description": "100% algodon, 100% cuero no animal",
         "price": "13000",
         "discount": 5,
-        "image": "wilson-modelo.jpg",
+        "image": "modelo1.jpg",
         "category": "in-sale",
         "active": "si"
     },

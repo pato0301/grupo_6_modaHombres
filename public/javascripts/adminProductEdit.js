@@ -14,6 +14,8 @@ window.addEventListener("load",()=>{
     let valPrice = $("#valuePrice")
     let valDesc = $("#valueDesc")
     let productDetail = {}
+    let imgProd = $("#prodImg")
+    let inputImg = $("input[id='prodPhoto']")
 
     productList.addEventListener("change",(event) => {
 
@@ -33,6 +35,7 @@ window.addEventListener("load",()=>{
             valDesc.value = description.value
             editForm.attributes.action.value = `/admin/edit/selectProduct/${product.id}?_method=put`
             deleteForm.attributes.action.value = `/admin/delete/selectProduct/${product.id}?_method=delete`
+            imgProd.src = `/images/producto/${product.image}?`
             // console.log(valDesc.value);
             // console.log(editForm.attributes.action)
             // console.log(deleteForm.attributes.action)
@@ -55,5 +58,25 @@ window.addEventListener("load",()=>{
         // console.log("cambio descripcion");
         valDesc.value = description.value
         // console.log(valDesc.value);
+    })
+
+    imgProd.addEventListener("click",(event) => {
+        // $("input[id='prodPhoto']").click();
+        // let newImg = new Image(width, height);
+        inputImg.click();
+        inputImg.addEventListener("change",(event) => {
+            var reader = new FileReader();
+            reader.onload = function()
+            {
+            // var output = document.getElementById('output_image');
+            imgProd
+            imgProd.src = reader.result;
+            }
+            reader.readAsDataURL(event.target.files[0]);
+            console.log(valName.value);
+            console.log(valPrice.value);
+            console.log(valDesc.value);
+        })
+        
     })
 })

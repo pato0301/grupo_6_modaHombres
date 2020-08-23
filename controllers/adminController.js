@@ -53,28 +53,43 @@ const productos = {
     //     res.render('delete_producto',{producto:producto})
     // },
     agregar : (req,res) => {
-        let newproduct = {
+        console.log(req.files);
+        let newProduct = {
             id: dataProductos.length + 1,
             name: req.body.nombreProducto,
             description: req.body.descriptionProd,
             price: req.body.precioProducto,
             discount: 0,
-            image: "wilson-modelo.jpg",
+            image: req.files == undefined || req.files.length == 0? "default_avatar.png": req.files[0].filename,
             category: "in-sale",
             active: "si"
         }
-        dataProductos.push(newproduct)
-        fs.writeFileSync(path.join(__dirname,'../data/productos.json'),JSON.stringify(dataProductos))
+        console.log(newProduct);
+        // dataProductos.push(newproduct)
+        // fs.writeFileSync(path.join(__dirname,'../data/productos.json'),JSON.stringify(dataProductos))
         res.redirect('/admin')
     },
     modify : (req,res) => {
+        // console.log(req.files);
+        // console.log(req.body);
         for (let i = 0; i < dataProductos.length; i++) {
-            if (dataProductos[i].id == req.params.idProducto) {
-                dataProductos[i].name = req.body.name;
-                dataProductos[i].description = req.body.desc;
-                dataProductos[i].price = req.body.price;
+            if (dataProductos[i].id == req.params.idProducto)  {
+                if (req.files.length > 0) {
+                    console.log("hay imagen nueva");
+                    dataProductos[i].name = req.body.name;
+                    dataProductos[i].description = req.body.desc;
+                    dataProductos[i].price = req.body.price;
+                    dataProductos[i].image = req.files[0].filename;
+                }
+                else {
+                    console.log("no hay imagen nueva");
+                    dataProductos[i].name = req.body.name;
+                    dataProductos[i].description = req.body.desc;
+                    dataProductos[i].price = req.body.price;
+                }
+                
             }
-        }
+        }   
         fs.writeFileSync(path.join(__dirname,'../data/productos.json'),JSON.stringify(dataProductos))
         res.redirect('/admin')
     },

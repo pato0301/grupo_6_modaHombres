@@ -11,5 +11,20 @@ module.exports = {
             }
         }
         return res.status(400)
+    },
+    cargaNewProd: (req,res) => {
+        console.log(req.files);
+        let newProduct = {
+            id: dataProductos.length + 1,
+            name: req.body.name,
+            description: req.body.description,
+            price: req.body.price,
+            discount: 0,
+            images: req.body.images,
+            // image: req.files == undefined || req.files.length == 0? "default_avatar.png": req.files[0].filename,
+            category: "in-sale",
+            active: "si"
+        }
+        console.log(newProduct);
     }
 }

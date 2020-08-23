@@ -8,8 +8,8 @@
     <%- include('partials/headerNavAdmins.ejs') %> 
 
     <div class="producto-add">
-        <div class="img-carga-prod">
-            <p>Imagen del Producto</p>
+        <div class="cont-img-prod">
+            <img src="/images/producto/default_avatar.png" alt="" class="img-prod" id="prodImg">
         </div>
         <div class="det-prod">
             <div class="box-name">
@@ -36,10 +36,11 @@
                 <!-- <form action="" method="POST" class="form-carga-producto">
                     <button type="submit" class="boton-carga-producto">Añadir Producto</button>
                 </form> -->
-                <form action="/admin/edit/selectProduct/:idProduct?_method=put" method="post" class="form-select-producto" id="editProdForm">
+                <form action="/admin/edit/selectProduct/:idProduct?_method=put" method="post" class="form-select-producto" id="editProdForm" enctype="multipart/form-data">
                     <input type="hidden" name="name" value="" id="valueName">
                     <input type="hidden" name="price" value="" id="valuePrice">
                     <input type="hidden" name="desc" value="" id="valueDesc">
+                    <input type="file" name="prodImgName" id="prodPhoto" style="display: none;" />
                     <button type="submit" class="boton-select-producto">Editar Producto</button>
                     <!-- <div >
                         <a href="/admin/edit/selectProduct/1"><button type="button" class="boton-select-producto">Editar Producto</button></a>
@@ -59,6 +60,6 @@
         </div>
     </div>
 
-    <script src="/javascripts/adminProduct.js"></script>
+    <script src="/javascripts/adminProductEdit.js"></script>
 </body>
 </html>
