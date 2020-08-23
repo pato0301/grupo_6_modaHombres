@@ -18,6 +18,18 @@
     justify-content: center;
     align-items: center;
 }
+.producto-add .cont-img-prod {
+    height: 300px;
+    width: 45%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+.producto-add .img-prod {
+    max-width: 100%;
+    max-height: 100%;
+}
 .producto-add .img-carga-prod p {
     text-align: center;
 }

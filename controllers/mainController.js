@@ -55,7 +55,7 @@ const main = {
                 username : req.body.username,
                 email : req.body.email,
                 password : bcrypt.hashSync(req.body.password,12),
-                avatar: req.files[0] == undefined? "default_avatar.png": req.files[0].filename,
+                avatar: req.files == undefined? "default_avatar.png": req.files[0].filename,
                 height : req.body.altura,
                 weight : req.body.peso,
             }
