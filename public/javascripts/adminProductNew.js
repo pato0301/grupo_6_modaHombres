@@ -12,6 +12,7 @@ window.addEventListener("load",()=>{
     let errorName = $("#errorName")
     let errorPrice = $("#errorPrice")
     let errorText = $("#errorText")
+    let exito = $("#exito")
     // let regex=/^[0-9]+$/;
     // let deleteForm = $("#deleteProdForm")
     // let valName = $("#valueName")
@@ -20,31 +21,6 @@ window.addEventListener("load",()=>{
     // let productDetail = {}
     let imgProd = $("#prodImg")
     let inputImg = $("input[id='prodPhoto']")
-
-    // productList.addEventListener("change",(event) => {
-
-    //     let idProducto = productList.options[productList.selectedIndex].value
-
-    //     fetch(`http://localhost:3000/api/product/detalle/${idProducto}`)
-    //     .then(function(response) {
-    //         return response.json();
-    //     })
-    //     .then(function(product) {
-    //         productDetail = product
-    //         nameProd.value = product.name
-    //         price.value = product.price
-    //         description.value = product.description
-    //         valName.value = product.name
-    //         valPrice.value = price.value
-    //         valDesc.value = description.value
-    //         editForm.attributes.action.value = `/admin/edit/selectProduct/${product.id}?_method=put`
-    //         deleteForm.attributes.action.value = `/admin/delete/selectProduct/${product.id}?_method=delete`
-    //         imgProd.src = `/images/producto/${product.image}?`
-    //         // console.log(valDesc.value);
-    //         // console.log(editForm.attributes.action)
-    //         // console.log(deleteForm.attributes.action)
-    //     });
-    // })
 
     newForm.addEventListener("submit",(event) => {
         event.preventDefault()
@@ -77,49 +53,30 @@ window.addEventListener("load",()=>{
                 name: nameProd.value,
                 description: description.value,
                 price: price.value,
-                image:"default_avatar.png"
-                // image: req.files == undefined || req.files.length == 0? "default_avatar.png": req.files[0].filename,
+                // image: "default_avatar.png"
+                image: inputImg.files[0] == undefined || inputImg.files.length == 0? "default_avatar.png": inputImg.files[0].name,
             }
-            fetch(`http://localhost:3000/api/product/newProduct`,{
+            fetch('http://localhost:3000/api/product/newProduct',{
                 method: 'POST',
-                body: JSON.stringify(newProduct),
                 headers:{
                     'Content-Type': 'application/json'
-                }
+                },
+                body: JSON.stringify(newProduct),
             })
-            .then(response => response.json())
-            .then(respuesta => console.log('Success: ', respuesta))
+            .then(response => {
+                // console.log(response.json());
+                return response.json()
+                // alert("El producto se creo con exito")
+            })
+            .catch(error => console.error('Error:', error))
+            .then((respuesta) => {
+                exito.innerHTML = "El producto se cargo exitosamente"
+                console.log('Success: ', respuesta)
+                alert("El producto se cargo exitosamente")
+            })
         }
         // newForm.submit()
     })
-
-    // nameProd.addEventListener("keyup",(event) => {
-    //     // console.log("cambio nombre");
-    //     // valName.value = nameProd.value
-    //     // console.log(valName.value);
-    //     console.log(nameProd.value);
-    // })
-
-    // price.addEventListener("keyup",(event) => {
-    //     // console.log("cambio precio");
-    //     // valPrice.value = price.value
-    //     // console.log(valPrice.value);
-    //     // if (price.value.match(regex))
-    //     if(isNaN(price.value) || price.value < 0)
-    //     {
-    //         // alert("Must input numbers");
-    //         // return false;
-    //         console.log("no es numero");
-    //     }
-    //     console.log(price.value);
-    // })
-
-    // description.addEventListener("keyup",(event) => {
-    //     // console.log("cambio descripcion");
-    //     // valDesc.value = description.value
-    //     // console.log(valDesc.value);
-    //     console.log(description.value);
-    // })
 
     imgProd.addEventListener("click",(event) => {
         // $("input[id='prodPhoto']").click();
