@@ -4,29 +4,29 @@ module.exports = (sequelize, DataTypes) => {
 
     const cols = {
         idtarjetas : {
-            type : DataType.INTEGER,
+            type : DataTypes.INTEGER,
             primaryKey : true,
             autoIncrement : true,
             unique: true
         },
         idusuario: {
-            type : DataType.INTEGER,
+            type : DataTypes.INTEGER,
             allowNull : true,
         },
         nombre_tarjeta: {
-            type : DataType.STRING(45),
+            type : DataTypes.STRING(45),
             allowNull : true,
         },
         nro_tarjeta: {
-            type : DataType.BIGINT(16),
+            type : DataTypes.BIGINT(16),
             allowNull : true,
         },
         cod_seguridad: {
-            type : DataType.INTEGER(11),
+            type : DataTypes.INTEGER(11),
             allowNull : true,
         },
         nombre_titular: {
-            type : DataType.STRING(45),
+            type : DataTypes.STRING(45),
             allowNull : true,
         }
         }

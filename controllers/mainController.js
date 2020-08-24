@@ -3,6 +3,7 @@ const fs = require('fs');
 const bcrypt = require('bcrypt');
 const {check, validationResult, body} = require('express-validator');
 // const { json } = require('express');
+const db = require('../database/models');
 
 let users = JSON.parse(fs.readFileSync(path.join(__dirname,'../data/users.json')),'utf8')
 
@@ -62,6 +63,7 @@ const main = {
             // console.log(newUser);
             users.push(newUser);
             fs.writeFileSync(path.join(__dirname,'../data/users.json'),JSON.stringify(users))
+            db.Usuario.create(newUser);
             req.session.userClient = newUser
             res.redirect('/login');
         }else{

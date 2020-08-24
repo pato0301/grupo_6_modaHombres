@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const mainController = require('../controllers/mainController');
+const usersController = require('../controllers/usersController');
 const uploadImageMiddleware = require('../middlewares/uploadImageMiddleware');
 const registerValidation = require('../middlewares/registerValidation');
 const loginValidation = require('../middlewares/loginValidation');
@@ -17,5 +18,5 @@ router.post('/register', uploadImageMiddleware.any(), registerValidation,mainCon
 // router.post('/register', uploadImageMiddleware.any(), mainController.checkRegister);
 router.get('/user', mainController.user);
 router.put('/user', mainController.root);
-
+router.get('/usuarios', usersController.root);
 module.exports = router;

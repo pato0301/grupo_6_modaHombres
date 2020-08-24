@@ -4,21 +4,21 @@ module.exports = (sequelize, DataTypes) => {
 
     const cols = {
         idadmin : {
-            type : DataType.INTEGER,
+            type : DataTypes.INTEGER,
             primaryKey : true,
             autoIncrement : true,
             unique: true
         },
         username: {
-            type : DataType.STRING(45),
+            type : DataTypes.STRING(45),
             allowNull : false,
         },
         password: {
-            type : DataType.STRING(80),
+            type : DataTypes.STRING(80),
             allowNull : false,
         },
         email: {
-            type : DataType.STRING(45),
+            type : DataTypes.STRING(45),
             allowNull : false,
         }
         }

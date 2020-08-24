@@ -4,13 +4,13 @@ module.exports = (sequelize, DataTypes) => {
 
     const cols = {
         idcategorias : {
-            type : DataType.INTEGER,
+            type : DataTypes.INTEGER,
             primaryKey : true,
             autoIncrement : true,
             unique: true
         },
         nombre_categoria: {
-            type : DataType.STRING(45),
+            type : DataTypes.STRING(45),
             allowNull : true,
         }
         }

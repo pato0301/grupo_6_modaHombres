@@ -1,55 +1,55 @@
 module.exports = (sequelize, DataTypes) => {
- const alias = "usuario"
+ const alias = "Usuario"
 
  const cols = {
-        idusuario : {
-            type : DataType.INTEGER,
+        idusuarios : {
+            type : DataTypes.INTEGER,
             primaryKey : true,
             autoIncrement : true,
             unique: true
         },
         nombre : { 
-         type: DataType.STRING(45),
+         type: DataTypes.STRING(45),
          allowNull : true, 
         },
         apellido: {
-            type : DataType.STRING(45),
+            type : DataTypes.STRING(45),
             allowNull : true,
         },
         username: {
-            type : DataType.STRING(45),
+            type : DataTypes.STRING(45),
             allowNull : false,
         },
         email: {
-            type : DataType.STRING(45),
+            type : DataTypes.STRING(45),
             allowNull : false,
         },
         password: {
-            type : DataType.STRING(80),
+            type : DataTypes.STRING(80),
             allowNull : false,
         },
         altura: {
-            type : DataType.DECIMAL(2,0),
+            type : DataTypes.DECIMAL(2,0),
             allowNull : true,
         },
         peso: {
-            type : DataType.INTEGER(11),
+            type : DataTypes.INTEGER(11),
             allowNull : true,
         },
         telefono: {
-            type : DataType.INTEGER(11),
+            type : DataTypes.INTEGER(11),
             allowNull : true,
         },
         fecha_nacimiento: {
-            type: Sequelize.DATE,  
-            defaultValue: Sequelize.NOW
+            type: DataTypes.DATE,  
+            defaultValue: DataTypes.NOW
         },
         tarjeta_id: {
-            type : DataType.INTEGER(11),
+            type : DataTypes.INTEGER(11),
             allowNull : true,
         },
-        created_at: sequelize.DATE,
-        updatedAt: Sequelize.DATE,
+        created_at: DataTypes.DATE,
+        updatedAt: DataTypes.DATE,
 
  }
  const config = {
@@ -57,8 +57,8 @@ module.exports = (sequelize, DataTypes) => {
     timestamp : true,
     underscored : true,
 }
-const usuarios = sequelize.define(alias,cols,config)
+const Usuario = sequelize.define(alias,cols,config)
 
-return usuarios
+return Usuario
 }
 

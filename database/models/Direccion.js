@@ -3,38 +3,38 @@ module.exports = (sequelize, DataTypes) => {
    
     const cols = {
            iddirecciones : {
-               type : DataType.INTEGER(11),
+               type : DataTypes.INTEGER(11),
                primaryKey : true,
                autoIncrement : true,
                unique: true
            },
            idusuario : { 
-            type: DataType.INTEGER(11),
+            type: DataTypes.INTEGER(11),
             allowNull : true, 
            },
            localidad: {
-               type : DataType.STRING(45),
+               type : DataTypes.STRING(45),
                allowNull : true,
            },
            calle: {
-               type : DataType.STRING(45),
+               type : DataTypes.STRING(45),
                allowNull : false,
            },
            altura: {
-               type : DataType.INTEGER(11),
+               type : DataTypes.INTEGER(11),
                allowNull : false,
            },
            codigo_postal: {
-               type : DataType.STRING(80),
+               type : DataTypes.STRING(80),
                allowNull : false,
            },
            pais: {
-               type : DataType.DECIMAL(2,0),
+               type : DataTypes.DECIMAL(2,0),
                allowNull : true,
            },
            
-           created_at: sequelize.DATE,
-           updatedAt: Sequelize.DATE,
+           created_at: DataTypes.DATE,
+           updatedAt: DataTypes.DATE,
    
     }
     const config = {
