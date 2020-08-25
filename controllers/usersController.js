@@ -5,10 +5,7 @@ const db = require('../database/models');
 
 const usuarios = {
     root : (req,res) => {
-        db.Usuario.findAll().then((resultados)=> {
-            res.render('users',{users:resultados})    
-        })
-        //res.render('users',{users:users})//
+        res.render("userInfo",{user:req.session.userClient})
     },
 };
 

@@ -2,10 +2,7 @@ const path = require('path');
 const fs = require('fs');
 const bcrypt = require('bcrypt');
 const {check, validationResult, body} = require('express-validator');
-// const { json } = require('express');
 const db = require('../database/models');
-
-let users = JSON.parse(fs.readFileSync(path.join(__dirname,'../data/users.json')),'utf8')
 
 const main = {
     root: (req,res) => {
@@ -21,22 +18,29 @@ const main = {
         let errors = validationResult(req);
         // console.log(errors);
         if(errors.isEmpty()) {
-            // console.log("entra aca");
-            for(let i =0 ; i < users.length ; i++) {
-                if(users[i].email == req.body.email && bcrypt.compareSync(req.body.password , users[i].password)) {
-                    
-                    // req.session.userClient = users[i].email;
-                    req.session.userClient = users[i];
-                    if (req.body.remember =="on") {
-                        res.cookie("userCookie", users[i].email, {maxAge: 1000 * 60  } )
-                        // el max age de la cookie esta en milisegundos.... toda esa cuenta seria un año nose cuanto tiempo deberia durar
+            db.Usuario.findOne({
+                where: {
+                email: req.body.email,
+            }})
+            .then(resultados=> {
+                if (resultados != null) {
+                    // console.log(resultados.dataValues);
+                    if (bcrypt.compareSync(req.body.password,resultados.dataValues.password)){
+                        req.session.userClient = resultados.dataValues;
+                        if (req.body.remember =="on") {
+                            res.cookie("userCookie", resultados.dataValues.email, {maxAge: 1000 * 60  } )
+                            // el max age de la cookie esta en milisegundos.... toda esa cuenta seria un año nose cuanto tiempo deberia durar
+                        }
+                        return res.redirect('/')
                     }
-                    
-                    return res.redirect('/')
+                    return res.render('loginMain',{errors:{email:{msg:"credenciales invalidas, no coincide el mail con la contraseña"}}
+                                                ,user:req.session.userClient})
                 }
-            }
-            return res.render('loginMain',{errors:{email:{msg:"credenciales invalidas, no coincide el mail con la contraseña"}}
-                                            ,user:req.session.userClient})
+                else{
+                    return res.render('loginMain',{errors:{email:{msg:"credenciales invalidas, no coincide el mail con la contraseña"}}
+                                                ,user:req.session.userClient})
+                }
+            })
         }else{
             return res.render('loginMain' ,{
                 errors: errors.mapped(), old: req.body,
@@ -49,20 +53,16 @@ const main = {
     },
     checkRegister: (req,res) => {
         let errors = validationResult(req);
-        // console.log(errors);
-        // console.log(req.files[0] == undefined);
         if(errors.isEmpty()) {
+            console.log(req.files);
             let newUser = {
                 username : req.body.username,
                 email : req.body.email,
                 password : bcrypt.hashSync(req.body.password,12),
-                avatar: req.files == undefined? "default_avatar.png": req.files[0].filename,
-                height : req.body.altura,
-                weight : req.body.peso,
+                avatar: req.files == undefined || req.files.length == 0? "default_avatar.png": req.files[0].filename,
+                altura : req.body.altura == ''? null : req.body.altura,
+                peso : req.body.peso == ''? null : req.body.peso,
             }
-            // console.log(newUser);
-            users.push(newUser);
-            fs.writeFileSync(path.join(__dirname,'../data/users.json'),JSON.stringify(users))
             db.Usuario.create(newUser);
             req.session.userClient = newUser
             res.redirect('/login');
