@@ -49,19 +49,20 @@ window.addEventListener("load",()=>{
         }
         if(!isNaN(price.value) && price.value > 0 && nameProd.value != "" && description.value.length > 9){
             console.log("voy a cargar producto");
-            let newProduct = {
-                name: nameProd.value,
-                description: description.value,
-                price: price.value,
-                // image: "default_avatar.png"
-                image: inputImg.files[0] == undefined || inputImg.files.length == 0? "default_avatar.png": inputImg.files[0].name,
-            }
+            // let newProduct = {
+            //     name: nameProd.value,
+            //     description: description.value,
+            //     price: price.value,
+            //     // image: "default_avatar.png"
+            //     image: inputImg.files[0] == undefined || inputImg.files.length == 0? "default_avatar.png": inputImg.files[0].name,
+            //     productImage: inputImg,
+            // }
             fetch('http://localhost:3000/api/product/newProduct',{
                 method: 'POST',
-                headers:{
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(newProduct),
+                // headers:{
+                //     'Content-Type': 'multipart/form-data'
+                // },
+                body: new FormData(newForm)
             })
             .then(response => {
                 // console.log(response.json());

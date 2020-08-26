@@ -8,10 +8,10 @@ let storage = multer.diskStorage({
     },
     filename: function (req, file, cb) {
       // cb(null,`avatars_${req.body.email}_${Date.now() + path.extname(file.originalname)}`)
-      cb(null,`modelo_prueba${path.extname(file.originalname)}`)
+      let prodName = file.originalname.split('.').slice(0, -1).join('.')
+      cb(null,`img_${prodName}_${path.extname(file.originalname)}`)
     }
-  }
-  ) 
+  }) 
 let upload = multer({ storage: storage })
 
 // console.log("guarde archivo");

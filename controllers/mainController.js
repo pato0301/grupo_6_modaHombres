@@ -6,7 +6,14 @@ const db = require('../database/models');
 
 const main = {
     root: (req,res) => {
-        res.render('homeMain',{user:req.session.userClient})
+        db.Producto.findAll({
+            limit : 4
+        })
+        .then(result => {
+            // console.log(result[0].dataValues);
+            res.render('homeMain',{user:req.session.userClient,productsSeason:result})
+        })
+        // res.render('homeMain',{user:req.session.userClient})
     },
     search:(req,res) => {
         res.redirect('/')

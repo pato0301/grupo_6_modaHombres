@@ -10,7 +10,7 @@ const productos = {
         // res.render('carga_producto')
     },
     loginAdmin : (req,res) => {
-        db.Usuario.findOne({
+        db.Admin.findOne({
             where: {
             email: req.body.email,
         }})
@@ -71,23 +71,24 @@ const productos = {
     //     }
     //     res.render('delete_producto',{producto:producto})
     // },
-    agregar : (req,res) => {
-        console.log(req.files);
-        let newProduct = {
-            id: dataProductos.length + 1,
-            name: req.body.nombreProducto,
-            description: req.body.descriptionProd,
-            price: req.body.precioProducto,
-            discount: 0,
-            image: req.files == undefined || req.files.length == 0? "default_avatar.png": req.files[0].filename,
-            category: "in-sale",
-            active: "si"
-        }
-        console.log(newProduct);
-        // dataProductos.push(newproduct)
-        // fs.writeFileSync(path.join(__dirname,'../data/productos.json'),JSON.stringify(dataProductos))
-        res.redirect('/admin')
-    },
+    // agregar : (req,res) => {
+    //     console.log(req.files);
+    //     let newProduct = {
+    //         // id: dataProductos.length + 1,
+    //         nombre: req.body.nombreProducto,
+    //         descripcion: req.body.descriptionProd,
+    //         precio: parseFloat(req.body.precioProducto),
+    //         // discount: 0,
+    //         image: req.files == undefined || req.files.length == 0? "default_avatar.png": req.files[0].filename,
+    //         category: 1,
+    //         active: 1
+    //     }
+    //     console.log(newProduct);
+    //     db.Producto.create(newProduct);
+    //     // dataProductos.push(newproduct)
+    //     // fs.writeFileSync(path.join(__dirname,'../data/productos.json'),JSON.stringify(dataProductos))
+    //     res.redirect('/admin')
+    // },
     modify : (req,res) => {
         // console.log(req.files);
         // console.log(req.body);

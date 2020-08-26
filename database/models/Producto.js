@@ -1,6 +1,6 @@
 module.exports = (sequelize, DataTypes) => {
 
-    const alias = "Productos"
+    const alias = "Producto"
 
     const cols = {
         idproductos : {
@@ -14,30 +14,34 @@ module.exports = (sequelize, DataTypes) => {
             allowNull : false,
         },
         color: {
-            type : DataTypes.STRING(80),
-            allowNull : false,
+            type : DataTypes.STRING(45),
+            allowNull : true,
         },
         talle: {
-            type : DataTypes.STRING(80),
-            allowNull : false,
+            type : DataTypes.TEXT,
+            allowNull : true,
         },
         precio: {
-            type : DataTypes.STRING(80),
+            type : DataTypes.FLOAT() ,
             allowNull : false,
         },
         imagen: {
-            type : DataTypes.STRING(80),
+            type : DataTypes.TEXT,
             allowNull : false,
         },
         descripcion: {
-            type : DataTypes.STRING(80),
+            type : DataTypes.TEXT,
             allowNull : false,
         },
         id_categoria: {
-            type : DataTypes.STRING(80),
+            type : DataTypes.INTEGER,
+            allowNull : false,
+        },
+        active: {
+            type : DataTypes.INTEGER,
             allowNull : false,
         }
-        }
+    }
 
     const config = {
             tableName : "productos",

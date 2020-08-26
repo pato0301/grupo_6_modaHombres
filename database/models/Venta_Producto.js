@@ -17,8 +17,7 @@ module.exports = (sequelize, DataTypes) => {
             type : DataTypes.STRING(11),
             allowNull : false,
         }
-       
-        }
+    }
 
     const config = {
             tableName : "venta_productos",

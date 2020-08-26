@@ -150,7 +150,23 @@
             </div>
         </div>
         <div class="row ml-3 mr-sm-3">
-            <div class="col-12 col-md-6 col-lg-3 shadow p-3 mb-5 bg-white rounded">
+            <% for( let i = 0; i < productsSeason.length; i++ ) { %>
+                <div class="col-12 col-md-6 col-lg-3 shadow p-3 mb-5 bg-white rounded">
+                    <div class="card">
+                        <a href="/producto/detalle/<%= productsSeason[i].dataValues.idproductos %>">
+                            <img class="card-img-top" src="/images/producto/<%= productsSeason[i].dataValues.imagen %>" alt="Card image cap">
+                        </a>
+                        <div class="card-body">
+                            <a href="/producto/detalle/5"><h3 class="card-title"><%= productsSeason[i].dataValues.nombre %></h3></a>
+                            <h4 class="card-subtitle"><%= productsSeason[i].dataValues.precio %></h4>
+                            <div class="w-100 text-right">
+                                <a href="#" class="card-link">+</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <% } %>
+            <!-- <div class="col-12 col-md-6 col-lg-3 shadow p-3 mb-5 bg-white rounded">
                 <div class="card">
                     <a href="/producto/detalle/5"><img class="card-img-top" src="/images/producto/wilson-modelo.jpg" alt="Card image cap"></a>
                     <div class="card-body">
@@ -197,8 +213,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            
+            </div> -->
         </div>
         <!-- end temporada 2020  -->
 
