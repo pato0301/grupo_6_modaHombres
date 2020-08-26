@@ -10,6 +10,8 @@ const productRouter = require('./routes/products');
 const adminRouter = require('./routes/admin');
 const mainRouter = require('./routes/main');
 const apiRouter = require('./routes/apis')
+const userRouter = require('./routes/users')
+
 
 const cookieUser = require ("./middlewares/cookieUser")
 
@@ -39,6 +41,7 @@ app.use('/', mainRouter);
 app.use('/producto', productRouter);
 app.use('/admin', adminRouter);
 app.use('/api', apiRouter)
+app.use('/user', userRouter)
 
 
 app.listen(3000, () => console.log('servidor corriendo en puerto 3000'));

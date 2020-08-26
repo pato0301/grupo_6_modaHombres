@@ -1,7 +1,7 @@
 module.exports = (sequelize, DataTypes) => {
- const alias = "Usuario"
+    const alias = "Usuario"
 
- const cols = {
+    const cols = {
         idusuarios : {
             type : DataTypes.INTEGER,
             primaryKey : true,
@@ -9,8 +9,8 @@ module.exports = (sequelize, DataTypes) => {
             unique: true
         },
         nombre : { 
-         type: DataTypes.STRING(45),
-         allowNull : true, 
+            type: DataTypes.STRING(45),
+            allowNull : true, 
         },
         apellido: {
             type : DataTypes.STRING(45),
@@ -48,9 +48,13 @@ module.exports = (sequelize, DataTypes) => {
             type : DataTypes.INTEGER(11),
             allowNull : true,
         },
-        created_at: DataTypes.DATE,
-        updatedAt: DataTypes.DATE,
+        avatar: {
+            type : DataTypes.STRING(200),
+            allowNull : true,
+        }
+    }
 
+<<<<<<< HEAD
  }
  const config = {
     tableName : "usuarios",
@@ -67,5 +71,15 @@ Usuario.associate = function(models) {
 }
 
 return Usuario;
+=======
+    const config = {
+        tableName : "usuarios",
+        timestamp : true,
+        underscored : true,
+    }
+    const Usuario = sequelize.define(alias,cols,config)
+
+    return Usuario
+>>>>>>> 14458de5d04c672b35f188e8a53e403856417f27
 }
 

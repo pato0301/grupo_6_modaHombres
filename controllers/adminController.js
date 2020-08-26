@@ -1,5 +1,6 @@
 const path = require('path');
 const fs = require('fs')
+const db = require('../database/models');
 let dataProductos = JSON.parse(fs.readFileSync(path.join(__dirname,'../data/productos.json')));
 const bcrypt = require('bcrypt')
 
@@ -9,9 +10,25 @@ const productos = {
         // res.render('carga_producto')
     },
     loginAdmin : (req,res) => {
-        req.session.adminUser = req.body.email
-        res.redirect('/admin')
-        // res.render('carga_producto')
+        db.Usuario.findOne({
+            where: {
+            email: req.body.email,
+        }})
+        .then(resultados=> {
+            if (resultados != null) {
+                if (bcrypt.compareSync(req.body.password,resultados.dataValues.password)){
+                    req.session.adminUser = req.body.email
+                    if (req.body.remember =="on") {
+                        res.cookie("adminCookie", resultados.dataValues.email, {maxAge: 1000 * 60  } )
+                        // el max age de la cookie esta en milisegundos.... toda esa cuenta seria un año nose cuanto tiempo deberia durar
+                    }
+                    res.redirect('/admin')
+                }
+            }
+            else {
+                return res.redirect('/admin/register')
+            }
+        })
     },
     register : (req,res) => {
         res.render('loginAdmin', {typePage: 'Admin Register'})
@@ -19,10 +36,12 @@ const productos = {
     },
     saveAdmin : (req,res) => {
         let newAdminUser = {
+            username: req.body.adminName,
             email: req.body.email,
             password: bcrypt.hashSync(req.body.password,12),
         }
         req.session.adminUser = req.body.email
+        db.Admin.create(newAdminUser);
         res.redirect('/admin')
         // res.render('login', {typePage: 'Admin Register'})
     },
