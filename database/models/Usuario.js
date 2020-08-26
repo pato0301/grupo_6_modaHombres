@@ -57,8 +57,15 @@ module.exports = (sequelize, DataTypes) => {
     timestamp : true,
     underscored : true,
 }
-const Usuario = sequelize.define(alias,cols,config)
+const Usuario = sequelize.define(alias,cols,config);
 
-return Usuario
+Usuario.associate = function(models) {
+    Usuario.hasOne(models.direccion , {
+        as: 'direccion',
+        foreignKey: 'direcciones',
+    })
+}
+
+return Usuario;
 }
 

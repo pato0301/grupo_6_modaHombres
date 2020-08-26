@@ -42,7 +42,14 @@ module.exports = (sequelize, DataTypes) => {
        timestamp : true,
        underscored : true,
    }
-   const usuarios = sequelize.define(alias,cols,config)
+   const usuarios = sequelize.define(alias,cols,config);
+
+   Direccion.associate = function(models) {
+    Direccion.belongsTo(models.Users , {
+        as: 'usuario',
+        foreignKey: 'usuarios',
+    })
+}
    
    return usuarios
    }

@@ -5,8 +5,10 @@ const db = require('../database/models');
 
 const usuarios = {
     root : (req,res) => {
-        db.Usuario.findAll().then((resultados)=> {
-            res.render('users',{users:resultados})    
+        db.Usuario.findAll({
+            include: [{association: 'direcciones'}]
+        }).then((resultados)=> {
+            res.render('users',{users:resultados});    
         })
         //res.render('users',{users:users})//
     },
