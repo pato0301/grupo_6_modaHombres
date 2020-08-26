@@ -17,8 +17,8 @@
                     <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
                 </ol>
                 <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img class="d-block w-100" src="/images/producto/wilson-modelo.jpg" alt="First slide">
+                    <div class="carousel-item active"> 
+                        <img class="d-block w-100" src="/images/producto/<%= product.imagen %>" alt="First slide">
                     </div>
                     <div class="carousel-item">
                         <img class="d-block w-100" src="/images/producto/modelo1.jpg" alt="Second slide">
@@ -38,11 +38,12 @@
             </div>
         </div>
         <div class="det-prod">
-            <h1>Producto #<%= productId %> </h1>
-            <input type="hidden" name="productId" value="<%= productId %>">
-            <h3>$9,999.99</h3>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nulla velit praesentium aliquam atque sint ipsa autem tenetur cupiditate dolorum? At quas optio maxime accusantium, rerum fuga. Architecto rem similique sunt, possimus accusantium labore nobis quos, fugit, quibusdam voluptate soluta aspernatur!</p>
-            <div class="talle">
+            <h1><%= product.nombre %></h1>
+            <input type="hidden" name="productId" value="<%= product.idproductos %>">
+            <h3>$<%= product.precio %></h3>
+            <p>
+            <div class="talle"><%= product.descripcion %>
+            </p>
                 <h4>Talle</h4>
                 <ul>
                     <li>38</li>

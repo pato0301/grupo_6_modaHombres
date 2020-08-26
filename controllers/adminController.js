@@ -51,7 +51,11 @@ const productos = {
         res.render('carga_producto')
     },
     select : (req,res) => {
-        res.render('selectAdmin_producto',{productos:dataProductos})
+        db.Producto.findAll()
+        .then(result => {
+            res.render('selectAdmin_producto',{productos:result})
+        })
+        
     },
     // edit : (req,res) => {
     //     let producto
@@ -92,35 +96,71 @@ const productos = {
     modify : (req,res) => {
         // console.log(req.files);
         // console.log(req.body);
-        for (let i = 0; i < dataProductos.length; i++) {
-            if (dataProductos[i].id == req.params.idProducto)  {
-                if (req.files.length > 0) {
-                    console.log("hay imagen nueva");
-                    dataProductos[i].name = req.body.name;
-                    dataProductos[i].description = req.body.desc;
-                    dataProductos[i].price = req.body.price;
-                    dataProductos[i].image = req.files[0].filename;
-                }
-                else {
-                    console.log("no hay imagen nueva");
-                    dataProductos[i].name = req.body.name;
-                    dataProductos[i].description = req.body.desc;
-                    dataProductos[i].price = req.body.price;
-                }
-                
-            }
-        }   
-        fs.writeFileSync(path.join(__dirname,'../data/productos.json'),JSON.stringify(dataProductos))
-        res.redirect('/admin')
-    },
-    saveDelete : (req,res) => {
-        for (let i = 0; i < dataProductos.length; i++) {
-            if (dataProductos[i].id == req.params.idProducto) {
-                dataProductos[i].active = "no";
+        let updatedProd = {}
+        if (req.files.length > 0) {
+            updatedProd = {
+                nombre: req.body.name,
+                descripcion: req.body.desc,
+                precio: parseFloat(req.body.price),
+                imagen: req.files[0].filename,
             }
         }
-        fs.writeFileSync(path.join(__dirname,'../data/productos.json'),JSON.stringify(dataProductos))
-        res.redirect('/admin')
+        else {
+            updatedProd = {
+                nombre: req.body.name,
+                descripcion: req.body.desc,
+                precio: parseFloat(req.body.price)
+            }
+        }
+        console.log(updatedProd);
+        db.Producto.update(updatedProd,{
+            where:{
+                idproductos: req.params.idProducto
+            }
+        })
+        .then(result => {
+            console.log(result);
+            return res.redirect('/admin')
+        })
+        // for (let i = 0; i < dataProductos.length; i++) {
+        //     if (dataProductos[i].id == req.params.idProducto)  {
+        //         if (req.files.length > 0) {
+        //             console.log("hay imagen nueva");
+        //             dataProductos[i].name = req.body.name;
+        //             dataProductos[i].description = req.body.desc;
+        //             dataProductos[i].price = req.body.price;
+        //             dataProductos[i].image = req.files[0].filename;
+        //         }
+        //         else {
+        //             console.log("no hay imagen nueva");
+        //             dataProductos[i].name = req.body.name;
+        //             dataProductos[i].description = req.body.desc;
+        //             dataProductos[i].price = req.body.price;
+        //         }
+                
+        //     }
+        // }   
+        // fs.writeFileSync(path.join(__dirname,'../data/productos.json'),JSON.stringify(dataProductos))
+        // res.redirect('/admin')
+    },
+    saveDelete : (req,res) => {
+        db.Producto.update({
+            active: 0
+        },{
+            where:{
+                idproductos: req.params.idProducto
+            }
+        })
+        .then(result => {
+            return res.redirect('/admin')
+        })
+        // for (let i = 0; i < dataProductos.length; i++) {
+        //     if (dataProductos[i].id == req.params.idProducto) {
+        //         dataProductos[i].active = "no";
+        //     }
+        // }
+        // fs.writeFileSync(path.join(__dirname,'../data/productos.json'),JSON.stringify(dataProductos))
+        // res.redirect('/admin')
     },
 };
 

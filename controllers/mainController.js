@@ -7,6 +7,10 @@ const db = require('../database/models');
 const main = {
     root: (req,res) => {
         db.Producto.findAll({
+            where: {
+                active: 1,
+                current_season:1
+            },
             limit : 4
         })
         .then(result => {

@@ -33,6 +33,10 @@ module.exports = (sequelize, DataTypes) => {
             type : DataTypes.TEXT,
             allowNull : false,
         },
+        current_season: {
+            type : DataTypes.INTEGER,
+            allowNull : true,
+        },
         id_categoria: {
             type : DataTypes.INTEGER,
             allowNull : false,

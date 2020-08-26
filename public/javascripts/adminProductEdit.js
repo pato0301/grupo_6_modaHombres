@@ -27,15 +27,15 @@ window.addEventListener("load",()=>{
         })
         .then(function(product) {
             productDetail = product
-            nameProd.value = product.name
-            price.value = product.price
-            description.value = product.description
-            valName.value = product.name
-            valPrice.value = price.value
+            nameProd.value = product.nombre
+            price.value = product.precio
+            description.value = product.descripcion
+            valName.value = product.nombre
+            valPrice.value = price.precio
             valDesc.value = description.value
-            editForm.attributes.action.value = `/admin/edit/selectProduct/${product.id}?_method=put`
-            deleteForm.attributes.action.value = `/admin/delete/selectProduct/${product.id}?_method=delete`
-            imgProd.src = `/images/producto/${product.image}?`
+            editForm.attributes.action.value = `/admin/edit/selectProduct/${product.idproductos}?_method=put`
+            deleteForm.attributes.action.value = `/admin/delete/selectProduct/${product.idproductos}?_method=delete`
+            imgProd.src = `/images/producto/${product.imagen}?`
             // console.log(valDesc.value);
             // console.log(editForm.attributes.action)
             // console.log(deleteForm.attributes.action)

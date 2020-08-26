@@ -69,6 +69,7 @@
     display: block;
     margin: 0 auto;
     border: none;
+    text-align: center;
 }
 .newsletter input:focus {
     outline: none; 

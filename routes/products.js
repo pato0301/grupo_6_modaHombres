@@ -4,10 +4,10 @@ const productsController = require('../controllers/productsController');
 const loginUserMiddleware = require('../middlewares/loginUserMiddleware')
 
 // Rutas Necesarias
-router.get('/', productsController.root)
+// router.get('/', productsController.root)
 // router.get('/detalle/:productId', productsController.detail);
 router.get('/detalle/:productoId', productsController.detail);
-router.post('/detalle/:productoId', productsController.buy);
+router.post('/detalle/:productoId', loginUserMiddleware,productsController.buy);
 router.get('/carrito', loginUserMiddleware,productsController.carrito)
 
 
