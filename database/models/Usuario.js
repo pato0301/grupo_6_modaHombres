@@ -54,24 +54,6 @@ module.exports = (sequelize, DataTypes) => {
         }
     }
 
-<<<<<<< HEAD
- }
- const config = {
-    tableName : "usuarios",
-    timestamp : true,
-    underscored : true,
-}
-const Usuario = sequelize.define(alias,cols,config);
-
-Usuario.associate = function(models) {
-    Usuario.hasOne(models.direccion , {
-        as: 'direccion',
-        foreignKey: 'direcciones',
-    })
-}
-
-return Usuario;
-=======
     const config = {
         tableName : "usuarios",
         timestamp : true,
@@ -80,6 +62,5 @@ return Usuario;
     const Usuario = sequelize.define(alias,cols,config)
 
     return Usuario
->>>>>>> 14458de5d04c672b35f188e8a53e403856417f27
 }
 
