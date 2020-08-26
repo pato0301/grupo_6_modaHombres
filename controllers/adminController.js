@@ -48,7 +48,35 @@ const productos = {
     carga : (req,res,next) => {
         // res.render('login', {typePage: 'Admin Login'})
         // console.log('entra en /admin');
-        res.render('carga_producto')
+        db.Talle.findAll({
+            order: [
+                ['prenda', 'DESC'],
+                ['id', 'ASC']
+            ]
+        })
+        .then(result => {
+            return res.render('carga_producto',{talles:result})
+            // let prenda = ""
+            // for (let i = 0; i < result.length; i++) {
+            //     if(i === 0){
+            //         prenda = result[i].dataValues.prenda
+            //         console.log(prenda);
+            //         console.log(result[i].dataValues.talle);
+            //     }
+            //     else if (prenda != result[i].dataValues.prenda){
+            //         prenda = result[i].dataValues.prenda
+            //         console.log(prenda);
+            //         console.log(result[i].dataValues.talle);
+            //     }
+            //     else {
+            //         console.log(result[i].dataValues.talle);
+            //     }
+            //     // console.log(result[i].dataValues);
+                
+            // }
+            
+        })
+        
     },
     select : (req,res) => {
         db.Producto.findAll()
