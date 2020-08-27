@@ -7,6 +7,18 @@ module.exports = [
     check('email')
         .isEmail()
         .withMessage('Debe ingresar un mail válido'),
+    body('email')
+        .custom(function(value) {
+            return db.Usuario.findOne(
+                {
+                    where: {email: value}
+                })
+                .then(function(result) {
+                    if(result) {
+                        return Promise.reject('El email utilizado ya pertecene a un usuario registrado')
+                    }
+                })
+        })
     // body('email')
     //     .custom((email, {req}) => {
     //         db.Usuario.findOne({
