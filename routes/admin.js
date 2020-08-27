@@ -27,4 +27,6 @@ router.put('/edit/selectProduct/:idProducto', uploadProdImageMiddleware.any(),ad
 router.delete('/delete/selectProduct/:idProducto', adminController.saveDelete);
 // router.delete('/carga-producto', adminController.delete);
 
+router.get('/cargaVarios', adminController.datosExtras);
+
 module.exports = router;

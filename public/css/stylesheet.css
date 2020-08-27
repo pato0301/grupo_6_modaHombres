@@ -116,6 +116,15 @@ body {
     .h-corrousel {
         height: 600px;
     }
+
+    .contenedorDatos .datoProd {
+        width: 50%;
+        padding-left: 5px;
+    }
+    .contenedorDatos .datoProd .input-num-dato {
+        width: 80%;
+        margin-bottom: 10px;
+    }
 }
 
 
@@ -139,6 +148,9 @@ body {
         padding-right: 50px;
         padding-top: 10px;
         padding-bottom: 10px;
+    }
+    .contenedorDatos .datoProd {
+        width: 32%;
     }
     
 }

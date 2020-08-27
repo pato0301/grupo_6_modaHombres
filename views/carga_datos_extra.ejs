@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<%- include('partials/head.ejs') %> 
+
+<body>
+    
+    <%- include('partials/headerNavAdmins.ejs') %> 
+    <div class="mx-auto w-75 contenedorDatos">
+        <div class="datoProd">
+            <form action="/admin" method="post" id="newProdForm" enctype="multipart/form-data">
+                    <!-- <h1>Nombre del Producto</h1> -->
+                    <label for="" class="label-dato">Nuevo Talle</label>
+                    <input type="text" name="nuevoTalle" class="input-num-dato" id="nameProduct" placeholder="Ingrese valor nuevo talle">
+                    <small class="text-danger" id="errorName"></small>
+                    <label class="text-success" id="exito"></label>
+                    <div class="form-carga-producto mb-3">
+                        <button type="submit" class="boton-carga-producto">Crear Talle</button>
+                    </div>
+            </form>
+        </div>
+        <div class="datoProd">
+            <form action="/admin" method="post" id="newProdForm" enctype="multipart/form-data">
+                    <!-- <h1>Nombre del Producto</h1> -->
+                    <label for="" class="label-dato">Nueva Categoria</label>
+                    <input type="text" name="nuevoTalle" class="input-num-dato" id="nameProduct" placeholder="Ingrese nueva Categoria">
+                    <small class="text-danger" id="errorName"></small>
+                    <label class="text-success" id="exito"></label>
+                    <div class="form-carga-producto mb-3">
+                        <button type="submit" class="boton-carga-producto">Crear Categoria</button>
+                    </div>
+            </form>
+        </div>
+        <div class="datoProd">
+            <form action="/admin" method="post" id="newProdForm" enctype="multipart/form-data">
+                    <!-- <h1>Nombre del Producto</h1> -->
+                    <label for="" class="label-dato">Nueva Temporada</label>
+                    <input type="text" name="nuevoTalle" class="input-num-dato" id="nameProduct" placeholder="Ingrese nueva Temporada">
+                    <small class="text-danger" id="errorName"></small>
+                    <label class="text-success" id="exito"></label>
+                    <div class="form-carga-producto mb-3">
+                        <button type="submit" class="boton-carga-producto">Crear temporada</button>
+                    </div>
+            </form>
+        </div>
+    </div>
+    
+    <!-- <script src="/javascripts/adminProductNew.js"></script> -->
+</body>
+</html>

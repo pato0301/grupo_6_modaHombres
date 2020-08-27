@@ -173,3 +173,20 @@
     text-align: center;
     /* margin-bottom: 10px; */
 }
+
+/* Datos extras */
+
+.contenedorDatos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: start;
+}
+.contenedorDatos .datoProd {
+    width: 100%;
+}
+.contenedorDatos .datoProd .label-dato {
+    display: block;
+}
+.contenedorDatos .datoProd .input-num-dato {
+    width: 100%;
+}

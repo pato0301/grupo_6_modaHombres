@@ -183,6 +183,9 @@ const productos = {
         // fs.writeFileSync(path.join(__dirname,'../data/productos.json'),JSON.stringify(dataProductos))
         // res.redirect('/admin')
     },
+    datosExtras: (req,res) => {
+        res.render("carga_datos_extra")
+    }
 };
 
 module.exports = productos;
