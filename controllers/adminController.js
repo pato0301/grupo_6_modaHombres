@@ -1,11 +1,40 @@
 const path = require('path');
 const fs = require('fs')
 const db = require('../database/models');
-let dataProductos = JSON.parse(fs.readFileSync(path.join(__dirname,'../data/productos.json')));
+// let dataProductos = JSON.parse(fs.readFileSync(path.join(__dirname,'../data/productos.json')));
 const bcrypt = require('bcrypt')
 
 const productos = {
     root : (req,res,next) => {
+        db.Producto.findAll({
+            // plain: false,
+            // raw: true,
+            // nest: true,
+            include: [
+                // {model: db.TalleProducto, as: 'talleProducto'} 
+                // {association: "talleProducto"}
+                {association: "talles",
+                }
+            ],
+            where: {
+                idproducto: 4,
+                // current_season:1
+            },
+            // limit : 1
+        })
+        .then(result => {
+            console.log(result);
+            // console.log(result.length);
+            // for (let i = 0; i < result.length; i++) {
+            //     // console.log(result[i].dataValues);
+            //     console.log(result[i].dataValues.talles);
+            //     console.log(result[i].dataValues.talles.length);
+            //     // for (let i = 0; i < result[i].dataValues.talles.length; i++) {
+            //     //     console.log(result[i].dataValues.talles);
+            //     // }
+                
+            // }
+        })
         res.render('loginAdmin', {typePage: 'Admin Login'})
         // res.render('carga_producto')
     },
@@ -51,7 +80,7 @@ const productos = {
         db.Talle.findAll({
             order: [
                 ['prenda', 'DESC'],
-                ['id', 'ASC']
+                ['idtalle', 'ASC']
             ]
         })
         .then(result => {
@@ -85,42 +114,6 @@ const productos = {
         })
         
     },
-    // edit : (req,res) => {
-    //     let producto
-    //     for (let i = 0; i < dataProductos.length; i++) {
-    //         if (dataProductos[i].id == req.params.idProducto) {
-    //             producto = dataProductos[i];
-    //         }
-    //     }
-    //     res.render('edit_producto',{producto:producto})
-    // },
-    // delete : (req,res) => {
-    //     let producto
-    //     for (let i = 0; i < dataProductos.length; i++) {
-    //         if (dataProductos[i].id == req.params.idProducto) {
-    //             producto = dataProductos[i];
-    //         }
-    //     }
-    //     res.render('delete_producto',{producto:producto})
-    // },
-    // agregar : (req,res) => {
-    //     console.log(req.files);
-    //     let newProduct = {
-    //         // id: dataProductos.length + 1,
-    //         nombre: req.body.nombreProducto,
-    //         descripcion: req.body.descriptionProd,
-    //         precio: parseFloat(req.body.precioProducto),
-    //         // discount: 0,
-    //         image: req.files == undefined || req.files.length == 0? "default_avatar.png": req.files[0].filename,
-    //         category: 1,
-    //         active: 1
-    //     }
-    //     console.log(newProduct);
-    //     db.Producto.create(newProduct);
-    //     // dataProductos.push(newproduct)
-    //     // fs.writeFileSync(path.join(__dirname,'../data/productos.json'),JSON.stringify(dataProductos))
-    //     res.redirect('/admin')
-    // },
     modify : (req,res) => {
         // console.log(req.files);
         // console.log(req.body);

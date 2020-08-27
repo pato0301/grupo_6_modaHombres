@@ -45,13 +45,22 @@
             <div class="talle"><%= product.descripcion %>
             </p>
                 <h4>Talle</h4>
-                <ul>
+                <select name="talles" id="talles">
+                <% if (product.talles.length > 0) { %>
+                    <% for( let i = 0; i < product.talles.length; i++ ) { %>
+                        <option value="<%= product.talles[i].dataValues.idtalle %>"><%= product.talles[i].dataValues.talle %> </option>
+                    <% } %>
+                <% } else { %>
+                    <option value="" disabled>No hay talles disponibles</option>
+                <% } %>
+                </select>
+                <!-- <ul>
                     <li>38</li>
                     <li>40</li>
                     <li>42</li>
                     <li>44</li>
                     <li>46</li>
-                </ul>
+                </ul> -->
             </div>
             <form action="" method="post" id="form-detalle-prod">
                 <button type="submit">Añadir</button>

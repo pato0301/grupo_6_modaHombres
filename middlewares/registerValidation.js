@@ -18,7 +18,7 @@ module.exports = [
                         return Promise.reject('El email utilizado ya pertecene a un usuario registrado')
                     }
                 })
-        })
+        }),
     // body('email')
     //     .custom((email, {req}) => {
     //         db.Usuario.findOne({

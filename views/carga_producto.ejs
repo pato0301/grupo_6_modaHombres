@@ -38,14 +38,14 @@
                             <% for( let i = 0; i < talles.length; i++ ) { %>
                                 <% if (i === 0) { %>
                                     <% prenda = talles[i].dataValues.prenda %> 
-                                    <option value="" disabled><%= talles[i].dataValues.prenda %></option>
-                                    <option value=""><%= talles[i].dataValues.talle %> </option>
+                                    <option value="<%= talles[i].dataValues.idtalle %>" disabled><%= talles[i].dataValues.prenda %></option>
+                                    <option value="<%= talles[i].dataValues.idtalle %>"><%= talles[i].dataValues.talle %> </option>
                                 <% } else if (prenda != talles[i].dataValues.prenda) { %>
                                     <% prenda = talles[i].dataValues.prenda %>
-                                    <option value="" disabled><%= talles[i].dataValues.prenda %></option>
-                                    <option value=""><%= talles[i].dataValues.talle %> </option>
+                                    <option value="<%= talles[i].dataValues.idtalle %>" disabled><%= talles[i].dataValues.prenda %></option>
+                                    <option value="<%= talles[i].dataValues.idtalle %>"><%= talles[i].dataValues.talle %> </option>
                                 <% } else { %>
-                                    <option value=""><%= talles[i].dataValues.talle %> </option>
+                                    <option value="<%= talles[i].dataValues.idtalle %>"><%= talles[i].dataValues.talle %> </option>
                                 <% } %>
                             <% } %>
                         </select>

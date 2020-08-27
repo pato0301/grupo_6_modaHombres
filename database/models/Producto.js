@@ -3,7 +3,7 @@ module.exports = (sequelize, DataTypes) => {
     const alias = "Producto"
 
     const cols = {
-        idproductos : {
+        idproducto : {
             type : DataTypes.INTEGER,
             primaryKey : true,
             autoIncrement : true,
@@ -54,6 +54,32 @@ module.exports = (sequelize, DataTypes) => {
         }
 
     const Producto = sequelize.define(alias,cols,config)
+
+    // Producto.associate = function(models) {
+    //     Producto.belongsTo(models.TalleProducto, {
+    //         as: 'talleProducto',
+    //         foreignKey:"idproductos",
+    //         targetKey: "idproducto",
+    //     })
+    // }
+
+    // Producto.associate = function(models) {
+    //     Producto.hasMany(models.TalleProducto, {
+    //         as: 'talleProducto',
+    //         // foreignKey:"idproductos",
+    //         // targetKey: "idproducto",
+    //         foreignKey: 'idproducto',
+    //         sourceKey: 'idproductos'
+    //     })
+    // }
+    Producto.associate = function(models) {
+        Producto.belongsToMany(models.Talle, {
+            as: "talles",
+            through: "talle_productos",
+            foreignKey: "idproducto",
+            otherKey: "idtalle",
+        })
+    }
 
     return Producto;
 }

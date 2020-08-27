@@ -1,6 +1,6 @@
 module.exports = (sequelize, DataTypes) => {
 
-    const alias = "talle_productos"
+    const alias = "TalleProducto"
 
     const cols = {
         id : {
@@ -15,7 +15,7 @@ module.exports = (sequelize, DataTypes) => {
         },
         idproducto: {
             type : DataTypes.INTEGER,
-            allowNull : false,
+            allowNull : false
         }
     }
 
@@ -25,14 +25,14 @@ module.exports = (sequelize, DataTypes) => {
             underscored : true,
         }
 
-    const talleProducto = sequelize.define(alias,cols,config);
+    const TalleProducto = sequelize.define(alias,cols,config);
     
-    talleProducto.associate = function(models) {
-        talleProducto.belongsTo(models.Talle , {
+    TalleProducto.associate = function(models) {
+        TalleProducto.belongsTo(models.Talle , {
             as: 'talles',
-            foreignKey: 'talles',
+            foreignKey: 'idtalle',
             })
     }
 
-    return talleProducto;
+    return TalleProducto;
 }

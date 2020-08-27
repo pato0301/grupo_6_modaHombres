@@ -19,7 +19,7 @@
                 <select type="text" name="nombre-producto" placeholder="Nombre del Producto" id="productSelected" class="input-name-prod">
                     <option value="" selected disabled>Choose Product</option>
                     <% for( let i = 0; i < productos.length; i++ ) { %>
-                        <option value="<%= productos[i].idproductos %>"> <%= productos[i].nombre %></option>
+                        <option value="<%= productos[i].dataValues.idproducto %>"> <%= productos[i].dataValues.nombre %></option>
                     <% } %>
                 </select>
                 <div class="box-price"> 

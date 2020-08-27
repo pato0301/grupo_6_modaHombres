@@ -8,8 +8,14 @@ const productos = {
     //     res.render('homeMain',{user:req.session.userClient})
     // },
     detail : (req,res) => {
-        db.Producto.findByPk(req.params.productoId)
+        db.Producto.findByPk(req.params.productoId,{
+            include: [
+                {association: "talles",
+                }
+            ]
+        })
         .then(result => {
+            // console.log(result);
             res.render('detalle_producto', {product : result.dataValues,user:req.session.userClient})
         })
     },
