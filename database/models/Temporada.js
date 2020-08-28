@@ -1,27 +1,27 @@
 module.exports = (sequelize, DataTypes) => {
 
-    const alias = "Categoria"
+    const alias = "Temporada"
 
     const cols = {
-        idcategorias : {
+        idtemporadas : {
             type : DataTypes.INTEGER,
             primaryKey : true,
             autoIncrement : true,
             unique: true
         },
-        nombre_categoria: {
-            type : DataTypes.STRING(45),
+        temporada: {
+            type : DataTypes.STRING(100),
             allowNull : false,
         }
         }
 
     const config = {
-            tableName : "categorias",
+            tableName : "temporadas",
             timestamp : true,
             underscored : true,
         }
 
-    const categoria = sequelize.define(alias,cols,config)
+    const Temporada = sequelize.define(alias,cols,config)
 
-    return categoria
+    return Temporada
 }

@@ -7,42 +7,57 @@
     
     <%- include('partials/headerNavAdmins.ejs') %> 
     <div class="mx-auto w-75 contenedorDatos">
+        <form action="/admin/cargaVarios" method="post" id="newProdForm" class="cargaDatos">
         <div class="datoProd">
-            <form action="/admin" method="post" id="newProdForm" enctype="multipart/form-data">
+            <!-- <form action="/admin/cargaVarios" method="post" id="newProdForm"> -->
                     <!-- <h1>Nombre del Producto</h1> -->
                     <label for="" class="label-dato">Nuevo Talle</label>
                     <input type="text" name="nuevoTalle" class="input-num-dato" id="nameProduct" placeholder="Ingrese valor nuevo talle">
+                    <input type="text" name="nuevaPrenda" class="input-num-dato" list="prendas-list" id="nameProduct" placeholder="Para que tipo de prenda">
+                    <datalist name="nuevaPrenda" id="prendas-list">
+                        <% for( let i = 0; i < categorias.length; i++ ) { %>
+                            <option value="<%= categorias[i].nombre_categoria %> "></option>
+                        <% } %>
+                        <!-- <option value="Calzado">
+                        <option value="Jean">
+                        <option value="Torso"> -->
+                    </datalist>
+                    <!-- <input type="text" name="nuevaPrenda" class="input-num-dato" id="nameProduct" placeholder="Para que tipo de prenda"> -->
                     <small class="text-danger" id="errorName"></small>
                     <label class="text-success" id="exito"></label>
-                    <div class="form-carga-producto mb-3">
+                    <!-- <div class="form-carga-producto mb-3">
                         <button type="submit" class="boton-carga-producto">Crear Talle</button>
-                    </div>
-            </form>
+                    </div> -->
+            <!-- </form> -->
         </div>
         <div class="datoProd">
-            <form action="/admin" method="post" id="newProdForm" enctype="multipart/form-data">
+            <!-- <form action="/admin/cargaVarios" method="post" id="newProdForm"> -->
                     <!-- <h1>Nombre del Producto</h1> -->
                     <label for="" class="label-dato">Nueva Categoria</label>
-                    <input type="text" name="nuevoTalle" class="input-num-dato" id="nameProduct" placeholder="Ingrese nueva Categoria">
+                    <input type="text" name="nuevaCategoria" class="input-num-dato" id="nameProduct" placeholder="Ingrese nueva Categoria">
                     <small class="text-danger" id="errorName"></small>
                     <label class="text-success" id="exito"></label>
-                    <div class="form-carga-producto mb-3">
+                    <!-- <div class="form-carga-producto mb-3">
                         <button type="submit" class="boton-carga-producto">Crear Categoria</button>
-                    </div>
-            </form>
+                    </div> -->
+            <!-- </form> -->
         </div>
         <div class="datoProd">
-            <form action="/admin" method="post" id="newProdForm" enctype="multipart/form-data">
+            <!-- <form action="/admin/cargaVarios" method="post" id="newProdForm"> -->
                     <!-- <h1>Nombre del Producto</h1> -->
                     <label for="" class="label-dato">Nueva Temporada</label>
-                    <input type="text" name="nuevoTalle" class="input-num-dato" id="nameProduct" placeholder="Ingrese nueva Temporada">
+                    <input type="text" name="nuevaTemporada" class="input-num-dato" id="nameProduct" placeholder="Ingrese nueva Temporada">
                     <small class="text-danger" id="errorName"></small>
                     <label class="text-success" id="exito"></label>
-                    <div class="form-carga-producto mb-3">
+                    <!-- <div class="form-carga-producto mb-3">
                         <button type="submit" class="boton-carga-producto">Crear temporada</button>
-                    </div>
-            </form>
+                    </div> -->
+            <!-- </form> -->
         </div>
+        <div class="form-carga-dato mb-3">
+            <button type="submit" class="boton-carga-producto">Cargar Datos</button>
+        </div>
+        </form>
     </div>
     
     <!-- <script src="/javascripts/adminProductNew.js"></script> -->

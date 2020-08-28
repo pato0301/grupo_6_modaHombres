@@ -181,6 +181,12 @@
     flex-wrap: wrap;
     justify-content: start;
 }
+.contenedorDatos .cargaDatos {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: start;
+}
 .contenedorDatos .datoProd {
     width: 100%;
 }
@@ -189,4 +195,11 @@
 }
 .contenedorDatos .datoProd .input-num-dato {
     width: 100%;
+}
+.contenedorDatos .form-carga-dato {
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }

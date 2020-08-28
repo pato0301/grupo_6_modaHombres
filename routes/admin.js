@@ -28,5 +28,6 @@ router.delete('/delete/selectProduct/:idProducto', adminController.saveDelete);
 // router.delete('/carga-producto', adminController.delete);
 
 router.get('/cargaVarios', adminController.datosExtras);
+router.post('/cargaVarios', adminController.cargaDatos);
 
 module.exports = router;

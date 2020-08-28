@@ -184,7 +184,47 @@ const productos = {
         // res.redirect('/admin')
     },
     datosExtras: (req,res) => {
-        res.render("carga_datos_extra")
+        db.Categoria.findAll({
+            raw:true,
+            attributes: ['nombre_categoria']
+        })
+        .then(categorias => {
+            // console.log(categorias);
+            res.render("carga_datos_extra",{categorias:categorias})
+        })
+    },
+    cargaDatos: (req,res) => {
+        // console.log(req.body);
+        // let datos = []
+        // let crearTalle;
+        // let crearCategoria;
+        // let crearTemporada;
+        if(req.body.nuevoTalle != "" && req.body.nuevaPrenda != ""){
+            crearTalle = db.Talle.create({
+                talle: req.body.nuevoTalle,
+                prenda: req.body.nuevaPrenda,
+            })
+            // datos.push(req.body.nuevoTalle)
+            // datos.push(req.body.nuevaPrenda)
+        }
+        if(req.body.nuevaCategoria != ""){
+            crearCategoria = db.Categoria.create({
+                nombre_categoria: req.body.nuevaCategoria
+            })
+            // datos.push(req.body.nuevaCategoria)
+        }
+        if(req.body.nuevaTemporada != ""){
+            crearTemporada = db.Temporada.create({
+                temporada: req.body.nuevaTemporada
+            })
+            // datos.push(req.body.nuevaTemporada)
+        }
+        // console.log(datos);
+        Promise.all([crearTalle,crearCategoria,crearTemporada])
+        .then(result => {
+            res.send("Se cargaron los datos")
+        })
+        // res.send(datos)
     }
 };
 
