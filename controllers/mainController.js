@@ -6,16 +6,40 @@ const db = require('../database/models');
 
 const main = {
     root: (req,res) => {
-        db.Producto.findAll({
+        let latest = db.Producto.findAll({
+            // raw: true,
             where: {
                 active: 1,
                 current_season:1
             },
-            limit : 4
+            limit : 4,
+            include: [
+                {association: "imagenes"}
+            ],
+            order: [
+                ['created_at', 'DESC'],
+            ],
         })
+        let season = db.Producto.findAll({
+            where: {
+                active: 1,
+                current_season:1
+            },
+            limit : 4,
+            include: [
+                {association: "imagenes"}
+            ]
+        })
+        Promise.all([latest,season])
         .then(result => {
-            // console.log(result[0].dataValues);
-            res.render('homeMain',{user:req.session.userClient,productsSeason:result})
+            // console.log(`latest: ${result[0]}`);
+            // console.log(`season: ${result[1]}`);
+            let productsLatest =  result[0];
+            let productsSeason = result[1];
+            // res.send("Se cargaron los datos")
+            res.render('homeMain',{
+                user:req.session.userClient,productsSeason:productsSeason,productsLatest:productsLatest
+            })
         })
         // res.render('homeMain',{user:req.session.userClient})
     },
