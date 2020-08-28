@@ -48,7 +48,7 @@ const productos = {
                 if (bcrypt.compareSync(req.body.password,resultados.dataValues.password)){
                     req.session.adminUser = req.body.email
                     if (req.body.remember =="on") {
-                        res.cookie("adminCookie", resultados.dataValues.email, {maxAge: 1000 * 60  } )
+                        res.cookie("adminCookie", resultados.dataValues.email, {maxAge: 1000 * 60 * 60 } )
                         // el max age de la cookie esta en milisegundos.... toda esa cuenta seria un año nose cuanto tiempo deberia durar
                     }
                     res.redirect('/admin')

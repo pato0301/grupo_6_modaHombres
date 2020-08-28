@@ -5,7 +5,7 @@ const uploadProdImageMiddleware = require('../middlewares/uploadProductMiddlewar
 const loginAdminMiddleware = require('../middlewares/loginAdminMiddleware')
 
 // Rutas Necesarias
-router.get('/',adminController.carga);
+router.get('/',loginAdminMiddleware,adminController.carga);
 // router.get('/carga-producto', adminController.carga);
 // router.post('/', uploadProdImageMiddleware.any(),adminController.agregar);
 // router.post('/carga-producto', adminController.agregar);
@@ -15,7 +15,7 @@ router.post('/login', adminController.loginAdmin);
 router.get('/register', adminController.register);
 router.post('/register', adminController.saveAdmin);
 
-router.get('/edit/selectProduct', adminController.select);
+router.get('/edit/selectProduct', loginAdminMiddleware,adminController.select);
 // router.get('/delete/selectProduct', loginAdminMiddleware, adminController.select);
 // router.get('/edit/selectProduct/:idProducto', loginAdminMiddleware, adminController.edit);
 // router.get('/delete/selectProduct/:idProducto', loginAdminMiddleware, adminController.delete);
@@ -30,7 +30,7 @@ router.delete('/delete/selectProduct/:idProducto', adminController.saveDelete);
 router.get('/cargaVarios', loginAdminMiddleware,adminController.datosExtras);
 router.post('/cargaVarios', adminController.cargaDatos);
 
-router.get('/moreImages/:idProducto', adminController.moreImages);
+router.get('/moreImages/:idProducto', loginAdminMiddleware,adminController.moreImages);
 router.post('/moreImages/:idProducto', uploadProdImageMiddleware.any(),adminController.saveMoreIamges);
 
 module.exports = router;
