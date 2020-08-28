@@ -57,6 +57,7 @@ window.addEventListener("load",()=>{
             //     image: inputImg.files[0] == undefined || inputImg.files.length == 0? "default_avatar.png": inputImg.files[0].name,
             //     productImage: inputImg,
             // }
+            console.log(newForm);
             fetch('http://localhost:3000/api/product/newProduct',{
                 method: 'POST',
                 // headers:{
@@ -88,7 +89,7 @@ window.addEventListener("load",()=>{
             reader.onload = function()
             {
             // var output = document.getElementById('output_image');
-            imgProd
+            // imgProd
             imgProd.src = reader.result;
             }
             reader.readAsDataURL(event.target.files[0]);

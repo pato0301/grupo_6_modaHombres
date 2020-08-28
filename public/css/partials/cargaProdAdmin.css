@@ -33,6 +33,26 @@
 .producto-add .img-carga-prod p {
     text-align: center;
 }
+.add-iamges {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 10px 20px;
+}
+.add-iamges .cont-img-more {
+    margin: 0 auto;
+    height: 300px;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.add-iamges .cont-img-more .img-new {
+    max-width: 95%;
+    max-height: 95%;
+    margin: 5px;
+}
+
 /* IMAGEN EN PAGINA ADMIN PARA EDITAR O BORRAR PRODUCTO */
 .producto-add .div-edit-prod {
     height: 80vh;
@@ -46,6 +66,7 @@
     max-width: 100%;
     max-height: 100%;
 }
+
 
 /* CARGA NOMBRE Y PRECIO DEL PRODUCTO */
 .producto-add .det-prod {
@@ -104,6 +125,13 @@
 .producto-add .det-prod .box-price input {
     /* width: 95%; */
     /* margin-bottom: 15px; */
+}
+.producto-add .det-prod .add-new-img {
+    width: 100%;
+}
+.producto-add .det-prod .add-new-img .boton-more-img {
+    width: 50%;
+    border-radius: 10px;
 }
 
 /* 
@@ -173,6 +201,17 @@
     text-align: center;
     /* margin-bottom: 10px; */
 }
+.box-checks {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: start;
+}
+.box-checks .checkProd {
+    width: 10px;
+}
+/* .box-checks input[type="checkbox"] {
+    vertical-align:middle;
+} */
 
 /* Datos extras */
 
@@ -198,6 +237,12 @@
 }
 .contenedorDatos .form-carga-dato {
     margin-top: 20px;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.form-carga-imagenes {
     width: 100%;
     display: flex;
     flex-wrap: wrap;

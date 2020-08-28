@@ -43,6 +43,20 @@ module.exports = {
         // console.log(typeof req.body.talles);
         let talles = typeof req.body.talles == "string"? [req.body.talles ] : req.body.talles 
         let array_talles = []
+        let imagenes = []
+        console.log(req.body.currentSeason);
+        console.log(req.files);
+        if (req.files != undefined && req.files.length > 0) {
+            imagenes.push(req.files[0].filename);
+            imagenes.push("default_avatar.png");
+            imagenes.push("default_avatar.png");
+        }
+        else {
+            imagenes.push("default_avatar.png");
+            imagenes.push("default_avatar.png");
+            imagenes.push("default_avatar.png");
+        }
+        console.log(imagenes);
         // for (let i = 0; i < talles.length; i++) {
         //     let talle_prod = {
         //         idtalle: talles[i]} 
@@ -56,8 +70,9 @@ module.exports = {
             imagen: req.files == undefined || req.files.length == 0? "default_avatar.png": req.files[0].filename,
             // imagen: req.file.filename,
             // talles: array_talles,
+            current_season: req.body.currentSeason == "on"? 1:0,
             id_categoria: 1,
-            active: 1
+            active: req.body.active == "on"? 1:0
         }
         // console.log(newProduct);
         db.Producto.create(newProduct)
@@ -71,19 +86,37 @@ module.exports = {
                 array_talles.push(talle_prod)
             }
             // console.log(array_talles);
-            db.TalleProducto.bulkCreate(array_talles)
-            .then(result => {
-                // product.dataValues.talles = result.dataValues
-                let respuesta = {
-                    error: false,
-                    codigo: 200,
-                    mensaje: 'Producto creado',
-                    // respuesta: usuario
+            let createTalle = db.TalleProducto.bulkCreate(array_talles)
+            // .then(result => {
+            //     // product.dataValues.talles = result.dataValues
+            //     let respuesta = {
+            //         error: false,
+            //         codigo: 200,
+            //         mensaje: 'Producto creado',
+            //         // respuesta: usuario
+            //     }
+            //     // console.log(product.dataValues);
+            //     return res.send(JSON.stringify(respuesta))
+            // })
+            let newImagenes = []
+            for (let i = 0; i < imagenes.length; i++) {
+                let tmpImg = {
+                    idproducto:product.dataValues.idproducto,
+                    imagen:imagenes[i],
                 }
-                // console.log(product.dataValues);
+                newImagenes.push(tmpImg)
+            }
+            let createImages = db.Imagen.bulkCreate(newImagenes)
+            Promise.all([createTalle,createImages])
+            .then(result => {
+                let respuesta = {
+                        error: false,
+                        codigo: 200,
+                        mensaje: 'Producto creado',
+                        // respuesta: usuario
+                    }
                 return res.send(JSON.stringify(respuesta))
             })
-            
         })
         .catch((error) => {
             console.log(error);

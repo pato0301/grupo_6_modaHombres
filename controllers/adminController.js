@@ -225,7 +225,62 @@ const productos = {
             res.send("Se cargaron los datos")
         })
         // res.send(datos)
-    }
+    },
+    moreImages: (req,res) => {
+        if (req.params.idProducto == ':idProducto' || !parseInt(req.params.idProducto)) {
+            return res.redirect('/admin/edit/selectProduct')
+        }
+        db.Producto.findByPk(req.params.idProducto,{include: [
+            {association: "imagenes"}
+        ]})
+        .then(producto => {
+            // if (producto == null) {
+            //     return res.redirect('admin/edit/selectProduct')
+            // }
+            // console.log(producto);
+            // console.log(producto.dataValues);
+            // console.log(producto.dataValues.imagenes[1].dataValues);
+            return res.render('moreImages',{producto:producto.dataValues,imagenes:producto.dataValues.imagenes})
+        })
+    },
+    saveMoreIamges: (req,res) => {
+        // db.Producto.findAll()
+        // .then(result => {
+        //     res.render('moreImages',{productos:result})
+        // })
+        let images = []
+        let files = req.files
+        // console.log(req.files);
+        for (let i = 0; i < files.length; i++) {
+            images.push(files[i].filename);
+        }
+        // db.Imagen.update({},{
+
+        // })
+        db.Imagen.findAll({
+            raw:true,
+            where:{
+                idproducto:req.params.idProducto
+            }
+        })
+        .then(imagenes => {
+            // console.log(imagenes);
+            for (let i = 0; i < images.length; i++) {
+                // imagenes[i].imagen = images[i]
+                db.Imagen.update(
+                    { imagen: images[i] },
+                    { where: { idimagen: imagenes[i].idimagen } }
+                )
+            }
+            // console.log(imagenes);
+        })
+        .then(result => {
+            return res.redirect("/admin/edit/selectProduct")
+        })
+        // console.log(req.params.idProducto);
+        // console.log(images);
+        // res.send("ok")
+    },
 };
 
 module.exports = productos;

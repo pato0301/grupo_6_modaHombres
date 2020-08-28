@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<%- include('partials/head.ejs') %> 
+
+<body>
+    
+    <%- include('partials/headerNavAdmins.ejs') %> 
+    <h1 class="ml-5">Imagenes para el producto: <%= producto.nombre %> </h1>
+    <div class="add-iamges">
+        <div class="cont-img-more">
+            <img src="/images/producto/<%= imagenes[0].dataValues.imagen %>" alt="" class="img-new" id="prodImg1">
+        </div>
+        <div class="cont-img-more">
+            <img src="/images/producto/<%= imagenes[1].dataValues.imagen %>" alt="" class="img-new" id="prodImg2">
+        </div>
+        <div class="cont-img-more">
+            <img src="/images/producto/<%= imagenes[2].dataValues.imagen %>" alt="" class="img-new" id="prodImg3">
+        </div>
+    </div>
+    
+    <!-- <output id="result"></output> -->
+    <form action="/admin/moreImages/<%= producto.idproducto %>" method="post" class="cargaDatos" id="editProdForm" enctype="multipart/form-data">
+        <input type="file" name="prodImgName" id="prodPhoto" style="display: none;" multiple/>
+        <% for( let i = 0; i < imagenes.length; i++ ) { %>
+            <input type="hidden" name="imageId<%= imagenes[i].dataValues.idimagen %>" value="<%= imagenes[i].dataValues.idimagen %>">
+        <% } %>
+        <div class="form-carga-imagenes mb-3">
+            <button type="submit" class="boton-carga-producto">Cargar Imagenes</button>
+        </div>
+    </form>
+    <!-- <form action="/admin/edit/selectProduct/:idProduct?_method=put" method="post" class="form-select-producto" id="editProdForm" enctype="multipart/form-data">
+        <input type="file" name="prodImgName" id="prodPhoto" style="display: none;" multiple/>
+
+    </form> -->
+    <script src="/javascripts/adminProductImages.js"></script>
+</body>
+</html>

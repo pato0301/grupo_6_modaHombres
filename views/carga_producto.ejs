@@ -49,15 +49,16 @@
                                 <% } %>
                             <% } %>
                         </select>
-<!--                         
-                        <li>38 /</li>
-                        <li>40 /</li>
-                        <li>42 /</li>
-                        <li>44 /</li>
-                        <li>46 /</li> -->
-                    <!-- </ul> -->
                 </div>
-                <div class="button-admin">
+                <div class="box-checks">
+                    <input type="checkbox" name="currentSeason" id="nameProduct">
+                    <label for="name-prod">Current season</label>
+                </div>
+                <div class="box-checks">
+                    <input type="checkbox" name="active" id="nameProduct" class="checkProd" checked>
+                    <label for="name-prod">Producto Activo?</label>
+                </div>
+                <div class="button-admin mt-3">
                     <!-- <form action="" method="POST" class="form-carga-producto"> -->
                     <div class="form-carga-producto">
                         <button type="submit" class="boton-carga-producto">Añadir Producto</button>
@@ -67,9 +68,9 @@
                     <div class="form-edit-producto">
                         <a href="/admin/edit/selectProduct"><button type="button" class="boton-edit-producto">Editar / Eliminar</button></a>
                     </div>
-                    <div class="form-edit-producto">
+                    <!-- <div class="form-edit-producto">
                         <a href="/admin/cargaVarios"><button type="button" class="boton-edit-producto">Cargar Otros Datos</button></a>
-                    </div>
+                    </div> -->
                     <!-- </form> -->
                     <!-- <a href="/products/edit/" class="action-button edit">EDITAR PRODUCTO</a> -->
                     <!-- <form action="/admin?_method=delete" method="POST" class="form-delete-producto"> -->

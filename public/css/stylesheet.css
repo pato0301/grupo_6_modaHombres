@@ -125,6 +125,10 @@ body {
         width: 80%;
         margin-bottom: 10px;
     }
+    .add-iamges .cont-img-more {
+        width: 45%;
+        margin-bottom: 20px;
+    }
 }
 
 
@@ -152,7 +156,14 @@ body {
     .contenedorDatos .datoProd {
         width: 32%;
     }
-    
+    .producto-add .det-prod .add-new-img .boton-more-img {
+        width: 35%;
+        border-radius: 10px;
+    }
+    .add-iamges .cont-img-more {
+        width: 32%;
+        margin-bottom: 20px;
+    }
 }
 
 /*  ========================================================================================================= 
@@ -274,6 +285,9 @@ body {
     }
     .producto-add .det-prod .button-admin .boton-select-producto {
         width: 100%;
+    }
+    .box-checks .checkProd {
+        width: 10px;
     }
 }
 

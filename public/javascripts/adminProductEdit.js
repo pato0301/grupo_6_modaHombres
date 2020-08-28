@@ -16,6 +16,7 @@ window.addEventListener("load",()=>{
     let productDetail = {}
     let imgProd = $("#prodImg")
     let inputImg = $("input[id='prodPhoto']")
+    let linkMoreImages = $("#moreImages")
 
     productList.addEventListener("change",(event) => {
 
@@ -33,8 +34,9 @@ window.addEventListener("load",()=>{
             valName.value = product.nombre
             valPrice.value = price.precio
             valDesc.value = description.value
-            editForm.attributes.action.value = `/admin/edit/selectProduct/${product.idproductos}?_method=put`
-            deleteForm.attributes.action.value = `/admin/delete/selectProduct/${product.idproductos}?_method=delete`
+            editForm.attributes.action.value = `/admin/edit/selectProduct/${product.idproducto}?_method=put`
+            deleteForm.attributes.action.value = `/admin/delete/selectProduct/${product.idproducto}?_method=delete`
+            linkMoreImages.href = `http://localhost:3000/admin/moreImages/${product.idproducto}`
             imgProd.src = `/images/producto/${product.imagen}?`
             // console.log(valDesc.value);
             // console.log(editForm.attributes.action)
