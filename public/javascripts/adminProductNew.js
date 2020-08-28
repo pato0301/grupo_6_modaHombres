@@ -25,26 +25,26 @@ window.addEventListener("load",()=>{
     newForm.addEventListener("submit",(event) => {
         event.preventDefault()
         console.log("apretaste submit");
-        if(isNaN(price.value) || price.value < 0)
+        if(isNaN(price.value) || price.value < 0 || price.value == "")
         {
             // alert("Must input numbers");
             // return false;
-            errorPrice.value = "Price must be a number"
+            errorPrice.innerText = "Price must be a number"
             console.log("no es numero");
         }
         if(nameProd.value == "")
         {
             // alert("Must input numbers");
             // return false;
-            errorName.value = "Product must have a Name"
+            errorName.innerText = "Product must have a Name"
             console.log("nombre vacio");
         }
         if(description.value == ""){
-            errorText.value = "Description can not be empty"
+            errorText.innerText = "Description can not be empty"
             console.log("description empty");
         }
         if(description.value.length < 10){
-            errorName.value = "Description must have at least 10 letters"
+            errorName.innerText = "Description must have at least 10 letters"
             console.log("description less than 10");
         }
         if(!isNaN(price.value) && price.value > 0 && nameProd.value != "" && description.value.length > 9){
