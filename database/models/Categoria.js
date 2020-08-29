@@ -21,7 +21,7 @@ module.exports = (sequelize, DataTypes) => {
             underscored : true,
         }
 
-    const categoria = sequelize.define(alias,cols,config)
+    const Categoria = sequelize.define(alias,cols,config)
 
-    return categoria
+    return Categoria
 }

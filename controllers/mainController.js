@@ -2,6 +2,7 @@ const path = require('path');
 const fs = require('fs');
 const bcrypt = require('bcrypt');
 const {check, validationResult, body} = require('express-validator');
+const { Op } = require("sequelize");
 const db = require('../database/models');
 
 const main = {
@@ -44,7 +45,57 @@ const main = {
         // res.render('homeMain',{user:req.session.userClient})
     },
     search:(req,res) => {
-        res.redirect('/')
+        let productSearched = db.Producto.findAll({
+            // raw:true,
+            where:{
+                [Op.or]:[
+                    { nombre: {[Op.substring]:req.query.keywords}},
+                    { descripcion: {[Op.substring]:req.query.keywords}}
+                ]
+            },
+            limit : 8,
+            include: [
+                {association: "imagenes"}
+            ]
+        })
+        let allProd = db.Producto.findAll({
+            where: {
+                active: 1
+            },
+            include: [
+                {association: "imagenes"}
+            ]
+        })
+        let uniqueProduct = []
+        let searchedProducts = []
+        Promise.all([productSearched,allProd])
+        .then(result => {
+            let buscados = result[0];
+            let productosExtras = result[1];
+            for (let i = 0; i < buscados.length; i++) {
+                uniqueProduct.push(buscados[i].dataValues.nombre)
+                searchedProducts.push(buscados[i].dataValues)
+            }
+            if (searchedProducts.length < 8) {
+                for (let i = 0; i < productosExtras.length; i++) {
+                    if (searchedProducts.length >= 8) {
+                        break;
+                    }
+                    if (!uniqueProduct.includes(productosExtras[i].dataValues.nombre)) {
+                        uniqueProduct.push(productosExtras[i].dataValues.nombre)
+                        searchedProducts.push(productosExtras[i].dataValues)
+                    }
+                }
+            }
+            // console.log(result[0][1].dataValues.imagenes[1]);
+            // res.send(result[0][1].dataValues)
+            console.log(searchedProducts);
+            res.render('searched',{user:req.session.userClient,products:searchedProducts})
+            // res.render('searched',{user:req.session.userClient,products:result[0]})
+            // res.send(req.query.keywords)
+        })
+        // res.send(req.query)
+        // res.redirect('/')
     },
     login: (req,res) => {
         res.render('loginMain',{user:req.session.userClient})

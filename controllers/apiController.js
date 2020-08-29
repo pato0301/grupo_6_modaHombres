@@ -2,8 +2,7 @@ const path = require('path');
 const fs = require('fs');
 const db = require('../database/models');
 const productos = require('./adminController');
-// let users = JSON.parse(fs.readFileSync(path.join(__dirname,'../data/users.json')),'utf8')
-// let products = JSON.parse(fs.readFileSync(path.join(__dirname,'../data/productos.json')),'utf8')
+const { Op } = require("sequelize");
 
 module.exports = {
     detalleProd : (req,res) => {
@@ -71,7 +70,7 @@ module.exports = {
             // imagen: req.file.filename,
             // talles: array_talles,
             current_season: req.body.currentSeason == "on"? 1:0,
-            id_categoria: 1,
+            id_categoria: req.body.categoria,
             active: req.body.active == "on"? 1:0
         }
         // console.log(newProduct);
@@ -131,5 +130,67 @@ module.exports = {
         //     respuesta: newProduct
         // }
         // return res.send(JSON.stringify(respuesta))
+    },
+    searchProd: (req,res) => {
+        // console.log(req.params.keyWord);
+        let productos = db.Producto.findAll({
+            raw:true,
+            where:{
+                [Op.or]:[
+                    { nombre: {[Op.substring]:req.params.keyWord}},
+                    { descripcion: {[Op.substring]:req.params.keyWord}}
+                ]
+            },
+            limit : 5,
+            // include: [
+            //     {association: "categorias",
+            //         // where: {
+            //         //     nombre_categoria: {[Op.substring]:req.params.keyWord}
+            //         // }
+            //     }
+            // ],
+        })
+        // .then(products => {
+        //     for (let i = 0; i < products.length; i++) {
+        //         let searchResult = {
+        //             result: products[i].nombre
+        //         }
+        //     }
+        //     console.log(products[0]);
+        // })
+        let categorias = db.Categoria.findAll({
+            raw:true,
+            where:{
+                [Op.or]:[
+                    { nombre_categoria: {[Op.substring]:req.params.keyWord}}
+                ]
+            },
+            limit : 5
+        })
+        let searchResult = []
+        let searchJson = []
+        Promise.all([productos,categorias])
+        .then(result => {
+            let prodRes = result[0]
+            let catRes = result[1]
+            for (let i = 0; i < prodRes.length; i++) {
+                if(!searchResult.includes(prodRes[i].nombre)){
+                    searchResult.push(prodRes[i].nombre)
+                }
+            }
+            for (let i = 0; i < catRes.length; i++) {
+                if(!searchResult.includes(catRes[i].nombre_categoria)){
+                    searchResult.push(catRes[i].nombre_categoria)
+                }
+            }
+            // for (let i = 0; i < searchResult.length; i++) {
+            //     searchJson.push({result:searchResult[i]})
+            // }
+            console.log(searchResult);
+            // console.log(searchJson);
+            // res.status(200).json(searchJson)
+            res.status(200).json(searchResult)
+        })
+        // res.status(200).json(searchJson)
     }
 }

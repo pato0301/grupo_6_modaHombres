@@ -24,14 +24,16 @@
     </ul>
     <div class="buscador">
         <!-- <h4>Buscar</h4> -->
-        <form action="/search" method="get" class="search-form">
-            <input type="text" name="keywords" placeholder="Buscar" class="search-form_input">
+        <form action="/search" method="get" class="search-form" id="searchBar">
+            <input type="text" name="keywords" placeholder="Buscar" list="searchList" class="search-form_input" id="buscador">
+            <datalist name="keyWords" id="searchList">
+            </datalist>
         </form>
     </div>
     <div class="nav-izq">
         <% if (user) { %>
             <a class="signIn" href="/user">
-                <div class="avatar" style="background-image: url(/uploads/avatars/<%= user.avatar %>);">
+                <div class="avatar" style="background-image: url(/uploads/avatars/<%= user.avatar %>)">
                     <!-- <a href="/user"></a> -->
                     <!-- <img src="/uploads/avatars/default_avatar.png" alt="Avatar" class="avatar-img"> -->
                 </div>

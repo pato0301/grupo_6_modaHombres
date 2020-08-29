@@ -50,6 +50,14 @@
                             <% } %>
                         </select>
                 </div>
+                <div class="talle">
+                    <h4>Categorias Disponibles:</h4>
+                        <select name="categoria" id="categoria">
+                            <% for( let i = 0; i < categorias.length; i++ ) { %>
+                                <option value="<%= categorias[i].dataValues.idcategorias %>"><%= categorias[i].dataValues.nombre_categoria %></option>
+                            <% } %>
+                        </select>
+                </div>
                 <div class="box-checks">
                     <input type="checkbox" name="currentSeason" id="nameProduct">
                     <label for="name-prod">Current season</label>
@@ -68,9 +76,9 @@
                     <div class="form-edit-producto">
                         <a href="/admin/edit/selectProduct"><button type="button" class="boton-edit-producto">Editar / Eliminar</button></a>
                     </div>
-                    <!-- <div class="form-edit-producto">
+                    <div class="form-edit-producto">
                         <a href="/admin/cargaVarios"><button type="button" class="boton-edit-producto">Cargar Otros Datos</button></a>
-                    </div> -->
+                    </div>
                     <!-- </form> -->
                     <!-- <a href="/products/edit/" class="action-button edit">EDITAR PRODUCTO</a> -->
                     <!-- <form action="/admin?_method=delete" method="POST" class="form-delete-producto"> -->

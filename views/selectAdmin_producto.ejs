@@ -31,6 +31,34 @@
                     <input type="text" name="precioProducto" id="price" class="input-name-prod"> 
                 </div>
                 <textarea name="descriptionProd" class="texto-desc-prod" id="prod-desc" cols="15" rows="12" placeholder="Descripcion:"></textarea>
+                <div class="talle">
+                    <h4>Talle Disponibles:</h4>
+                    <!-- <ul class="talles-carga-prod"> -->
+                        <% let prenda = "" %> 
+                        <select name="talles" class="talles-carga-prod" id="talles" multiple>
+                            <% for( let i = 0; i < talles.length; i++ ) { %>
+                                <% if (i === 0) { %>
+                                    <% prenda = talles[i].dataValues.prenda %> 
+                                    <option value="<%= talles[i].dataValues.idtalle %>" disabled><%= talles[i].dataValues.prenda %></option>
+                                    <option value="<%= talles[i].dataValues.idtalle %>"><%= talles[i].dataValues.talle %> </option>
+                                <% } else if (prenda != talles[i].dataValues.prenda) { %>
+                                    <% prenda = talles[i].dataValues.prenda %>
+                                    <option value="<%= talles[i].dataValues.idtalle %>" disabled><%= talles[i].dataValues.prenda %></option>
+                                    <option value="<%= talles[i].dataValues.idtalle %>"><%= talles[i].dataValues.talle %> </option>
+                                <% } else { %>
+                                    <option value="<%= talles[i].dataValues.idtalle %>"><%= talles[i].dataValues.talle %> </option>
+                                <% } %>
+                            <% } %>
+                        </select>
+                </div>
+                <div class="talle">
+                    <h4>Categorias Disponibles:</h4>
+                        <select name="categoria" id="categoria">
+                            <% for( let i = 0; i < categorias.length; i++ ) { %>
+                                <option value="<%= categorias[i].dataValues.idcategorias %>"><%= categorias[i].dataValues.nombre_categoria %></option>
+                            <% } %>
+                        </select>
+                </div>
             </div>
             <div class="button-admin">
                 <!-- <form action="" method="POST" class="form-carga-producto">

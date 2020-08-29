@@ -6,35 +6,35 @@ const bcrypt = require('bcrypt')
 
 const productos = {
     root : (req,res,next) => {
-        db.Producto.findAll({
-            // plain: false,
-            // raw: true,
-            // nest: true,
-            include: [
-                // {model: db.TalleProducto, as: 'talleProducto'} 
-                // {association: "talleProducto"}
-                {association: "talles",
-                }
-            ],
-            where: {
-                idproducto: 4,
-                // current_season:1
-            },
-            // limit : 1
-        })
-        .then(result => {
-            console.log(result);
-            // console.log(result.length);
-            // for (let i = 0; i < result.length; i++) {
-            //     // console.log(result[i].dataValues);
-            //     console.log(result[i].dataValues.talles);
-            //     console.log(result[i].dataValues.talles.length);
-            //     // for (let i = 0; i < result[i].dataValues.talles.length; i++) {
-            //     //     console.log(result[i].dataValues.talles);
-            //     // }
+        // db.Producto.findAll({
+        //     // plain: false,
+        //     // raw: true,
+        //     // nest: true,
+        //     include: [
+        //         // {model: db.TalleProducto, as: 'talleProducto'} 
+        //         // {association: "talleProducto"}
+        //         {association: "talles",
+        //         }
+        //     ],
+        //     where: {
+        //         idproducto: 4,
+        //         // current_season:1
+        //     },
+        //     // limit : 1
+        // })
+        // .then(result => {
+        //     console.log(result);
+        //     // console.log(result.length);
+        //     // for (let i = 0; i < result.length; i++) {
+        //     //     // console.log(result[i].dataValues);
+        //     //     console.log(result[i].dataValues.talles);
+        //     //     console.log(result[i].dataValues.talles.length);
+        //     //     // for (let i = 0; i < result[i].dataValues.talles.length; i++) {
+        //     //     //     console.log(result[i].dataValues.talles);
+        //     //     // }
                 
-            // }
-        })
+        //     // }
+        // })
         res.render('loginAdmin', {typePage: 'Admin Login'})
         // res.render('carga_producto')
     },
@@ -77,40 +77,58 @@ const productos = {
     carga : (req,res,next) => {
         // res.render('login', {typePage: 'Admin Login'})
         // console.log('entra en /admin');
-        db.Talle.findAll({
+        let talles = db.Talle.findAll({
             order: [
                 ['prenda', 'DESC'],
                 ['idtalle', 'ASC']
             ]
         })
-        .then(result => {
-            return res.render('carga_producto',{talles:result})
-            // let prenda = ""
-            // for (let i = 0; i < result.length; i++) {
-            //     if(i === 0){
-            //         prenda = result[i].dataValues.prenda
-            //         console.log(prenda);
-            //         console.log(result[i].dataValues.talle);
-            //     }
-            //     else if (prenda != result[i].dataValues.prenda){
-            //         prenda = result[i].dataValues.prenda
-            //         console.log(prenda);
-            //         console.log(result[i].dataValues.talle);
-            //     }
-            //     else {
-            //         console.log(result[i].dataValues.talle);
-            //     }
-            //     // console.log(result[i].dataValues);
+        // .then(result => {
+        //     return res.render('carga_producto',{talles:result})
+        //     // let prenda = ""
+        //     // for (let i = 0; i < result.length; i++) {
+        //     //     if(i === 0){
+        //     //         prenda = result[i].dataValues.prenda
+        //     //         console.log(prenda);
+        //     //         console.log(result[i].dataValues.talle);
+        //     //     }
+        //     //     else if (prenda != result[i].dataValues.prenda){
+        //     //         prenda = result[i].dataValues.prenda
+        //     //         console.log(prenda);
+        //     //         console.log(result[i].dataValues.talle);
+        //     //     }
+        //     //     else {
+        //     //         console.log(result[i].dataValues.talle);
+        //     //     }
+        //     //     // console.log(result[i].dataValues);
                 
-            // }
+        //     // }
             
+        // })
+        let categorias = db.Categoria.findAll()
+        Promise.all([talles,categorias])
+        .then(result => {
+            let talles = result[0];
+            let categorias = result[1];
+            return res.render('carga_producto',{talles:talles, categorias:categorias})
         })
         
     },
     select : (req,res) => {
-        db.Producto.findAll()
+        let productos = db.Producto.findAll()
+        let talles = db.Talle.findAll({
+            order: [
+                ['prenda', 'DESC'],
+                ['idtalle', 'ASC']
+            ]
+        })
+        let categorias = db.Categoria.findAll()
+        Promise.all([productos,talles,categorias])
         .then(result => {
-            res.render('selectAdmin_producto',{productos:result})
+            let productos = result[0];
+            let talles = result[1];
+            let categorias = result[2];
+            res.render('selectAdmin_producto',{productos:productos,talles:talles, categorias:categorias})
         })
         
     },

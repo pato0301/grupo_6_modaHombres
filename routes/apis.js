@@ -7,4 +7,6 @@ router.get('/product/detalle/:id',apiController.detalleProd);
 // router.post('/product/newProduct', uploadProdImageMiddleware.single('productImage'),apiController.cargaNewProd);
 router.post('/product/newProduct', uploadProdImageMiddleware.any(),apiController.cargaNewProd);
 
+router.get('/search/:keyWord',apiController.searchProd);
+
 module.exports = router;
