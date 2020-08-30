@@ -1,7 +1,7 @@
 const path = require('path');
 const fs = require('fs')
 const db = require('../database/models');
-// let dataProductos = JSON.parse(fs.readFileSync(path.join(__dirname,'../data/productos.json')));
+const { Op } = require("sequelize");
 const bcrypt = require('bcrypt')
 
 const productos = {
@@ -136,51 +136,94 @@ const productos = {
         // console.log(req.files);
         // console.log(req.body);
         let updatedProd = {}
+        // let talles = req.body.talles.split(',')
+        let talles = JSON.parse(req.body.talles)
+        let toDelete = talles[0].deleted
+        let toAdd = talles[0].added
+        let tallesToAdd = [];
         if (req.files.length > 0) {
             updatedProd = {
                 nombre: req.body.name,
                 descripcion: req.body.desc,
                 precio: parseFloat(req.body.price),
                 imagen: req.files[0].filename,
+                id_categoria: req.body.categoria,
             }
         }
         else {
             updatedProd = {
                 nombre: req.body.name,
                 descripcion: req.body.desc,
-                precio: parseFloat(req.body.price)
+                precio: parseFloat(req.body.price),
+                id_categoria: req.body.categoria,
             }
         }
-        console.log(updatedProd);
-        db.Producto.update(updatedProd,{
+        // console.log(talles);
+        let imagen = function(){ db.Imagen.update({
+            imagen:req.files == undefined || req.files.length == 0? "default_avatar.png": req.files[0].filename,
+            },{
+                where:{
+                    idimagen:req.body.idImagen
+                }
+            }
+        )}
+        let producto = db.Producto.update(updatedProd,{
             where:{
-                idproductos: req.params.idProducto
+                idproducto: req.params.idProducto
             }
         })
-        .then(result => {
-            console.log(result);
-            return res.redirect('/admin')
-        })
-        // for (let i = 0; i < dataProductos.length; i++) {
-        //     if (dataProductos[i].id == req.params.idProducto)  {
-        //         if (req.files.length > 0) {
-        //             console.log("hay imagen nueva");
-        //             dataProductos[i].name = req.body.name;
-        //             dataProductos[i].description = req.body.desc;
-        //             dataProductos[i].price = req.body.price;
-        //             dataProductos[i].image = req.files[0].filename;
-        //         }
-        //         else {
-        //             console.log("no hay imagen nueva");
-        //             dataProductos[i].name = req.body.name;
-        //             dataProductos[i].description = req.body.desc;
-        //             dataProductos[i].price = req.body.price;
-        //         }
-                
-        //     }
-        // }   
-        // fs.writeFileSync(path.join(__dirname,'../data/productos.json'),JSON.stringify(dataProductos))
-        // res.redirect('/admin')
+        let deleteTalle = async function() {
+            for (let i = 0; i < toDelete.length; i++) {
+                db.TalleProducto.destroy({
+                    where:{
+                        idtalle: toDelete[i],
+                        idproducto: req.params.idProducto,
+                    }
+                })
+            }
+        }
+        for (let i = 0; i < toAdd.length; i++) {
+            tallesToAdd.push({idtalle:toAdd[i], idproducto:req.params.idProducto})
+        }
+        let addTalle = db.TalleProducto.bulkCreate(tallesToAdd)
+        console.log(req.files);
+        if (req.files.length > 0) {
+            console.log("con imagen");
+            Promise.all([imagen(),producto,deleteTalle(),addTalle])
+            .then(result => {
+                console.log(result);
+                // console.log("con imagen");
+                // return res.redirect('/admin')
+                return res.redirect('/admin/edit/selectProduct')
+            })
+        }
+        else {
+            console.log("sin imagen");
+            Promise.all([producto,deleteTalle(),addTalle])
+            .then(result => {
+                // console.log("sin imagen");
+                console.log(result);
+                // return res.redirect('/admin')
+                return res.redirect('/admin/edit/selectProduct')
+            })
+        }
+        // console.log(req.body.price);
+        // console.log(req.body.idImagen);
+        // console.log(req.body.categoria);
+        
+        // console.log(req.body.talles);
+        // console.log(JSON.parse(talles));
+        // db.Imagen.findByPk(req.body.idImagen)
+        // console.log(updatedProd);
+        
+        // // let delTalle = db.TalleProducto.
+        
+        // // console.log(toDelete);
+        // // console.log(req.params.idProducto);
+
+
+        // let addTalle = ;
+        // res.redirect('/admin/edit/selectProduct')
     },
     saveDelete : (req,res) => {
         db.Producto.update({

@@ -15,7 +15,11 @@ module.exports = {
         // .then(result => {
         //     console.log(result.datavalues);
         // })
-        db.Producto.findByPk(req.params.id)
+        db.Producto.findByPk(req.params.id,{
+            // paranoid: false,
+            include: [{association: "talles"},{association: "imagenes"}],
+            // include: [{association: "talles", where: { idtalle: {[Op.not]: 33} }},{association: "imagenes"}],
+        })
         .then(result => {
             return res.status(200).json(result)
         })

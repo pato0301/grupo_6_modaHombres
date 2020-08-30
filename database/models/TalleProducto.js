@@ -16,6 +16,10 @@ module.exports = (sequelize, DataTypes) => {
         idproducto: {
             type : DataTypes.INTEGER,
             allowNull : false
+        },
+        active: {
+            type : DataTypes.INTEGER,
+            allowNull : false,
         }
     }
 
