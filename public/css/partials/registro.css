@@ -12,6 +12,7 @@
     width: 100%;
     text-transform: uppercase;
     margin: 10px 0;
+    text-align: center;
 }
 .registro form {
     display: flex;
@@ -20,7 +21,22 @@
 }
 .registro form input {
     width: 45%;
-    margin: 20px 10px;
+    margin: 20px 110px 20px 140px ;
+    justify-content: space-between;
+    
+}
+.registro form div.container-fluid small#errorUsername {
+    margin-left: 270px;
+}
+.registro form div.container-fluid small#errorEmail{
+    margin-left: 270px;
+}
+.registro form div.container-fluid small#errorPassword{
+    margin-left: 270px;
+}
+.registro form input#pesoAltura {
+    display: flex;
+    margin-right: 150px;
 }
 .registro form.form-checkbox-register /*agregado*/{
     display: flex;
@@ -74,6 +90,54 @@
         width: 40%;
     }
 }
+@media (max-width: 767px) {
+    .registro form div.container-fluid small#errorUsername {
+        margin:0 auto;
+        box-sizing: border-box;
+        margin-left: 90px;
+        
+        
+    }
+    .registro form div.container-fluid small#errorEmail {
+        margin:0 auto;
+        box-sizing: border-box;
+        margin-left: 90px;
+    }
+    .registro form div.container-fluid small#errorPassword {
+        margin:0 auto;
+        box-sizing: border-box;
+        margin-left: 90px;
+    }
+      
+    }
+    @media (max-width: 425px) {
+        .registro form div.container-fluid small#errorUsername {
+            margin:0 auto;
+            box-sizing: border-box;
+            margin-left: 120px;
+            font-size: 10px;
+        }
+        .registro form div.container-fluid small#errorEmail {
+            margin:0 auto;
+            box-sizing: border-box;
+            margin-left: 120px;
+            font-size: 10px;
+        }
+        .registro form div.container-fluid small#errorPassword {
+            margin:0 auto;
+            box-sizing: border-box;
+            margin-left: 120px;
+            font-size: 10px;
+        }
+          
+        }
+        @media (max-width: 425px) {
+            .registro form input#fotoAvatar {
+                width: 80%;
+                margin-right: 20px;
+                margin-left: 20px;
+            }
+        }
 /* .registro form input[type="checkbox"] {}
 /* .registro form button { 
 } */
