@@ -68,14 +68,18 @@
                     <div class="card">
                         <a href="/producto/detalle/<%= productsLatest[i].dataValues.idproducto %>">
                             <%- include('./partials/carrouselTop.ejs') %> 
-                            <div class="carousel-inner">
+                            <div class="carousel-inner main-prod-carrousel">
                                 <div class="carousel-item active">
-                                    <img class="d-block w-100" src="/images/producto/<%= productsLatest[i].dataValues.imagenes[0].dataValues.imagen %>" alt="zero slide">
+                                    <!-- <div class="prod-corrousel"> -->
+                                    <img class="d-block w-100 h-100" src="/images/producto/<%= productsLatest[i].dataValues.imagenes[0].dataValues.imagen %>" alt="zero slide">
+                                    <!-- </div> -->
                                 </div>
                                 <% let imagenes =  productsLatest[i].dataValues.imagenes %> 
                                 <% for( let j = 1; j < imagenes.length; j++ ) { %>
                                     <div class="carousel-item">
-                                        <img class="d-block w-100" src="/images/producto/<%= productsLatest[i].dataValues.imagenes[j].dataValues.imagen %>" alt="<%= j %>  slide">
+                                        <!-- <div class="prod-corrousel"> -->
+                                        <img class="d-block w-100 h-100" src="/images/producto/<%= productsLatest[i].dataValues.imagenes[j].dataValues.imagen %>" alt="<%= j %>  slide">
+                                        <!-- </div> -->
                                     </div>
                                 <% } %>
                             </div>

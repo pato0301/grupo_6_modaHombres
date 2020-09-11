@@ -92,6 +92,41 @@ nav .avatar {
     background-size: cover;
 }
 
+/* a.cart .cart-basket {
+    font-size: .6rem;
+    position: absolute;
+    top: 9px;
+    right: 48px;
+    width: 15px;
+    height: 15px;
+    color: #fff;
+    background-color: #418deb;
+    border-radius: 50%;
+} */
+
+/* .badge {
+    padding-left: 9px;
+    padding-right: 9px;
+    -webkit-border-radius: 9px;
+    -moz-border-radius: 9px;
+    border-radius: 50%;
+} */
+
+#lblCartCount {
+    font-size: 12px;
+    background: #418deb;
+    color: #fff;
+    /* padding: 0 5px; */
+    width: 15px;
+    height: 15px;
+    vertical-align: top;
+    margin-left: -10px; 
+    margin-top: -3px;
+    border-radius: 50%;
+    padding-left: 3px;
+    padding-top: 2px;
+}
+
 
 @media (min-width: 768px) {
     nav .buscador .search-form input {
