@@ -8,28 +8,45 @@
     <div class="container">
         <div class="registro">
             <h2>Inicio Sesión</h2>
-            <form action="/register" method="POST" enctype="multipart/form-data">
-                <input type="text" name="username" placeholder="Username" >
-                <input type="email" name="email" placeholder="Email" >
-                <small class="text-danger"><%= (typeof errors != 'undefined' && errors.email) ? errors.email.msg : '' %></small>
-                <input type="password" name="password" placeholder="Contraseña">
-                <small class="text-danger"><%= (typeof errors != 'undefined' && errors.password) ? errors.password.msg : '' %></small>
-                <input type="" name="passwordCheck" class="input-not-show">
+            <form action="/register" method="POST" id="register-form" enctype="multipart/form-data">
+                <input type="text" name="username" placeholder="Username" class="username" required />
+                <div class="container-fluid">
+                   <small class="text-danger" id="errorUsername"><%= %> </small>
+                </div>
+                <!-- <div class="errUser">
+                    <ul></ul>
+                </div> -->
+                <input type="email" name="email" placeholder="Email" class="email" required />
+                <div class="container-fluid">
+                    <small class="text-danger" id="errorEmail"><%= %> </small>
+                </div>
+                <!-- <div class="errEmail">
+                    <ul></ul>
+                </div>                   <small class="text-danger" width="25"></small> -->
+                <input type="password" name="password" placeholder="Contraseña" class="password" minlength="8" maxlength="12" required>
+                <div class="container-fluid">
+                    <small class="text-danger" id="errorPassword"></small>
+                </div>
+                <!-- <div class="err">
+                    <ul></ul>
+                </div>
+                <small class="text-danger" width="25"></small> -->
+                
                 <!-- <input type="text" name="nombre" placeholder="Nombre" >
                 <input type="text" name="apellido" placeholder="Apellido" >
                 <input type="text" name="direccion" placeholder="Dirección" >
                 <input type="tel" name="telefono" placeholder="Teléfono" >    -->
-                <input type="file" name="avatar" />    
+                <input type="file" name="avatar" id="fotoAvatar"/>    
                 <h3>Personaliza Tu Experiencia</h3>
             <!-- <form action="" method="POST" class="form-checkbox-register"> -->
-                <input type="number" name="altura" placeholder="Altura" min="0,1" max="3" step="0.01">
-                <input type="number" name="peso" placeholder="Peso" min="0" step="0.01">
+                <input type="number" id="pesoAltura" name="altura" placeholder="Altura" min="0.05" max="3" step="0.01">
+                <input type="number" id="pesoAltura" name="peso" placeholder="Peso" min="0" step="0.01">
                 <!-- <input type="checkbox" name="promociones" value="okpromociones">Quiero recibir comunicaciones comerciales personalizadas de BRAYDS a través del email<br></input> -->
                 <!-- <input type="checkbox" name="terminos" value="okterminos">Acepto terminos y condiciones de privacidad<br></input> -->
                 <div class="container-checkbox">
                     <div class="checkbock-news">
                         <div class="row-checkbox">
-                            <input type="checkbox" name="" id="">
+                            <input type="checkbox" name="comunicaciones">
                         </div>
                         <div class="label-checkbox">
                             <label for="">Quiero recibir comunicaciones comerciales personalizadas de BRAYDS a través del email</label>
@@ -37,10 +54,10 @@
                     </div>
                     <div class="checkbock-news">
                         <div class="row-checkbox">
-                            <input type="checkbox" name="" id="">
+                            <input type="checkbox" name="condiciones" required>
                         </div>
                         <div class="label-checkbox">
-                            <label for="">Acepto terminos y condiciones de privacidad</label>
+                            <label for="">Acepto términos y condiciones de privacidad</label>
                         </div>
                     </div>
                     <button type="submit">Registrarme</button>
@@ -48,6 +65,8 @@
             </form>
         </div>
     </div>
-    <%- include('partials/footer.ejs') %> 
+    <%- include('partials/footer.ejs') %>  
+
+    <script src="/javascripts/register.js"></script>
 </body>
 </html>
