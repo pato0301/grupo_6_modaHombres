@@ -113,6 +113,7 @@ const main = {
                     // console.log(resultados.dataValues);
                     if (bcrypt.compareSync(req.body.password,resultados.dataValues.password)){
                         req.session.userClient = resultados.dataValues;
+                        req.session.cart = [] 
                         if (req.body.remember =="on") {
                             res.cookie("userCookie", resultados.dataValues.email, {maxAge: 1000 * 60  } )
                             // el max age de la cookie esta en milisegundos.... toda esa cuenta seria un año nose cuanto tiempo deberia durar

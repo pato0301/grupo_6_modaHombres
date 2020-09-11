@@ -62,7 +62,11 @@
                     <li>46</li>
                 </ul> -->
             </div>
-            <form action="" method="post" id="form-detalle-prod">
+            <form action="/producto/detalle/<%= product.idproducto %> " method="post" id="form-detalle-prod">
+                <input type="hidden" name="productId" value="<%= product.idproducto %>">
+                <input type="hidden" name="price" value="<%= product.precio %>">
+                <input type="hidden" name="name" value="<%= product.nombre %>">
+                <input type="hidden" name="talle" id="talleValue" value="">
                 <button type="submit">Añadir</button>
             </form>
         </div>
