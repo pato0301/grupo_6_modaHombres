@@ -48,7 +48,7 @@
                 <select name="talles" id="talles">
                 <% if (product.talles.length > 0) { %>
                     <% for( let i = 0; i < product.talles.length; i++ ) { %>
-                        <option value="<%= product.talles[i].dataValues.idtalle %>"><%= product.talles[i].dataValues.talle %> </option>
+                        <option value="<%= product.talles[i].dataValues.idtalle %>"><%= product.talles[i].dataValues.talle %></option>
                     <% } %>
                 <% } else { %>
                     <option value="" disabled>No hay talles disponibles</option>
@@ -76,6 +76,8 @@
         <input type="text" placeholder="Introduce tu e-mail aqui">
         <hr>
     </div>
+
+    <script src="/javascripts/addToCart.js"></script>
 
     <%- include('partials/footer.ejs') %> 
 
