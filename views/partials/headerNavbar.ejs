@@ -12,12 +12,14 @@
             <i class="fas fa-bars dropdown-toggle-split navbar-logo" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
             <div class="dropdown-menu" class="dropDownHome" aria-labelledby="navbarDropdownMenuLink">
                 <a class="dropdown-item" href="/#new-arrivals">Nueva Coleccion</a>
-                <a class="dropdown-item" href="#">Camperas</a>
-                <a class="dropdown-item" href="#">Sweaters</a>
+                <% for( let i = 0; i < categorias.length; i++ ) { %>
+                    <a class="dropdown-item" href="/producto/categoria/<%= categorias[i].id %>"><%= categorias[i].categoria %></a>
+                <% } %>
+                <!-- <a class="dropdown-item" href="#">Sweaters</a>
                 <a class="dropdown-item" href="#">Camisas</a>
                 <a class="dropdown-item" href="#">Jeans</a>
                 <a class="dropdown-item" href="#">Remeras</a>
-                <a class="dropdown-item" href="#">Accesorios</a>
+                <a class="dropdown-item" href="#">Accesorios</a> -->
                 <a class="dropdown-item" href="#">Precios Especiales</a>
             </div>
         </li>
@@ -45,7 +47,9 @@
         <!-- <a class="signIn" href="/login">Sign In</a> -->
         <a href="/producto/carrito" class="cart">
             <i class="fas fa-shopping-cart"></i>
-            <span class='badge badge-warning' id='lblCartCount'> 5 </span>
+            <% if (numberProducts != 'undefined') { %>
+                <span class='badge badge-warning' id='lblCartCount'><%= numberProducts %></span>
+            <% } %>
             <!-- <span class="cart-basket d-flex align-items-center justify-content-center">
                 0
             </span> -->

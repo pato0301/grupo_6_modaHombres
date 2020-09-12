@@ -31,15 +31,28 @@ const main = {
                 {association: "imagenes"}
             ]
         })
-        Promise.all([latest,season])
+        let categoria = db.Categoria.findAll()
+        Promise.all([latest,season,categoria])
         .then(result => {
             // console.log(`latest: ${result[0]}`);
             // console.log(`season: ${result[1]}`);
+            // console.log(`categoria: ${result[2][0].dataValues.idcategorias}`);
+            let categorias = []
+            for (let i = 0; i < result[2].length; i++) {
+                let temp = {
+                    id: result[2][i].idcategorias,
+                    categoria: result[2][i].nombre_categoria
+                }
+                categorias.push(temp)
+            }
             let productsLatest =  result[0];
             let productsSeason = result[1];
+            req.session.categorias = categorias
             // res.send("Se cargaron los datos")
             res.render('homeMain',{
-                user:req.session.userClient,productsSeason:productsSeason,productsLatest:productsLatest
+                user:req.session.userClient,productsSeason:productsSeason,productsLatest:productsLatest,
+                categorias: req.session.categorias,
+                numberProducts:req.session.numberProducts
             })
         })
         // res.render('homeMain',{user:req.session.userClient})
@@ -90,7 +103,9 @@ const main = {
             // console.log(result[0][1].dataValues.imagenes[1]);
             // res.send(result[0][1].dataValues)
             console.log(searchedProducts);
-            res.render('searched',{user:req.session.userClient,products:searchedProducts})
+            res.render('searched',{user:req.session.userClient,products:searchedProducts,
+                                    categorias: req.session.categorias,
+                                    numberProducts:req.session.numberProducts})
             // res.render('searched',{user:req.session.userClient,products:result[0]})
             // res.send(req.query.keywords)
         })
@@ -98,7 +113,9 @@ const main = {
         // res.redirect('/')
     },
     login: (req,res) => {
-        res.render('loginMain',{user:req.session.userClient})
+        res.render('loginMain',{user:req.session.userClient,
+                                categorias: req.session.categorias,
+                                numberProducts:req.session.numberProducts})
     },
     checkLogIn:function(req,res,next) {
         let errors = validationResult(req);
@@ -121,22 +138,28 @@ const main = {
                         return res.redirect('/')
                     }
                     return res.render('loginMain',{errors:{email:{msg:"credenciales invalidas, no coincide el mail con la contraseña"}}
-                                                ,user:req.session.userClient})
+                                                ,user:req.session.userClient,
+                                                categorias: req.session.categorias,
+                                                numberProducts:req.session.numberProducts})
                 }
                 else{
                     return res.render('loginMain',{errors:{email:{msg:"credenciales invalidas, no coincide el mail con la contraseña"}}
-                                                ,user:req.session.userClient})
+                                                ,user:req.session.userClient
+                                                ,categorias: req.session.categorias,
+                                                numberProducts:req.session.numberProducts})
                 }
             })
         }else{
             return res.render('loginMain' ,{
                 errors: errors.mapped(), old: req.body,
-                user:req.session.userClient
+                user:req.session.userClient,
+                categorias: req.session.categorias,
+                numberProducts:req.session.numberProducts
             })
         }
     },
     register: (req,res) => {
-        res.render('registro',{user:req.session.userClient})
+        res.render('registro',{user:req.session.userClient,numberProducts:req.session.numberProducts})
     },
     checkRegister: (req,res) => {
         let errors = validationResult(req);
@@ -157,11 +180,15 @@ const main = {
             res.render('registro' , {
                 errors: errors.mapped(),
                 user:req.session.userClient
+                ,categorias: req.session.categorias,
+                numberProducts:req.session.numberProducts
             })
         }
     },
     user: (req,res) => {
-        res.render("userInfo",{user:req.session.userClient})
+        res.render("userInfo",{ user:req.session.userClient, 
+                                categorias: req.session.categorias,
+                                numberProducts:req.session.numberProducts})
     }
 }
 

@@ -5,7 +5,9 @@
 
 const usuarios = {
     root : (req,res) => {
-        res.render("userInfo",{user:req.session.userClient})
+        res.render("userInfo",{ user:req.session.userClient,
+                                categorias: req.session.categorias,
+                                numberProducts:req.session.numberProducts})
     },
 };
 
