@@ -32,7 +32,8 @@ module.exports = {
         req.session.cart = cart
         console.log(cart);
         res.redirect('/')
-    }
+    },
+    
 }
 
 
