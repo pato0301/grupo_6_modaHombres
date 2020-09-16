@@ -11,5 +11,7 @@ router.get('/detalle/:productoId', productsController.detail);
 router.post('/detalle/:productoId', loginUserMiddleware,cartController.addProductToCart);
 router.get('/carrito', loginUserMiddleware,productsController.carrito)
 
+router.get('/categoria/:idCategoria',productsController.categoria)
+
 
 module.exports = router;
