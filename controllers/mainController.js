@@ -159,7 +159,11 @@ const main = {
         }
     },
     register: (req,res) => {
-        res.render('registro',{user:req.session.userClient,numberProducts:req.session.numberProducts})
+        res.render('registro',{
+                                user:req.session.userClient,
+                                numberProducts:req.session.numberProducts,
+                                categorias: req.session.categorias
+                                })
     },
     checkRegister: (req,res) => {
         let errors = validationResult(req);
