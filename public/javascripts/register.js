@@ -33,13 +33,13 @@ window.addEventListener("load",()=>{
             errores.password = '*Debe ingresar una contraseña';
         } else if(password.value.length < 8){
             errores.password = '*Debe ingresar como  minimo 8 caracteres'; 
-         }
-         errorPassword.innerText = (errores.password) ? errores.password : '';
-         console.log(errores);
+        }
+        errorPassword.innerText = (errores.password) ? errores.password : '';
+        console.log(errores);
     });
         //let username = document.querySelector('input[name="username"]');
         //let email = document.querySelector('input[name="email"]');
-        email.addEventListener('blur',(event)=>{
+    email.addEventListener('blur',(event)=>{
         delete errores.email;
         if(!email.value.match(regExEmail)) {
             errores.email='*Debe ingresar un correo electronico';
@@ -47,7 +47,7 @@ window.addEventListener("load",()=>{
         errorEmail.innerText = (errores.email) ? errores.email : '';
         console.log(errores);
     });
-        username.addEventListener('blur',(event)=>{
+    username.addEventListener('blur',(event)=>{
         delete errores.username;
         if(username.value == "") {
             errores.username = "*Debe ingresar un nombre de usuario";
@@ -56,28 +56,29 @@ window.addEventListener("load",()=>{
         console.log(errores);
     });
 
-        formulario.addEventListener('submit',(event)=>{
-            event.preventDefault();
-            if(password.value == "") {
-                errores.password = '*Debe ingresar una contraseña';
-            } else if(password.value.length < 8){
-                errores.password = '*Debe ingresar como  minimo 8 caracteres'; 
-             }
-            if(!email.value.match(regExEmail)) {
-                errores.email='*Debe ingresar un correo electronico';
+    formulario.addEventListener('submit',(event)=>{
+        event.preventDefault();
+        if(password.value == "") {
+            errores.password = '*Debe ingresar una contraseña';
+        } else if(password.value.length < 8){
+            errores.password = '*Debe ingresar como  minimo 8 caracteres'; 
             }
-            if(username.value == "") {
-                errores.username = "*Debe ingresar un nombre de usuario";
-            }
-            if(object.keys(errores).length >1) {
-                errorPassword.innerText = (errores.password) ? errores.password : '';
-                errorEmail.innerText = (errores.email) ? errores.email : '';
-                errorUsername.innerText = (errores.username) ? errores.username : '';
-                
-                }
+        if(!email.value.match(regExEmail)) {
+            errores.email='*Debe ingresar un correo electronico';
+        }
+        if(username.value == "") {
+            errores.username = "*Debe ingresar un nombre de usuario";
+        }
+        if(Object.keys(errores).length >1) {
+            errorPassword.innerText = (errores.password) ? errores.password : '';
+            errorEmail.innerText = (errores.email) ? errores.email : '';
+            errorUsername.innerText = (errores.username) ? errores.username : '';
             
-
-        });
+        }
+        if(Object.keys(errores).length == 0){
+            formulario.submit()
+        }
+    });
 
     //     if(errores.length > 0){
     //         event.preventDefault();
