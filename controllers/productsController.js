@@ -11,16 +11,19 @@ const productos = {
         db.Producto.findByPk(req.params.productoId,{
             include: [
                 {association: "talles",
-                }
+                },
+                {association: "imagenes"}
             ]
         })
         .then(result => {
-            // console.log(result);
+            console.log(result.dataValues.imagenes);
             res.render('detalle_producto', 
             {product : result.dataValues,
                 user:req.session.userClient,
                 categorias: req.session.categorias,
-                numberProducts:req.session.numberProducts})
+                numberProducts:req.session.numberProducts,
+                imagenes:result.dataValues.imagenes,
+            })
         })
     },
     buy : (req,res) => {

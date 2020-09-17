@@ -22,11 +22,14 @@ module.exports = {
         let temp_cart = req.session.cart
         let cart = req.session.cart
         let countProducts = 0
+        let shortDescr = req.body.descripcion.split(".")[0];
         let newProduct = {
             id: req.body.productId,
             name: req.body.name,
             price: req.body.price,
             talle: req.body.talle,
+            descripcion:shortDescr,
+            imagen: req.body.imagen,
             cantidad: 1
         }
         if (cart.length == 0) {

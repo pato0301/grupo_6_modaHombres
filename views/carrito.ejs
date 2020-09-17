@@ -12,9 +12,9 @@
             <% if(productos.length > 0){ %>
                 <% for(let i = 0; i < productos.length ; i++){ %>
                     <article>
-                        <a href="/producto/detalle/<%= productos[i].id %> "><img src="/images/producto/wilson-modelo.jpg" alt="producto1"></a>
-                        <a href="/producto/detalle/<%= productos[i].id %>"><h4><%=productos[i].name%></h4></a>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, quo.</p>
+                        <a href="/producto/detalle/<%= productos[i].id %>"><img src="/images/producto/<%= productos[i].imagen %>" alt="producto_<%= productos[i].id %>"></a>
+                        <a href="/producto/detalle/<%= productos[i].id %>"><h4><%= productos[i].name %></h4></a>
+                        <p><%= productos[i].descripcion %>.</p>
                         <p>$<%= productos[i].price %></p>
                         <p>Talle <%= productos[i].talle %></p>
                         <p>Unidades: <%= productos[i].cantidad %></p>
@@ -39,8 +39,7 @@
                 <input type="hidden" name="localidad" id="localidad" value="">
                 <input type="hidden" name="tipoEnvio" id="envio" value="">
                 <input type="hidden" name="valorTotal" id="precioTotal" value="<%=totalPrice%>">
-                <!-- <input type="hidden" name="productosCompras" id="productosComprados" value="<%= productos %> "> -->
-                <button type="button">Volver</button>
+                <button type="button"><a href="/">Volver</a></button>
                 <button type="submit">Continuar</button>
         </form>
     </div>
