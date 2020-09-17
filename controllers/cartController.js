@@ -80,9 +80,12 @@ module.exports = {
             if(cart[i].id == req.body.idProducto){
                 if(cart[i].cantidad > 1){
                     cart[i].cantidad - 1;
+                    req.session.numberProducts = req.session.numberProducts - 1;
+                    break
                 }else{
                     // console.log('entra al else');
                     cartFiltro = cart.filter(producto => parseInt(producto.id) != req.body.idProducto);
+                    req.session.numberProducts = req.session.numberProducts - 1;
                     break;
                 }
             }   
