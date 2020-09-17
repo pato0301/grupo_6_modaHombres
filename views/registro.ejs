@@ -7,7 +7,7 @@
     <%- include('partials/headerNavbar.ejs',{user: user, categorias:categorias, numProducts:numberProducts}) %> 
     <div class="container">
         <div class="registro">
-            <h2>Inicio Sesión</h2>
+            <h2 class="text-left">Inicio Sesión</h2>
             <form action="/register" method="POST" id="register-form" enctype="multipart/form-data">
                 <input type="text" name="username" placeholder="Username" class="username" required />
                 <div class="container-fluid">
