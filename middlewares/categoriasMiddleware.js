@@ -1,7 +1,7 @@
 const db = require('../database/models');
 
 function categorias (req,res,next) {
-    if(req.session.categorias != undefined) {
+    if(req.session.categorias == undefined) {
         let categoria = db.Categoria.findAll()
         Promise.all([categoria])
         .then(result => {

@@ -36,6 +36,9 @@ module.exports = {
     },
     carrito: function (req,res){
         let total = 0;
+        if (req.session.cart == undefined) {
+            req.session.cart = []
+        }
         for(let i = 0; i < req.session.cart.length; i++){
             total = total + (req.session.cart[i].cantidad * req.session.cart[i].price);
         }
@@ -50,22 +53,34 @@ module.exports = {
     deleteCart: function (req,res){
         let cartFiltro;
         let cart = req.session.cart;
-        console.log(req.body.idProducto);
-        console.log(cart);
+        // console.log(req.body.idProducto);
+        // console.log(cart);
         for (let i = 0; i < cart.length; i++){
             if(cart[i].id == req.body.idProducto){
                 if(cart[i].cantidad > 1){
                     cart[i].cantidad - 1;
                 }else{
-                    console.log('entra al else');
+                    // console.log('entra al else');
                     cartFiltro = cart.filter(producto => parseInt(producto.id) != req.body.idProducto);
                     break;
                 }
             }   
         }
         req.session.cart = cartFiltro;
-        console.log(req.session.cart);
+        // console.log(req.session.cart);
         res.redirect('/producto/carrito')
+    },
+    finalizarCompra: (req,res) => {
+        console.log(req.body);
+        if (req.body.tipoEnvio == 'sucursal') {
+            console.log("sucursal");
+            return res.redirect('/producto/carrito')
+        }
+        else{
+            console.log("a domicilio");
+            return res.redirect('/producto/carrito')
+        }
+        
     }
 }
 
