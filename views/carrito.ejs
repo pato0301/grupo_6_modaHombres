@@ -17,7 +17,7 @@
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, quo.</p>
                         <p>$<%= productos[i].price %></p>
                         <p>Talle <%= productos[i].talle %></p>
-                        <form action="" method="POST">
+                        <form action="/producto/carrito/<%= productos[i].id %>" method="POST">
                             <input type="hidden" name="idProducto" value="<%= productos[i].id%>"> 
                             <button>Eliminar</button>
                         </form>
@@ -25,18 +25,24 @@
                 <% } %>  
                 
                 <h3>TOTAL $<%=totalPrice%> </h3>
+                <p>*IVA incluido</p>
             <% }else { %>
                 <h2 class="text-center">No hay productos en el carrito!!!</h2>
             <% } %>   
-            
         </section>
-        <p>*IVA incluido</p>
         <div class="div-navegacion-form">
-            <form action="" class="navegacion">
+            <form action="/producto/carrito/finalizar/compra" class="navegacion" id="formCarrito" method="POST">
+                <input type="hidden" name="calle" id="calle" value="">
+                <input type="hidden" name="altura" id="altura" value="">
+                <input type="hidden" name="codigoPostal" id="postal" value="">
+                <input type="hidden" name="localidad" id="localidad" value="">
+                <input type="hidden" name="tipoEnvio" id="envio" value="">
+                <!-- <input type="hidden" name="productosCompras" id="productosComprados" value="<%= productos %> "> -->
                 <button type="button">Volver</button>
-                <button type="button">Continuar</button>
+                <button type="submit">Continuar</button>
         </form>
     </div>
     <%- include('partials/footer.ejs') %> 
+    <script src="/javascripts/finalizarCompra.js"></script>
 </body>
 </html>
