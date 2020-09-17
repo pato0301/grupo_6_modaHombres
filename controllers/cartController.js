@@ -34,7 +34,39 @@ module.exports = {
         req.session.numberProducts = countProducts
         res.redirect('/')
     },
-    
+    carrito: function (req,res){
+        let total = 0;
+        for(let i = 0; i < req.session.cart.length; i++){
+            total = total + (req.session.cart[i].cantidad * req.session.cart[i].price);
+        }
+        res.render('carrito' , {
+            user:req.session.userClient,
+            categorias: req.session.categorias,
+            numberProducts:req.session.numberProducts,
+            productos: req.session.cart,
+            totalPrice: total,
+        })
+    },
+    deleteCart: function (req,res){
+        let cartFiltro;
+        let cart = req.session.cart;
+        console.log(req.body.idProducto);
+        console.log(cart);
+        for (let i = 0; i < cart.length; i++){
+            if(cart[i].id == req.body.idProducto){
+                if(cart[i].cantidad > 1){
+                    cart[i].cantidad - 1;
+                }else{
+                    console.log('entra al else');
+                    cartFiltro = cart.filter(producto => parseInt(producto.id) != req.body.idProducto);
+                    break;
+                }
+            }   
+        }
+        req.session.cart = cartFiltro;
+        console.log(req.session.cart);
+        res.redirect('/producto/carrito')
+    }
 }
 
 

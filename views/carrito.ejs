@@ -9,51 +9,26 @@
         <h2>Carro de Compras</h2>
         <h5># de articulos</h5>
         <section>
-            <article>
-                <a href="/producto/detalle/1"><img src="/images/producto/wilson-modelo.jpg" alt="producto1"></a>
-                <a href="/producto/detalle/1"><h4>Producto 1</h4></a>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, quo.</p>
-                <p>$9.999,99</p>
-                <p>Talle XL</p>
-                <form action="" method="POST">
-                    <!-- <input type="number"> -->
-                    <button>Eliminar</button>
-                </form>
-            </article>
-            <article>
-                <a href="/producto/detalle/2"><img src="/images/producto/wilson-modelo.jpg" alt="producto1"></a>
-                <a href="/producto/detalle/2"><h4>Producto 2</h4></a>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, quo.</p>
-                <p>$9.999,99</p>
-                <p>Talle XL</p>
-                <form action="" method="POST">
-                    <!-- <input type="number"> -->
-                    <button>Eliminar</button>
-                </form>
-            </article>
-            <article>
-                <a href="/producto/detalle/3"><img src="/images/producto/wilson-modelo.jpg" alt="producto1"></a>
-                <a href="/producto/detalle/3"><h4>Producto 3</h4></a>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, quo.</p>
-                <p>$9.999,99</p>
-                <p>Talle XL</p>
-                <form action="" method="POST">
-                    <!-- <input type="number"> -->
-                    <button>Eliminar</button>
-                </form>
-            </article>
-            <article>
-                <a href="/producto/detalle/4"><img src="/images/producto/wilson-modelo.jpg" alt="producto1"></a>
-                <a href="/producto/detalle/4"><h4>Producto 4</h4></a>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, quo.</p>
-                <p>$9.999,99</p>
-                <p>Talle XL</p>
-                <form action="" method="POST">
-                    <!-- <input type="number"> -->
-                    <button>Eliminar</button>
-                </form>
-            </article>
-            <h3>TOTAL $9.999,99</h3>
+            <% if(productos.length > 0){ %>
+                <% for(let i = 0; i < productos.length ; i++){ %>
+                    <article>
+                        <a href="/producto/detalle/<%= productos[i].id %> "><img src="/images/producto/wilson-modelo.jpg" alt="producto1"></a>
+                        <a href="/producto/detalle/<%= productos[i].id %>"><h4><%=productos[i].name%></h4></a>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, quo.</p>
+                        <p>$<%= productos[i].price %></p>
+                        <p>Talle <%= productos[i].talle %></p>
+                        <form action="" method="POST">
+                            <input type="hidden" name="idProducto" value="<%= productos[i].id%>"> 
+                            <button>Eliminar</button>
+                        </form>
+                    </article>
+                <% } %>  
+                
+                <h3>TOTAL $<%=totalPrice%> </h3>
+            <% }else { %>
+                <h2 class="text-center">No hay productos en el carrito!!!</h2>
+            <% } %>   
+            
         </section>
         <p>*IVA incluido</p>
         <div class="div-navegacion-form">

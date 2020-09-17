@@ -9,8 +9,8 @@ const loginUserMiddleware = require('../middlewares/loginUserMiddleware')
 // router.get('/detalle/:productId', productsController.detail);
 router.get('/detalle/:productoId', productsController.detail);
 router.post('/detalle/:productoId', loginUserMiddleware,cartController.addProductToCart);
-router.get('/carrito', loginUserMiddleware,productsController.carrito)
-
+router.get('/carrito', loginUserMiddleware,cartController.carrito);
+router.post('/carrito' , cartController.deleteCart);
 router.get('/categoria/:idCategoria',productsController.categoria)
 
 
