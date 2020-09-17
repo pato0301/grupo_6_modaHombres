@@ -1,4 +1,22 @@
 const db = require('../database/models');
+
+const updateOrCreate = (model, whereCond, newItem) => {
+    // Try to find record using findOne
+    return model.findOne({ where: whereCond })
+        .then(item => {
+            if (!item) {
+                // Item doesn't exist, so we create it
+                model.create(newItem)
+                .then(addItem => (console.log(addItem)))
+            }
+            else {
+                // Item already exists, so we update it
+                return model.update(newItem, {where: whereCond})
+                    .then(updateItem => (console.log(updateItem)))
+            }
+        })
+}
+
 module.exports = {
     addProductToCart: function (req,res){
         let temp_cart = req.session.cart
@@ -71,14 +89,91 @@ module.exports = {
         res.redirect('/producto/carrito')
     },
     finalizarCompra: (req,res) => {
-        console.log(req.body);
+        // console.log(req.body);
         if (req.body.tipoEnvio == 'sucursal') {
-            console.log("sucursal");
-            return res.redirect('/producto/carrito')
+            // console.log("sucursal");
+            // console.log(req.session.userClient);
+            let salesOrder = {
+                nro_factura:'AGBF823KFD83',
+                nro_orden: '376',
+                precio_total: parseInt(req.body.valorTotal),
+                idusuario: req.session.userClient.idusuarios,
+            }
+            // console.log(salesOrder);
+            let cart = req.session.cart;
+            req.session.cart = [];
+            req.session.numberProducts = 0;
+            let soldProduct = []
+
+            // console.log(soldProduct);
+            db.Venta.create(salesOrder)
+            .then(venta => {
+                for (let i = 0; i < cart.length; i++) {
+                    let tmp = {
+                        idventas: venta.dataValues.idventas,
+                        idproductos: parseInt(cart[i].id)
+                    }
+                    soldProduct.push(tmp)
+                }
+                db.VentaProducto.bulkCreate(soldProduct)
+                .then(result => {
+                    // console.log(soldProduct);
+                    // console.log(salesOrder);
+                    // req.session.cart = []
+                    return res.redirect('/producto/carrito')
+                })
+            })
         }
         else{
             console.log("a domicilio");
-            return res.redirect('/producto/carrito')
+            let salesOrder = {
+                nro_factura:'AGBF823KFD83',
+                nro_orden: '376',
+                precio_total: parseInt(req.body.valorTotal),
+                idusuario: req.session.userClient.idusuarios,
+            }
+            let datosDireccion = {
+                idusuario: req.session.userClient.idusuarios,
+                localidad: req.body.localidad,
+                calle: req.body.calle,
+                altura: req.body.altura,
+                codigo_postal: req.body.codigoPostal,
+                pais: 'argentina',
+            }
+            let whereCond = {
+                idusuario:req.session.userClient.idusuarios
+            }
+            // console.log(salesOrder);
+            let cart = req.session.cart;
+            req.session.cart = [];
+            req.session.numberProducts = 0;
+            let soldProduct = []
+
+            // console.log(soldProduct);
+            let cargarOrden = db.Venta.create(salesOrder)
+                            .then(venta => {
+                                for (let i = 0; i < cart.length; i++) {
+                                    let tmp = {
+                                        idventas: venta.dataValues.idventas,
+                                        idproductos: parseInt(cart[i].id)
+                                    }
+                                    soldProduct.push(tmp)
+                                }
+                                db.VentaProducto.bulkCreate(soldProduct)
+                                .then(result => {
+                                    // console.log(soldProduct);
+                                    // console.log(salesOrder);
+                                    // return res.redirect('/producto/carrito')
+                                })
+                            })
+            let direccion = updateOrCreate(db.Direccion, whereCond, datosDireccion)
+            // return res.redirect('/producto/carrito')
+            Promise.all([cargarOrden,direccion])
+            .then(result => {
+                let orden = result[0];
+                let adress = result[1];
+                return res.redirect('/producto/carrito')
+            })
         }
         
     }

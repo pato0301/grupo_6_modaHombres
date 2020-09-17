@@ -47,7 +47,7 @@
         <!-- <a class="signIn" href="/login">Sign In</a> -->
         <a href="/producto/carrito" class="cart">
             <i class="fas fa-shopping-cart"></i>
-            <% if (numberProducts != 'undefined') { %>
+            <% if (numberProducts != 'undefined' && numberProducts > 0 && numberProducts != "0") { %>
                 <span class='badge badge-warning' id='lblCartCount'><%= numberProducts %></span>
             <% } %>
             <!-- <span class="cart-basket d-flex align-items-center justify-content-center">

@@ -17,6 +17,7 @@
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, quo.</p>
                         <p>$<%= productos[i].price %></p>
                         <p>Talle <%= productos[i].talle %></p>
+                        <p>Unidades: <%= productos[i].cantidad %></p>
                         <form action="/producto/carrito/<%= productos[i].id %>" method="POST">
                             <input type="hidden" name="idProducto" value="<%= productos[i].id%>"> 
                             <button>Eliminar</button>
@@ -37,6 +38,7 @@
                 <input type="hidden" name="codigoPostal" id="postal" value="">
                 <input type="hidden" name="localidad" id="localidad" value="">
                 <input type="hidden" name="tipoEnvio" id="envio" value="">
+                <input type="hidden" name="valorTotal" id="precioTotal" value="<%=totalPrice%>">
                 <!-- <input type="hidden" name="productosCompras" id="productosComprados" value="<%= productos %> "> -->
                 <button type="button">Volver</button>
                 <button type="submit">Continuar</button>

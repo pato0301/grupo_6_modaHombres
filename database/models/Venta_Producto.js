@@ -1,6 +1,6 @@
 module.exports = (sequelize, DataTypes) => {
 
-    const alias = "VentaProductos"
+    const alias = "VentaProducto"
 
     const cols = {
         id : {
@@ -10,11 +10,11 @@ module.exports = (sequelize, DataTypes) => {
             unique: true
         },
         idventas: {
-            type : DataTypes.STRING(11),
+            type : DataTypes.INTEGER,
             allowNull : false,
         },
         idproductos: {
-            type : DataTypes.STRING(11),
+            type : DataTypes.INTEGER,
             allowNull : false,
         }
     }

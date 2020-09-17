@@ -9,7 +9,7 @@
 
     <div class="user">
         <div class="user-avatar">
-            <img class="img-avatar" src="/uploads/avatars/<%= user.avatar %>" alt="">
+            <img class="img-avatar" src="/uploads/avatars/<%= user.avatar == 'undefined'? 'default_avatar.png':user.avatar %>" alt="">
             <input type="file" name="avatar" style="display: none;"/>  
         </div>
         <div class="info-user">

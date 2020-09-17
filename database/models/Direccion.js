@@ -30,12 +30,12 @@ module.exports = (sequelize, DataTypes) => {
             allowNull : false,
         },
         pais: {
-            type : DataTypes.DECIMAL(2,0),
+            type : DataTypes.STRING(2,0),
             allowNull : true,
         }
     }
     const config = {
-        tableName : "Direccion",
+        tableName : "direcciones",
         timestamp : true,
         underscored : true,
     }
