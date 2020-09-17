@@ -38,7 +38,9 @@ const productos = {
         res.render('loginAdmin', {typePage: 'Admin Login'})
         // res.render('carga_producto')
     },
+    
     loginAdmin : (req,res) => {
+    
         db.Admin.findOne({
             where: {
             email: req.body.email,
@@ -46,7 +48,8 @@ const productos = {
         .then(resultados=> {
             if (resultados != null) {
                 if (bcrypt.compareSync(req.body.password,resultados.dataValues.password)){
-                    req.session.adminUser = req.body.email
+                    req.session.adminUser = req.body.email; 
+                    console.log ("Usuario logueado");
                     if (req.body.remember =="on") {
                         res.cookie("adminCookie", resultados.dataValues.email, {maxAge: 1000 * 60 * 60 } )
                         // el max age de la cookie esta en milisegundos.... toda esa cuenta seria un año nose cuanto tiempo deberia durar
@@ -62,8 +65,10 @@ const productos = {
     register : (req,res) => {
         res.render('loginAdmin', {typePage: 'Admin Register'})
         // res.render('carga_producto')
+       
     },
     saveAdmin : (req,res) => {
+        console.log("save admin");
         let newAdminUser = {
             username: req.body.adminName,
             email: req.body.email,

@@ -38,6 +38,10 @@
     display: flex;
     margin-right: 150px;
 }
+.registro form input#pesoAltura2 {
+    display: flex;
+    margin-right: 150px;
+}
 .registro form.form-checkbox-register /*agregado*/{
     display: flex;
     flex-wrap: wrap;

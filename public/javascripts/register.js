@@ -69,13 +69,13 @@ window.addEventListener("load",()=>{
             if(username.value == "") {
                 errores.username = "*Debe ingresar un nombre de usuario";
             }
-            if(object.keys(errores).length >1) {
+            if(Object.keys(errores).length >1) {
                 errorPassword.innerText = (errores.password) ? errores.password : '';
                 errorEmail.innerText = (errores.email) ? errores.email : '';
                 errorUsername.innerText = (errores.username) ? errores.username : '';
                 
                 }
-            
+            console.log("holaaaa");
 
         });
 

@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<%- include('partials/head.ejs') %> 
+<%- include('partials/head.ejs') %>
 
 <body>
-    <%- include('partials/headerNavbar.ejs',{user: user, categorias:categorias, numProducts:numberProducts}) %> 
+    <%- include('partials/headerNavbar.ejs',{user: user, categorias:categorias, numProducts:numberProducts}) %>
     <div class="container">
         <div class="registro">
             <h2 class="text-left">Inicio Sesión</h2>
@@ -23,7 +23,8 @@
                 <!-- <div class="errEmail">
                     <ul></ul>
                 </div>                   <small class="text-danger" width="25"></small> -->
-                <input type="password" name="password" placeholder="Contraseña" class="password" minlength="8" maxlength="12" required>
+                <input type="password" name="password" placeholder="Contraseña" class="password" minlength="8"
+                    maxlength="12" required>
                 <div class="container-fluid">
                     <small class="text-danger" id="errorPassword"></small>
                 </div>
@@ -31,16 +32,16 @@
                     <ul></ul>
                 </div>
                 <small class="text-danger" width="25"></small> -->
-                
+
                 <!-- <input type="text" name="nombre" placeholder="Nombre" >
                 <input type="text" name="apellido" placeholder="Apellido" >
                 <input type="text" name="direccion" placeholder="Dirección" >
                 <input type="tel" name="telefono" placeholder="Teléfono" >    -->
-                <input type="file" name="avatar" id="fotoAvatar"/>    
+                <input type="file" name="avatar" id="fotoAvatar" />
                 <h3>Personaliza Tu Experiencia</h3>
-            <!-- <form action="" method="POST" class="form-checkbox-register"> -->
+                <!-- <form action="" method="POST" class="form-checkbox-register"> -->
                 <input type="number" id="pesoAltura" name="altura" placeholder="Altura" min="0.05" max="3" step="0.01">
-                <input type="number" id="pesoAltura" name="peso" placeholder="Peso" min="0" step="0.01">
+                <input type="number" id="pesoAltura2" name="peso" placeholder="Peso" min="0" step="0.01">
                 <!-- <input type="checkbox" name="promociones" value="okpromociones">Quiero recibir comunicaciones comerciales personalizadas de BRAYDS a través del email<br></input> -->
                 <!-- <input type="checkbox" name="terminos" value="okterminos">Acepto terminos y condiciones de privacidad<br></input> -->
                 <div class="container-checkbox">
@@ -49,7 +50,8 @@
                             <input type="checkbox" name="comunicaciones">
                         </div>
                         <div class="label-checkbox">
-                            <label for="">Quiero recibir comunicaciones comerciales personalizadas de BRAYDS a través del email</label>
+                            <label for="">Quiero recibir comunicaciones comerciales personalizadas de BRAYDS a través
+                                del email</label>
                         </div>
                     </div>
                     <div class="checkbock-news">
@@ -65,8 +67,9 @@
             </form>
         </div>
     </div>
-    <%- include('partials/footer.ejs') %>  
+    <%- include('partials/footer.ejs') %>
 
     <script src="/javascripts/register.js"></script>
 </body>
+
 </html>
