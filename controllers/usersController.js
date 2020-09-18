@@ -5,10 +5,15 @@
 
 const usuarios = {
     root : (req,res) => {
+        console.log("enro en user");
+        console.log(req.session.userClient);
         res.render("userInfo",{ user:req.session.userClient,
                                 categorias: req.session.categorias,
                                 numberProducts:req.session.numberProducts})
     },
+    updateUser: (req,res) => {
+        res.redirect("/user")
+    }
 };
 
 module.exports = usuarios;

@@ -189,11 +189,11 @@ const main = {
             })
         }
     },
-    user: (req,res) => {
-        res.render("userInfo",{ user:req.session.userClient, 
-                                categorias: req.session.categorias,
-                                numberProducts:req.session.numberProducts})
-    }
+    // user: (req,res) => {
+    //     res.render("userInfo",{ user:req.session.userClient, 
+    //                             categorias: req.session.categorias,
+    //                             numberProducts:req.session.numberProducts})
+    // }
 }
 
 module.exports = main;
