@@ -14,9 +14,10 @@ window.addEventListener("load",()=>{
 
         if (loginEmail.value === "" || !loginEmail.value.match(regExEmail)) {
             loginEmailError.innerText = "Debe ingresar un email valido - FrontJS";
-            // errors.loginEmail.innerText = (errors.loginEmail) ? errors.loginEmail : '';
-            // alert("El email es obligatorio");
         } 
+        if (loginPassword.value === "" || loginPassword.value.length < 8) {
+            loginPasswordError.innerText = "Debe ingresar una contraseña de al menos 8 caracteres - FrontJS";
+        }
         // else {
         //     alert("todo ok");
     })
@@ -27,9 +28,9 @@ window.addEventListener("load",()=>{
 
 // Login de usuarios (Este ya lo deberían tener de sprints anteriores 😊☝ )
 // ○ Email
-// ■ Obligatorio
-// ■ Deberá ser válido
-// ■ Deberá existir en base
+// ■ Obligatorio CUMPLIDO
+// ■ Deberá ser válido CUMPLIDO
+// ■ Deberá existir en base PENDIENTE
 // ○ Contraseña
 // ■ Obligatoria
 // ■ Deberá coincidir con la existente en base

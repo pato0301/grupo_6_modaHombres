@@ -63,17 +63,6 @@ window.addEventListener("load",()=>{
         } else if(password.value.length < 8){
             errores.password = '*Debe ingresar como  minimo 8 caracteres'; 
             }
-<<<<<<< HEAD
-            if(Object.keys(errores).length >1) {
-                errorPassword.innerText = (errores.password) ? errores.password : '';
-                errorEmail.innerText = (errores.email) ? errores.email : '';
-                errorUsername.innerText = (errores.username) ? errores.username : '';
-                
-                }
-            console.log("holaaaa");
-
-        });
-=======
         if(!email.value.match(regExEmail)) {
             errores.email='*Debe ingresar un correo electronico';
         }
@@ -90,7 +79,6 @@ window.addEventListener("load",()=>{
             formulario.submit()
         }
     });
->>>>>>> b76566e308ff2f1faab92499cea392ec42e6b37b
 
     //     if(errores.length > 0){
     //         event.preventDefault();
