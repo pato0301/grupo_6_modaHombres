@@ -17,8 +17,9 @@ window.addEventListener("load",()=>{
             // errors.loginEmail.innerText = (errors.loginEmail) ? errors.loginEmail : '';
             // alert("El email es obligatorio");
         } 
-        // else {
-        //     alert("todo ok");
+        else {
+            loginForm.submit()
+        }
     })
     
 })
