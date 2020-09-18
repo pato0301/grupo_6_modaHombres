@@ -44,7 +44,7 @@ window.addEventListener("load",()=>{
             console.log("description empty");
         }
         if(description.value.length < 10){
-            errorName.innerText = "Description must have at least 10 letters"
+            errorText.innerText = "Description must have at least 10 letters"
             console.log("description less than 10");
         }
         if(!isNaN(price.value) && price.value > 0 && nameProd.value != "" && description.value.length > 9){

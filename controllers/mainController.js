@@ -177,9 +177,13 @@ const main = {
                 altura : req.body.altura == ''? null : req.body.altura,
                 peso : req.body.peso == ''? null : req.body.peso,
             }
-            db.Usuario.create(newUser);
-            req.session.userClient = newUser
-            res.redirect('/login');
+            db.Usuario.create(newUser)
+            .then(result => {
+                req.session.userClient = result.dataValues
+                req.session.cart = [] 
+                res.redirect('/login');
+            })
+            // req.session.userClient = newUser
         }else{
             res.render('registro' , {
                 errors: errors.mapped(),
