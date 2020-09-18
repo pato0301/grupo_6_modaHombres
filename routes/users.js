@@ -7,7 +7,8 @@ const uploadImageMiddleware = require('../middlewares/uploadImageMiddleware');
 
 // Rutas Necesarias
 router.get('/', categoriasMiddleware,usersController.root)
-// router.post('/', uploadImageMiddleware,usersController.root)
+router.put('/', uploadImageMiddleware.any(),usersController.updateUser)
+// router.post('/', uploadImageMiddleware,usersController.updateUser)
 
 
 module.exports = router;
