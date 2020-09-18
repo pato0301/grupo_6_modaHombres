@@ -7,34 +7,58 @@
     
     <%- include('partials/headerNavbar.ejs',{user: user, categorias:categorias, numProducts:numberProducts}) %> 
 
-    <div class="user">
+    <div class="user mb-5">
         <div class="user-avatar">
-            <img class="img-avatar" src="/uploads/avatars/<%= user.avatar == 'undefined'? 'default_avatar.png':user.avatar %>" alt="">
-            <input type="file" name="avatar" style="display: none;"/>  
+            <img class="img-avatar" id="userAvatar" src="/uploads/avatars/<%= user.avatar == 'undefined'? 'default_avatar.png':user.avatar %>" alt="">
+            <!-- <input type="file" name="avatar" style="display: none;"/>   -->
         </div>
         <div class="info-user">
             <div class="box-name">
                 <label for="name-prod" class="label-name-prod">Nombre de usuario</label>
-                <input type="text" name="nombreProducto" placeholder="Nombre del Producto" class="input-name-prod">
+                <input type="text" name="userName" value="<%= user.username %>" class="input-name-prod" id="username">
             </div>
             <div class="box-name">
                 <label for="name-prod" class="label-name-prod">Email</label>
-                <input type="text" name="nombreProducto" placeholder="Nombre del Producto" class="input-name-prod">
+                <input type="email" name="email" value="<%= user.email %>" class="input-name-prod" id="email">
             </div>
             <div class="box-name">
                 <label for="name-prod" class="label-name-prod">Contraseña</label>
-                <input type="text" name="nombreProducto" placeholder="Nombre del Producto" class="input-name-prod">
+                <input type="password" name="passUser" placeholder="Contraseña" class="input-name-prod" id="password">
+                <small class="text-danger" id="errorPassword"></small>
             </div>
-            <form action="/admin?_method=put" method="post" class="form-user">
+            <div class="box-name">
+                <label for="name-prod" class="label-name-prod">Altura</label>
+                <input type="text" name="altura" value="<%= user.altura %>" class="input-name-prod" id="altura">
+                <small class="text-danger" id="errorAltura"></small>
+            </div>
+            <div class="box-name">
+                <label for="name-prod" class="label-name-prod">Peso</label>
+                <input type="text" name="peso" value="<%= user.peso %>" class="input-name-prod" id="peso">
+                <small class="text-danger mb-2" id="errorPeso"></small>
+            </div>
+            <div>
+            <form action="/user?_method=put" method="post" class="form-user" id="updatedUser" enctype="multipart/form-data">
+                <input type="hidden" name="userName" value="<%= user.username %>" class="input-name-prod" id="valName">
+                <input type="hidden" name="email" value="<%= user.email %>" class="input-name-prod" id="valEmail">
+                <input type="hidden" name="passUser" placeholder="Contraseña" class="input-name-prod" id="valPass">
+                <input type="hidden" name="altura" value="<%= user.altura %>" class="input-name-prod" id="valAltura">
+                <input type="hidden" name="peso" value="<%= user.peso %>" class="input-name-prod" id="valPeso">
+                <input type="file" name="userPhoto" id="userPhoto" style="display: none;" />
                 <div class="edit-user">
                     <button type="submit" class="boton-edit-producto">Actualizar</button>
                 </div> 
+            </form>
+            <form action="/user?_method=delete" method="post" class="form-user" id="deleteUser">
                 <div class="delete-user">
                     <button type="submit" class="boton-edit-producto">Eliminar</button>
                 </div> 
             </form>
+            </div>
         </div>
     </div>
+    <br>
+    <br>
     <%- include('partials/footer.ejs') %> 
+    <script src="/javascripts/userEdit.js"></script>
 </body>
 </html>

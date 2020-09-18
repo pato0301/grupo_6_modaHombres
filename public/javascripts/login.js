@@ -18,8 +18,9 @@ window.addEventListener("load",()=>{
         if (loginPassword.value === "" || loginPassword.value.length < 8) {
             loginPasswordError.innerText = "Debe ingresar una contraseña de al menos 8 caracteres - FrontJS";
         }
-        // else {
-        //     alert("todo ok");
+        else {
+            loginForm.submit()
+        }
     })
     
 })

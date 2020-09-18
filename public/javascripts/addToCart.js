@@ -6,12 +6,10 @@ window.addEventListener("load", () => {
     let talle = $('#talles');
     let prodForm = $('#form-detalle-prod');
     let talleValue= $('#talleValue');
-    console.log(talle);
-    console.log(talleValue);
+
     prodForm.addEventListener('submit', (event) => {
         event.preventDefault();
         talleValue.value = talle.options[talle.selectedIndex].innerText
-        console.log(talleValue);
         prodForm.submit();
     })
 }) 

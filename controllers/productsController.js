@@ -16,7 +16,7 @@ const productos = {
             ]
         })
         .then(result => {
-            console.log(result.dataValues.imagenes);
+            // console.log(result.dataValues.imagenes);
             res.render('detalle_producto', 
             {product : result.dataValues,
                 user:req.session.userClient,
