@@ -40,7 +40,6 @@ const productos = {
     },
     
     loginAdmin : (req,res) => {
-    
         db.Admin.findOne({
             where: {
             email: req.body.email,
@@ -65,7 +64,6 @@ const productos = {
     register : (req,res) => {
         res.render('loginAdmin', {typePage: 'Admin Register'})
         // res.render('carga_producto')
-       
     },
     saveAdmin : (req,res) => {
         console.log("save admin");
@@ -120,7 +118,11 @@ const productos = {
         
     },
     select : (req,res) => {
-        let productos = db.Producto.findAll()
+        let productos = db.Producto.findAll({
+            include: [
+                {association: "imagenes"}
+            ]
+        })
         let talles = db.Talle.findAll({
             order: [
                 ['prenda', 'DESC'],

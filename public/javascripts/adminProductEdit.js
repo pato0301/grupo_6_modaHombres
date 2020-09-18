@@ -62,7 +62,7 @@ window.addEventListener("load",()=>{
             editForm.attributes.action.value = `/admin/edit/selectProduct/${product.idproducto}?_method=put`
             deleteForm.attributes.action.value = `/admin/delete/selectProduct/${product.idproducto}?_method=delete`
             linkMoreImages.href = `http://localhost:3000/admin/moreImages/${product.idproducto}`
-            imgProd.src = `/images/producto/${product.imagen}?`
+            imgProd.src = `/images/producto/${product.imagenes[0].imagen}`
             // console.log(valDesc.value);
             // console.log(editForm.attributes.action)
             // console.log(deleteForm.attributes.action)
