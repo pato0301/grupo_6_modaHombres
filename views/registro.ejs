@@ -11,14 +11,14 @@
             <form action="/register" method="POST" id="register-form" enctype="multipart/form-data">
                 <input type="text" name="username" placeholder="Username" class="username" required />
                 <div class="container-fluid">
-                    <small class="text-danger" id="errorUsername"><%= %> </small>
+                    <small class="text-danger" id="errorUsername"></small>
                 </div>
                 <!-- <div class="errUser">
                     <ul></ul>
                 </div> -->
                 <input type="email" name="email" placeholder="Email" class="email" required />
                 <div class="container-fluid">
-                    <small class="text-danger" id="errorEmail"><%= %> </small>
+                    <small class="text-danger" id="errorEmail"><%= (typeof errors != 'undefined' && errors.email) ? errors.email.msg : '' %></small>
                 </div>
                 <!-- <div class="errEmail">
                     <ul></ul>
@@ -26,7 +26,7 @@
                 <input type="password" name="password" placeholder="Contraseña" class="password" minlength="8"
                     maxlength="12" required>
                 <div class="container-fluid">
-                    <small class="text-danger" id="errorPassword"></small>
+                    <small class="text-danger" id="errorPassword"><%= (typeof errors != 'undefined' && errors.password) ? errors.password.msg : '' %></small>
                 </div>
                 <!-- <div class="err">
                     <ul></ul>
