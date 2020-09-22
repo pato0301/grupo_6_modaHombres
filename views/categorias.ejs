@@ -17,14 +17,14 @@
                     <div class="card">
                         <a href="/producto/detalle/<%= products[i].idproducto %>">
                             <%- include('./partials/carrouselTop.ejs') %> 
-                            <div class="carousel-inner">
-                                <div class="carousel-item active">
-                                    <img class="d-block w-100" src="/images/producto/<%= products[i].imagenes[0].dataValues.imagen %>" alt="zero slide">
+                            <div class="carousel-inner altura-carrousel">
+                                <div class="carousel-item active w-100 h-100">
+                                    <img class="d-block w-100 h-100" src="/images/producto/<%= products[i].imagenes[0].dataValues.imagen %>" alt="zero slide">
                                 </div>
                                 <% let imagenes =  products[i].imagenes %> 
                                 <% for( let j = 1; j < imagenes.length; j++ ) { %>
-                                    <div class="carousel-item">
-                                        <img class="d-block w-100" src="/images/producto/<%= products[i].imagenes[j].dataValues.imagen %>" alt="<%= i %>  slide">
+                                    <div class="carousel-item w-100 h-100">
+                                        <img class="d-block w-100 h-100" src="/images/producto/<%= products[i].imagenes[j].dataValues.imagen %>" alt="<%= i %>  slide" >
                                     </div>
                                 <% } %>
                             </div>
