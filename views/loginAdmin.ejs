@@ -5,7 +5,7 @@
 
     <div class="container-fluid d-flex flex-wrap justify-content-center align-items-center login-container">
         <div class="login">
-            <h1><%= typePage %> </h1>
+            <h1><%= typePage %></h1>
             <form method="POST" action="">
                 <% if (typePage == 'Admin Register') { %>
                     <div class="form-group row">
@@ -41,7 +41,11 @@
                         <label class="form-check-label" for="exampleCheck1">Recordame</label>
                     </div> -->
                 <% } %>
-                <button type="submit" class="btn btn-outline-primary">Iniciar Sesion</button>
+                <% if (typePage == 'Admin Register') { %>
+                    <button type="submit" class="btn btn-outline-primary">Registrase</button>
+                <% }else{ %>
+                    <button type="submit" class="btn btn-outline-primary">Iniciar Sesion</button>
+                <% } %>
             </form>
             <% if (typePage == "error") { %>
                 <div class="mt-5">
